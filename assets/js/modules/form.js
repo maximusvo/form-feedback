@@ -1,37 +1,27 @@
-var status = 0;
 var button = document.getElementById("button");
 button.addEventListener("click", buttonAction);
-const position = localStorage.getItem("position");
-const grade = localStorage.getItem("grade");
+var position = localStorage.getItem("position");
+var grade = localStorage.getItem("grade");
 
 function feedbackForm() {
-    const position = localStorage.getItem("position");
-    const grade = localStorage.getItem("grade");
+    position = localStorage.getItem("position");
+    grade = localStorage.getItem("grade");
     var feedbackOne, feedbackTwo;
 
-    //if (typeof position !== 'undefined' && position !== null){
-        if (grade == "1") {
-            feedbackOne = "Nur informieren? Nicht so geil!";
-        }
-        if (grade == "2") {
-            feedbackOne = "Du beteiligst andere, ganz geil!";
-        }
-        if (position == "teacher") {
-            feedbackTwo = "Oh toll, Lehre, fühlst du dich wichtig?";
-        }
-        if (position == "student") {
-            feedbackTwo = "Ein Student, soso - fauler Sack";
-        }
-        document.getElementById("feedbackOne").innerHTML = feedbackOne;
-        document.getElementById("feedbackTwo").innerHTML = feedbackTwo;
-        //document.getElementById("button").setAttribute('onclick', clearForm());
-        //document.getElementById("button").innerHTML = "Ergebnis löschen";
-    //    }
-    /*else {
-        document.getElementById("feedbackOne").innerHTML = "Es liegen keine Ergebnisse vor.";
-        document.getElementById("button").innerHTML = "Zurück zum Tool";
-        document.getElementById("button").setAttribute('onclick', formRestart());
-    }*/
+    if (grade == "1") {
+        feedbackOne = "Nur informieren? Nicht so geil!";
+    }
+    if (grade == "2") {
+        feedbackOne = "Du beteiligst andere, ganz geil!";
+    }
+    if (position == "teacher") {
+        feedbackTwo = "Oh toll, Lehre, fühlst du dich wichtig?";
+    }
+    if (position == "student") {
+        feedbackTwo = "Ein Student, soso - fauler Sack";
+    }
+    document.getElementById("feedbackOne").innerHTML = feedbackOne;
+    document.getElementById("feedbackTwo").innerHTML = feedbackTwo;
 
     return;
 }
