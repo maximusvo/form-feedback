@@ -50,8 +50,8 @@ sass:
 
 repository: 'unbox-blackbox'
 
-title: "Unbox Blackbox"
-description: "Texte & Talks zur Aneignung von Technik durch die Zivilgesellschaft - by Maximilian Voigt"
+title: "Offene Bildung selbst einschätzen"
+description: "Mit diesem Tool können Lehrende einschätzen, wie partizipativ ihre Bildungsformate sind."
 logo: "/assets/img/static/mavo.jpg"
 twitter:
   username: ma__vo
