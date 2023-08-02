@@ -1,48 +1,173 @@
 ---
 layout: default
 ---
-
-<form
-        id="regForm"
-        action="https://formspree.io/f/mqkojldo"
-        method="POST"
->
-    <h1>Selbsttest Hochschulpartizipation</h1>
-
-    <!-- One "tab" for each step in the form: -->
-    <div class="tab">
-            <label>Rolle an Hochschule wählen</label>
-
-            <select name="position" id="position">
-                <option value="teacher">Professor</option>
-                <option value="student">Student</option>
-            </select>
-    </div>
-
-    <div class="tab">
-            <label>Einbindung der Studierenden</label>
-
-            <select name="grade" id="grade">
-                <option value="1">Studierende werden informiert</option>
-                <option value="2">Studierende dürfen selbst wählen</option>
-            </select>
-    </div>
-
-    <div style="overflow:auto;">
-        <div style="float:right;">
-            <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-            <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
-        </div>
-    </div>
-
-    <!-- Circles which indicates the steps of the form: -->
-    <div style="text-align:center;margin-top:40px;">
-        <span class="step"></span>
-        <span class="step"></span>
-
-    </div>
-
-</form>
-
-
 <script src="{{ site.baseurl }}/assets/js/modules/form.js"></script>
+<div class="row">
+    <section class="col-md-18">
+        <form
+                id="regForm"
+                action="https://formspree.io/f/mqkojldo"
+                method="POST"
+        >
+            <h1>Selbsttest Hochschulpartizipation</h1>
+
+            <!-- One "tab" for each step in the form: -->
+            <div class="tab">
+                <h3 class="regular">Allgemeine Angaben zur Lehrveranstaltung</h3>
+                <p>Für die Durchführung denke bitte an eine bestimmte Lehr- und Lernveranstaltung, die du in den vergangenen Monaten durchgeführt hast. Die nachfolgenden sowohl offenen als auch geschlossenen Fagen beziehen sich dann auf das von dir ausgewählte Beispiel.</p>
+                <p> </p>
+                <label>Art der Lehr- und Lernveranstaltung</label>
+                    {% if site.data.oertool.eventtype %}
+                        <select name="eventtype" id="eventtype">
+                            {% for et in site.data.oertool.eventtype %}
+                                {% if et.field == 0 %}
+                                    <option value="{{ et.value }}" >{{ et.name }}</option>
+                                {% else %}
+                                    <option value="{{ et.value }}">{{ et.name }}</option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                        <div>
+                            <input id="otherType" placeholder="bitte eingeben" type="text" name="otherType" >
+                        </div>
+                    {% endif %}
+                    <label>Status der Lehr- und Lernveranstaltung</label>
+                    <select name="eventstatus" id="eventstatus">
+                        <option value="1">Pflichtfach</option>
+                        <option value="2">Wahlpflichtfach</option>
+                        <option value="3">weder noch</option>
+                    </select>
+                    <label>Titel der Lehrveranstaltung</label>
+                    <div>
+                        <input id="eventtitel" class="open" placeholder="bitte eingeben" type="text" name="eventtitel" >
+                    </div>
+                    <label>Zielgruppe</label>
+                    <select name="eventtarget" id="eventtarget">
+                        <option value="0">Studiengang...</option>
+                        <option value="1">Bachelor</option>
+                        <option value="2">Master</option>
+                    </select>
+                    <select name="otherTypeTG" id="otherTypeTG">
+                        <option value="1">1. Semester</option>
+                        <option value="2">2. Semester und höher</option>
+                    </select>
+                    <label>Anzahl der Teilnehmenden</label>
+                    {% if site.data.oertool.event_tgcount %}
+                    <select name="tgcount" id="tgcount">
+                        {% for tg in site.data.oertool.event_tgcount %}
+                            <option value="{{ tg.value }}">{{ tg.name }}</option>
+                        {% endfor %}
+                    </select>
+                    {% endif %}
+                    <label>Fachbereich</label>
+                    {% if site.data.oertool.event_faculty %}
+                    <select name="event_faculty" id="event_faculty">
+                        {% for tg in site.data.oertool.event_faculty %}
+                        <option value="{{ tg.value }}">{{ tg.name }}</option>
+                        {% endfor %}
+                    </select>
+                    <div>
+                        <input id="otherTypeFaculty" placeholder="bitte eingeben" type="text" name="otherTypeFaculty" >
+                    </div>
+                    {% endif %}
+                    <label>Zeitlicher Umfang</label>
+                    <select name="eventtime" id="eventtime">
+                        <option value="1">2 Semesterwochenstunden</option>
+                        <option value="2">4 Semesterwochenstunden</option>
+                        <option value="3">Anderer, und zwar..</option>
+                    </select>
+                    <div>
+                        <input id="otherEventTime" placeholder="bitte eingeben" type="text" name="otherEventTime" >
+                    </div>
+                    <label>Hochschulart</label>
+                    {% if site.data.oertool.event_institution %}
+                    <select name="event_institution" id="event_institution">
+                        {% for ei in site.data.oertool.event_institution %}
+                        <option value="{{ ei.value }}">{{ ei.name }}</option>
+                        {% endfor %}
+                    </select>
+                    <div>
+                        <input id="otherEventInstitution" placeholder="bitte eingeben" type="text" name="otherEventInstitution" >
+                    </div>
+                    {% endif %}
+            </div>
+            <div class="tab">
+                <h3 class="regular">Didaktische Dimensionen</h3>
+                <label>Didaktische Dimensionen</label>
+
+                <select name="grade" id="grade">
+                    <option value="1">Studierende werden informiert</option>
+                    <option value="2">Studierende dürfen selbst wählen</option>
+                </select>
+            </div>
+            <div class="tab">
+                <h3 class="regular">Studentisches Feedback</h3>
+                <label>Studentisches Feedback</label>
+
+                <select name="grade" id="grade">
+                    <option value="1">Studierende werden informiert</option>
+                    <option value="2">Studierende dürfen selbst wählen</option>
+                </select>
+            </div>
+            <div class="tab">
+                <h3 class="regular">Beeinflussende Faktoren</h3>
+                <label>Beeinflussende Faktoren</label>
+
+                <select name="grade" id="grade">
+                    <option value="1">Studierende werden informiert</option>
+                    <option value="2">Studierende dürfen selbst wählen</option>
+                </select>
+            </div>
+            <div class="tab">
+                <h3 class="regular">Demographie</h3>
+                <label>Demographie</label>
+
+                <select name="grade" id="grade">
+                    <option value="1">Studierende werden informiert</option>
+                    <option value="2">Studierende dürfen selbst wählen</option>
+                </select>
+            </div>
+            <div class="tab">
+                <h3 class="regular">Ergebnis</h3>
+                <label>Ergebnis</label>
+
+                <select name="grade" id="grade">
+                    <option value="1">Studierende werden informiert</option>
+                    <option value="2">Studierende dürfen selbst wählen</option>
+                </select>
+            </div>
+            <div style="overflow:auto;">
+                <div style="float:right;">
+                    <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                    <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                </div>
+            </div>
+
+            <!-- Circles which indicates the steps of the form: -->
+            <div style="text-align:center;margin-top:40px;">
+                <span class="step"></span>
+                <span class="step"></span>
+                <span class="step"></span>
+                <span class="step"></span>
+                <span class="step"></span>
+                <span class="step"></span>
+                <span class="step"></span>
+            </div>
+
+        </form>
+    </section>
+
+
+
+    <section class="col-md-6 tableofcontent">
+        <ul class="">
+            <li id="block-1" class="tabTitel">Allgemeine Angaben zur Lehrveranstaltung</li>
+            <li id="block-2" class="tabTitel">Didaktische Dimensionen</li>
+            <li id="block-3" class="tabTitel">Studentisches Feedback</li>
+            <li id="block-4" class="tabTitel">Beeinflussende Faktoren</li>
+            <li id="block-5" class="tabTitel">Demographie</li>
+            <li id="block-6" class="tabTitel">Ergebnis</li>
+        </ul>
+    </section>
+</div>
+

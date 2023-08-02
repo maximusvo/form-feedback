@@ -47,3 +47,35 @@ input.invalid {
 .step.finish {
   background-color: #04AA6D;
 } 
+
+#otherType {
+    display:none;
+}
+#otherTypeTG {
+    display:none;
+}
+#otherTypeFaculty {
+    display:none;
+}
+#otherEventTime {
+    display:none;
+}
+#otherEventInstitution {
+  display:none;
+}
+
+.tableofcontent {
+    margin-top: 25px !important;
+    ul {
+      list-style: none;
+      color: black;
+      li {
+        margin-bottom: 5px !important;
+      }
+
+    }
+}
+
+.tablehighlight {
+    background-color: $secondary-color;
+}

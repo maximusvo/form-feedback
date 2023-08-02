@@ -1,0 +1,14 @@
+- name: "0 bis 5"
+  value: 1
+- name: "5 bis 10"
+  value: 2
+- name: "10 bis 20"
+  value: 3
+- name: "20 bis 30"
+  value: 4
+- name: "30 bis 50"
+  value: 5
+- name: "50 bis 100"
+  value: 6
+- name: "mehr als 100"
+  value: 7

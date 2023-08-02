@@ -1,3 +1,5 @@
+
+
 var button = document.getElementById("button");
 button.addEventListener("click", buttonAction);
 var position = localStorage.getItem("position");
@@ -58,7 +60,5 @@ function buttonAction (){
         document.getElementById("button").innerHTML = "Zurück zum Tool";
         button.addEventListener("click", formRestart);
     }
-
-
 }
 

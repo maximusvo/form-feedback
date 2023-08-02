@@ -1,0 +1,26 @@
+- name: "Agrar-, Forst- und Ernähungswissenschaften"
+  value: 1
+- name: "Ingenieurswissenschaften"
+  value: 2
+- name: "Mathematik, Naturwissenschaften"
+  value: 3
+- name: "Medizin, Gesund­heits­wissen­schaften, Psychologie, Sport"
+  value: 4
+- name: "Wirtschaftswissenschaften"
+  value: 5
+- name: "Rechts-, Sozial­wissen­schaften"
+  value: 6
+- name: "Erziehungs-, Bildungs­wissen­schaften"
+  value: 7
+- name: "Sprach-, Kultur­wissen­schaften"
+  value: 8
+- name: "Kunst, Musik, Design"
+  value: 9
+- name: "Informatik"
+  value: 10
+- name: "Lehramt"
+  value: 11
+- name: "Öffentliche Verwaltung"
+  value: 12
+- name: "Andere, und zwar.."
+  value: 13

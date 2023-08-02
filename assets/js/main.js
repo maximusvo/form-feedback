@@ -634,12 +634,19 @@ showTab(currentTab); // Display the current tab
 function showTab(n) {
   // This function will display the specified tab of the form ...
   var x = document.getElementsByClassName("tab");
+  var y = document.getElementsByClassName("tabTitel");
   x[n].style.display = "block";
+
   // ... and fix the Previous/Next buttons:
   if (n == 0) {
     document.getElementById("prevBtn").style.display = "none";
+    y[n].className += " tablehighlight";
+    y[n+1].classList.remove("tablehighlight");
   } else {
     document.getElementById("prevBtn").style.display = "inline";
+    y[n].className += " tablehighlight";
+    y[n-1].classList.remove("tablehighlight");
+    y[n+1].classList.remove("tablehighlight");
   }
   if (n == (x.length - 1)) {
     document.getElementById("nextBtn").innerHTML = "Submit";
@@ -678,11 +685,16 @@ function validateForm() {
   // A loop that checks every input field in the current tab:
   for (i = 0; i < y.length; i++) {
     // If a field is empty...
-    if (y[i].value == "") {
-      // add an "invalid" class to the field:
-      y[i].className += " invalid";
-      // and set the current valid status to false:
-      valid = false;
+    console.log("first");
+    if (y[i].classList.contains("open")) {
+          //console.log("second");
+          if (y[i].value == ""){
+          console.log("true");
+          // add an "invalid" class to the field:
+          y[i].className += " invalid";
+          // and set the current valid status to false:
+          valid = false;
+      }
     }
   }
   // If the valid status is true, mark the step as finished and valid:

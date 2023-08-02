@@ -1,0 +1,13 @@
+- name: "Universität"
+  value: 1
+- name: "Hochschule für angewandte Wissenschaften"
+  value: 2
+- name: "Privathochschule"
+  value: 3
+- name: "Berufsakademie"
+  value: 4
+- name: "Fachhochschule"
+  value: 5
+- name: "Andere, und zwar.."
+  value: 6
+  field: 0
