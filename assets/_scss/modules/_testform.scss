@@ -83,7 +83,7 @@ input.invalid {
 .fixedContainer {
     background-color:#fff;
     position: fixed;
-
+    z-index: 1;
     right: 0%;
     top: 5%;
     transform: translateX(-10%);
