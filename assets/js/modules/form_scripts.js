@@ -1,10 +1,12 @@
 jQuery(document).ready(function($) {
+    // only show individual input fields, if needed (selected by id)
     $('select[name=eventtype]').change(function () {
         if ($(this).val() == '14') {
             $('#otherType').show();
             $('#otherType').addClass( "open" );
         } else {
             $('#otherType').hide();
+            $('#otherType').removeClass( "open" );
         }
         console.log("done");
     });
@@ -14,6 +16,7 @@ jQuery(document).ready(function($) {
             $('#otherTypeTG').addClass( "open" );
         } else {
             $('#otherTypeTG').hide();
+            $('#otherTypeTG').removeClass( "open" );
         }
         console.log("done");
     });
@@ -23,6 +26,7 @@ jQuery(document).ready(function($) {
             $('#otherTypeFaculty').addClass( "open" );
         } else {
             $('#otherTypeFaculty').hide();
+            $('#otherTypeFaculty').removeClass( "open" );
         }
         console.log("done");
     });
@@ -32,6 +36,7 @@ jQuery(document).ready(function($) {
             $('#otherEventTime').addClass( "open" );
         } else {
             $('#otherEventTime').hide();
+            $('#otherEventTime').removeClass( "open" );
         }
         console.log("done");
     });
@@ -41,6 +46,7 @@ jQuery(document).ready(function($) {
             $('#otherEventInstitution').addClass( "open" );
         } else {
             $('#otherEventInstitution').hide();
+            $('#otherEventInstitution').removeClass( "open" );
         }
         console.log("done");
     });

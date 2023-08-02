@@ -79,3 +79,12 @@ input.invalid {
 .tablehighlight {
     background-color: $secondary-color;
 }
+
+.fixedContainer {
+    background-color:#fff;
+    position: fixed;
+
+    right: 0%;
+    top: 5%;
+    transform: translateX(-10%);
+}

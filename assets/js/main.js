@@ -640,10 +640,12 @@ function showTab(n) {
   // ... and fix the Previous/Next buttons:
   if (n == 0) {
     document.getElementById("prevBtn").style.display = "none";
+    // only highlight current tab headline in table of content
     y[n].className += " tablehighlight";
     y[n+1].classList.remove("tablehighlight");
   } else {
     document.getElementById("prevBtn").style.display = "inline";
+    // only highlight current tab headline in table of content
     y[n].className += " tablehighlight";
     y[n-1].classList.remove("tablehighlight");
     y[n+1].classList.remove("tablehighlight");
@@ -684,12 +686,9 @@ function validateForm() {
   y = x[currentTab].getElementsByTagName("input");
   // A loop that checks every input field in the current tab:
   for (i = 0; i < y.length; i++) {
-    // If a field is empty...
-    console.log("first");
+    // If a field has class "open" and is empty...
     if (y[i].classList.contains("open")) {
-          //console.log("second");
           if (y[i].value == ""){
-          console.log("true");
           // add an "invalid" class to the field:
           y[i].className += " invalid";
           // and set the current valid status to false:
