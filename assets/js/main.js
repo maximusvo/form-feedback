@@ -716,4 +716,24 @@ function fixStepIndicator(n) {
   //... and adds the "active" class to the current step:
   x[n].className += " active";
 }
+
+// ---
+var saved = JSON.parse(localStorage.getItem("formInputSelect"));
+
+console.log("loading done");
+if(typeof saved !== 'undefined' && saved !== null){
+    console.log("loading saved stuff");
+    var x = document.getElementsByTagName("select");
+    var y = document.getElementsByTagName("input");
+    var storedInputSelect = JSON.parse(localStorage.getItem("formInputSelect"));
+    var storedInputInput = JSON.parse(localStorage.getItem("formInputInput"));
+    for (i = 0; i < x.length; i++) {
+        x[i].selectedIndex = storedInputSelect[i];
+    }
+    for (i = 0; i < y.length; i++) {
+        y[i].value = storedInputInput[i];
+    }
+}
+
+// ---
 // test end

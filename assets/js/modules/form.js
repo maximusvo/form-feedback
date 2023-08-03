@@ -1,8 +1,6 @@
-
-
 var button = document.getElementById("button");
 button.addEventListener("click", buttonAction);
-var position = JSON.parse(localStorage.getItem("formInputSelect"));
+var saved = JSON.parse(localStorage.getItem("formInputSelect"));
 
 function feedbackForm() {
 
@@ -15,7 +13,7 @@ function feedbackForm() {
 }
 
 function saveForm() {
-
+    status = 1;
     var x = document.getElementsByTagName("select");
     var y = document.getElementsByTagName("input");
     var formInputSelect = [];
@@ -50,7 +48,7 @@ function formRestart() {
 }
 
 function buttonAction (){
-    if (typeof position !== 'undefined' && position !== null){
+    if (typeof saved !== 'undefined' && saved !== null){
         feedbackForm();
         button.addEventListener("click", clearForm);
         document.getElementById("button").innerHTML = "Ergebnis löschen";
