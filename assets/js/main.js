@@ -648,7 +648,10 @@ function showTab(n) {
     // only highlight current tab headline in table of content
     y[n].className += " tablehighlight";
     y[n-1].classList.remove("tablehighlight");
-    y[n+1].classList.remove("tablehighlight");
+    if(y.length <= y[n+1]){
+        y[n+1].classList.remove("tablehighlight");
+    }
+
   }
   if (n == (x.length - 1)) {
     document.getElementById("nextBtn").innerHTML = "Submit";
@@ -672,11 +675,12 @@ function nextPrev(n) {
   if (currentTab >= x.length) {
     //...the form gets submitted:
     document.getElementById("regForm").submit();
-    saveForm();
+
     return false;
   }
   // Otherwise, display the correct tab:
   showTab(currentTab);
+  saveForm();
 }
 
 function validateForm() {

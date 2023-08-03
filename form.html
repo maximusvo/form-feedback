@@ -20,11 +20,7 @@ layout: default
                     {% if site.data.oertool.eventtype %}
                         <select name="eventtype" id="eventtype">
                             {% for et in site.data.oertool.eventtype %}
-                                {% if et.field == 0 %}
-                                    <option value="{{ et.value }}" >{{ et.name }}</option>
-                                {% else %}
-                                    <option value="{{ et.value }}">{{ et.name }}</option>
-                                {% endif %}
+                                <option value="{{ et.value }}">{{ et.name }}</option>
                             {% endfor %}
                         </select>
                         <div>

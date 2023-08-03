@@ -2,36 +2,36 @@
 
 var button = document.getElementById("button");
 button.addEventListener("click", buttonAction);
-var position = localStorage.getItem("position");
-var grade = localStorage.getItem("grade");
+var position = JSON.parse(localStorage.getItem("formInputSelect"));
 
 function feedbackForm() {
-    position = localStorage.getItem("position");
-    grade = localStorage.getItem("grade");
-    var feedbackOne, feedbackTwo;
 
-    if (grade == "1") {
-        feedbackOne = "Nur informieren? Nicht so geil!";
-    }
-    if (grade == "2") {
-        feedbackOne = "Du beteiligst andere, ganz geil!";
-    }
-    if (position == "teacher") {
-        feedbackTwo = "Oh toll, Lehre, fühlst du dich wichtig?";
-    }
-    if (position == "student") {
-        feedbackTwo = "Ein Student, soso - fauler Sack";
-    }
-    document.getElementById("feedbackOne").innerHTML = feedbackOne;
-    document.getElementById("feedbackTwo").innerHTML = feedbackTwo;
+    var storedInputSelect = JSON.parse(localStorage.getItem("formInputSelect"));
+    var storedInputInput = JSON.parse(localStorage.getItem("formInputInput"));
+    document.getElementById("feedbackOne").innerHTML = "Selected: " + storedInputSelect;
+    document.getElementById("feedbackTwo").innerHTML = "Inputs: " + storedInputInput;
 
     return;
 }
 
 function saveForm() {
-    localStorage.setItem("position", document.getElementById("position").value);
-    localStorage.setItem("grade", document.getElementById("grade").value);
 
+    var x = document.getElementsByTagName("select");
+    var y = document.getElementsByTagName("input");
+    var formInputSelect = [];
+    var formInputInput = [];
+    for (i = 0; i < x.length; i++) {
+        formInputSelect[i] = x[i].value;
+    }
+    for (i = 0; i < y.length; i++) {
+        formInputInput[i] = y[i].value;
+    }
+    localStorage.setItem("formInputSelect", JSON.stringify(formInputSelect));
+    localStorage.setItem("formInputInput", JSON.stringify(formInputInput));
+    var storedInputSelect = JSON.parse(localStorage.getItem("formInputSelect"));
+    var storedInputInput = JSON.parse(localStorage.getItem("formInputInput"));
+    console.log(storedInputSelect);
+    console.log(formInputInput);
     return;
 }
 
