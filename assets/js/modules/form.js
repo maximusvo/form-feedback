@@ -59,4 +59,3 @@ function buttonAction (){
         button.addEventListener("click", formRestart);
     }
 }
-

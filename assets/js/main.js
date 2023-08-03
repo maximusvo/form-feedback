@@ -717,9 +717,8 @@ function fixStepIndicator(n) {
   x[n].className += " active";
 }
 
-// ---
+// checking if form was saved and loading stuff, if so
 var saved = JSON.parse(localStorage.getItem("formInputSelect"));
-
 console.log("loading done");
 if(typeof saved !== 'undefined' && saved !== null){
     console.log("loading saved stuff");
@@ -735,5 +734,4 @@ if(typeof saved !== 'undefined' && saved !== null){
     }
 }
 
-// ---
 // test end
