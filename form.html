@@ -3,22 +3,34 @@ layout: default
 ---
 <script src="{{ site.baseurl }}/assets/js/modules/form.js"></script>
 <div class="row">
-    <section class="col-md-18 col-xs-24">
         <form
                 id="regForm"
                 action="https://formspree.io/f/mqkojldo"
                 method="POST"
         >
-            <h1>Selbsttest Hochschul&shy;partizipation</h1>
+            <section class="col-md-24 col-xs-24 ">
+                <h1>Selbsttest Hochschul&shy;partizipation</h1>
+                <div class="statusindicator">
+                    <span class="step"></span>
+                    <span class="step"></span>
+                    <span class="step"></span>
+                    <span class="step"></span>
+                    <span class="step"></span>
+                    <span class="step"></span>
+
+                </div>
+            </section>
 
             <!-- One "tab" for each step in the form: -->
             <div class="tab">
-                <h3 class="regular">Allgemeine Angaben zur Lehrveranstaltung</h3>
-                <p>Für die Durchführung denke bitte an eine bestimmte Lehr- und Lernveranstaltung, die du in den vergangenen Monaten durchgeführt hast. Die nachfolgenden sowohl offenen als auch geschlossenen Fagen beziehen sich dann auf das von dir ausgewählte Beispiel.</p>
-                <p> </p>
-                <label>Art der Lehr- und Lernveranstaltung</label>
+                <section class="col-md-12 col-xs-24">
+                    <h3 class="regular">Allgemeine Angaben zur Lehrveranstaltung</h3>
+                    <p>Für die Durchführung denke bitte an eine bestimmte Lehr- und Lernveranstaltung, die du in den vergangenen Monaten durchgeführt hast. Die nachfolgenden sowohl offenen als auch geschlossenen Fagen beziehen sich dann auf das von dir ausgewählte Beispiel.</p>
+                </section>
+                <section class="col-md-12 col-xs-24">
+                    <label>Art der Lehr- und Lernveranstaltung</label>
                     {% if site.data.oertool.eventtype %}
-                        <select name="eventtype" id="eventtype">
+                        <select name="eventType" id="eventType">
                             {% for et in site.data.oertool.eventtype %}
                                 <option value="{{ et.value }}">{{ et.name }}</option>
                             {% endfor %}
@@ -28,17 +40,17 @@ layout: default
                         </div>
                     {% endif %}
                     <label>Status der Lehr- und Lernveranstaltung</label>
-                    <select name="eventstatus" id="eventstatus">
-                        <option value="1">Pflichtfach</option>
-                        <option value="2">Wahlpflichtfach</option>
-                        <option value="3">weder noch</option>
+                    <select name="eventStatus" id="eventStatus">
+                        <option value="Pflichtfach">Pflichtfach</option>
+                        <option value="Wahlpflichtfach">Wahlpflichtfach</option>
+                        <option value="weder noch">weder noch</option>
                     </select>
                     <label>Titel der Lehrveranstaltung</label>
                     <div>
                         <input id="eventtitel" class="open" placeholder="bitte eingeben" type="text" name="eventtitel" >
                     </div>
                     <label>Zielgruppe</label>
-                    <select name="eventtarget" id="eventtarget">
+                    <select name="eventTarget" id="eventTarget">
                         <option value="0">Studiengang...</option>
                         <option value="1">Bachelor</option>
                         <option value="2">Master</option>
@@ -55,18 +67,6 @@ layout: default
                         {% endfor %}
                     </select>
                     {% endif %}
-                    <label>Fachbereich</label>
-                    {% if site.data.oertool.event_faculty %}
-                    <select name="event_faculty" id="event_faculty">
-                        {% for tg in site.data.oertool.event_faculty %}
-                        <option value="{{ tg.value }}">{{ tg.name }}</option>
-                        {% endfor %}
-                    </select>
-                    <div>
-                        <input id="otherTypeFaculty" placeholder="bitte eingeben" type="text" name="otherTypeFaculty" >
-                    </div>
-                    {% endif %}
-                    
                     <label>Zeitlicher Umfang</label>
                     <select name="eventtime" id="eventtime">
                         <option value="1">2 Semesterwochenstunden</option>
@@ -87,84 +87,213 @@ layout: default
                         <input id="otherEventInstitution" placeholder="bitte eingeben" type="text" name="otherEventInstitution" >
                     </div>
                     {% endif %}
+                    <label>Fachbereich</label>
+                    {% if site.data.oertool.event_faculty %}
+                    <select name="eventFaculty" id="eventFaculty">
+                        {% for tg in site.data.oertool.event_faculty %}
+                        <option value="{{ tg.value }}">{{ tg.name }}</option>
+                        {% endfor %}
+                    </select>
+                    <div>
+                        <input id="otherTypeFaculty" placeholder="bitte eingeben" type="text" name="otherTypeFaculty" >
+                    </div>
+                    {% endif %}
+                </section>
             </div>
             <div class="tab">
-                <h3 class="regular">Didaktische Dimensionen</h3>
-                <label>Didaktische Dimensionen</label>
-
-                <select name="grade" id="grade">
-                    <option value="1">Studierende werden informiert</option>
-                    <option value="2">Studierende dürfen selbst wählen</option>
-                </select>
+                <section class="col-md-12 col-xs-24">
+                    <h3 class="regular">Partizipationsausprägung</h3>
+                </section>
+                <section class="col-md-12 col-xs-24">
+                    <table>
+                        <tr>
+                            <th></th>
+                            <th>1</th>
+                            <th>2</th>
+                            <th>3</th>
+                            <th>4</th>
+                            <th>5</th>
+                            <th>6</th>
+                        </tr>
+                        <tr>
+                            <td>Ziele</td>
+                            <td><input type="checkbox" id="multiinput" name="Ziele" value="1"/><label for="Ziele"></label></td>
+                            <td><input type="checkbox" id="multiinput" name="Ziele" value="2"/><label for="Ziele"></label></td>
+                            <td><input type="checkbox" id="multiinput" name="Ziele" value="3"/><label for="Ziele"></label></td>
+                            <td><input type="checkbox" id="multiinput" name="Ziele" value="4"/><label for="Ziele"></label></td>
+                            <td><input type="checkbox" id="multiinput" name="Ziele" value="5"/><label for="Ziele"></label></td>
+                            <td><input type="checkbox" id="multiinput" name="Ziele" value="6"/><label for="Ziele"></label></td>
+                        </tr>
+                        <tr>
+                            <td>Inhalte</td>
+                            <td><input type="checkbox" id="multiinput" name="Inhalte" value="1"/><label for="Ziele"></label></td>
+                            <td><input type="checkbox" id="multiinput" name="Inhalte" value="2"/><label for="Ziele"></label></td>
+                            <td><input type="checkbox" id="multiinput" name="Inhalte" value="3"/><label for="Ziele"></label></td>
+                            <td><input type="checkbox" id="multiinput" name="Inhalte" value="4"/><label for="Ziele"></label></td>
+                            <td><input type="checkbox" id="multiinput" name="Inhalte" value="5"/><label for="Ziele"></label></td>
+                            <td><input type="checkbox" id="multiinput" name="Inhalte" value="6"/><label for="Ziele"></label></td> </tr>
+                        <tr>
+                            <td>Ergebnisse</td>
+                            <td><input type="checkbox" id="multiinput" name="Ergebnisse" value="1"/><label for="Ziele"></label></td>
+                            <td><input type="checkbox" id="multiinput" name="Ergebnisse" value="2"/><label for="Ziele"></label></td>
+                            <td><input type="checkbox" id="multiinput" name="Ergebnisse" value="3"/><label for="Ziele"></label></td>
+                            <td><input type="checkbox" id="multiinput" name="Ergebnisse" value="4"/><label for="Ziele"></label></td>
+                            <td><input type="checkbox" id="multiinput" name="Ergebnisse" value="5"/><label for="Ziele"></label></td>
+                            <td><input type="checkbox" id="multiinput" name="Ergebnisse" value="6"/><label for="Ziele"></label></td>
+                        </tr>
+                        <tr>
+                            <td>Methoden</td>
+                            <td><input type="checkbox" id="multiinput" name="Methoden" value="1"/><label for="Ziele"></label></td>
+                            <td><input type="checkbox" id="multiinput" name="Methoden" value="2"/><label for="Ziele"></label></td>
+                            <td><input type="checkbox" id="multiinput" name="Methoden" value="3"/><label for="Ziele"></label></td>
+                            <td><input type="checkbox" id="multiinput" name="Methoden" value="4"/><label for="Ziele"></label></td>
+                            <td><input type="checkbox" id="multiinput" name="Methoden" value="5"/><label for="Ziele"></label></td>
+                            <td><input type="checkbox" id="multiinput" name="Methoden" value="6"/><label for="Ziele"></label></td>
+                        </tr>
+                        <tr>
+                            <td>Medien</td>
+                            <td><input type="checkbox" id="multiinput" name="Medien" value="1"/><label for="Ziele"></label></td>
+                            <td><input type="checkbox" id="multiinput" name="Medien" value="2"/><label for="Ziele"></label></td>
+                            <td><input type="checkbox" id="multiinput" name="Medien" value="3"/><label for="Ziele"></label></td>
+                            <td><input type="checkbox" id="multiinput" name="Medien" value="4"/><label for="Ziele"></label></td>
+                            <td><input type="checkbox" id="multiinput" name="Medien" value="5"/><label for="Ziele"></label></td>
+                            <td><input type="checkbox" id="multiinput" name="Medien" value="6"/><label for="Ziele"></label></td>
+                        </tr>
+                    </table>
+                </section>
             </div>
             <div class="tab">
-                <h3 class="regular">Studentisches Feedback</h3>
-                <label>Studentisches Feedback</label>
+                <section class="col-md-12 col-xs-24">
+                    <h3 class="regular">Studentisches Feedback</h3>
+                </section>
+                <section class="col-md-12 col-xs-24">
+                    <label>Hast du dir Feedback zur Lehr- und Lernveranstaltung von den Studierenden eingeholt?</label>
 
-                <select name="grade" id="grade">
-                    <option value="1">Studierende werden informiert</option>
-                    <option value="2">Studierende dürfen selbst wählen</option>
-                </select>
+                    <select name="eventFeedbackVorhanden" id="eventFeedbackVorhanden">
+                        <option value="ja">ja</option>
+                        <option value="nein">nein</option>
+                    </select>
+                    <div>
+                        <label>Zu welchen Aspekten hast du dir das Feedback eingeholt?</label>
+                        <input id="eventFeedbackWhat" placeholder="bitte begründen" type="text" name="eventFeedbackWhat" >
+                    </div>
+                    <label>Wie ist das Feedback seitens der Studierenden ausgefallen?</label>
+
+                    <select name="feedbackStudents" id="feedbackStudents">
+                        <option value="1">überwiegend sehr gut</option>
+                        <option value="2">überwiegend gut</option>
+                        <option value="3">überwiegend befriedigend</option>
+                        <option value="4">überwiegend schlecht</option>
+                        <option value="5">ausbaufähig, weil...</option>
+                    </select>
+                    <label>Würdest du die Lehr-Lernveranstaltung in dieser Form wiederholen?</label>
+
+                    <select name="eventErneutAnbieten" id="eventErneutAnbieten">
+                        <option value="ja">ja</option>
+                        <option value="nein">nein</option>
+                    </select>
+                    <div>
+                        <input id="eventErneutAnbietenWhy" placeholder="bitte begründen" type="text" name="eventErneutAnbietenWhy" >
+                    </div>
+                </section>
             </div>
             <div class="tab">
-                <h3 class="regular">Beeinflussende Faktoren</h3>
-                <label>Beeinflussende Faktoren</label>
+                <section class="col-md-12 col-xs-24">
+                    <h3 class="regular">Beeinflussende Faktoren</h3>
+                </section>
+                <section class="col-md-12 col-xs-24">
+                    <label>Glaubst du, dass die digitale Erweiterung der Partizipationsmöglichkeiten in Form von z.B. Feedback-Apps, Diskussionsforen oder interaktiven Whiteboards zu einem größeren Einfluss der Studierenden auf Entscheidungen hinsichtlich des Lehr- und Lernprozesses geführt hat?</label>
 
-                <select name="grade" id="grade">
-                    <option value="1">Studierende werden informiert</option>
-                    <option value="2">Studierende dürfen selbst wählen</option>
-                </select>
+                    <select name="einflussStudentsTools" id="einflussStudentsTools">
+                        <option value="ja">ja</option>
+                        <option value="nein">nein</option>
+                        <option value="kA">ich weiß es nicht</option>
+                    </select>
+                    <div>
+                        <input id="einflussStudentsToolsWhy" placeholder="bitte begründen" type="text" name="einflussStudentsToolsWhy" >
+                    </div>
+                    <label>Welche Aspekte haben sich aus deiner Sicht fördernd auf die studentische Partizipation in deiner Lehr-Lerneinheit ausgewirkt (z.B. Informations- und Kommunikationskompetenz, fachlicher Erfahrungshintergrund der Lernenden)?</label>
+                    <div>
+                        <input id="einflussPartizipationPro" placeholder="...?" type="text" name="einflussPartizipationPro" >
+                    </div>
+                    <label>Welche Aspekte haben sich aus deiner Sicht hemmend auf die studentische Partizipation in deiner Lehr-Lernveranstaltung ausgewirkt (z.B. Teilnehmer*innenzahl, Modulvorgaben)?</label>
+                    <div>
+                        <input id="einflussPartizipationCon" placeholder="...?" type="text" name="einflussPartizipationCon" >
+                    </div>
+                </section>
             </div>
             <div class="tab">
-                <h3 class="regular">Demographie</h3>
-                <label>Demographie</label>
+                <section class="col-md-12 col-xs-24">
+                    <h3 class="regular">Demografie</h3>
+                </section>
+                <section class="col-md-12 col-xs-24">
+                    <label>Seit wann bist du in der Lehre tätig?</label>
 
-                <select name="grade" id="grade">
-                    <option value="1">Studierende werden informiert</option>
-                    <option value="2">Studierende dürfen selbst wählen</option>
-                </select>
+                    <select name="lehreInJahren" id="lehreInJahren">
+                        <option value="<1"><1 Jahr</option>
+                        <option value="1-2">1-2 Jahre</option>
+                        <option value="2-3">2-3 Jahre</option>
+                        <option value="3-5">3-5 Jahre</option>
+                        <option value="5-10">5-10 Jahre</option>
+                        <option value="10-20">10-20 Jahre</option>
+                        <option value="20-30">20-30 Jahre</option>
+                        <option value=">30">>30 Jahre</option>
+                    </select>
+                    <label>Welche Rolle hast du an der wissenschaftlichen Einrichtung?</label>
+
+                    <select name="rolleLehrperson" id="rolleLehrperson">
+                        <option value="Prof">Professor_in</option>
+                        <option value="ForschGrupLeit">Forschungsgruppenleiter_in</option>
+                        <option value="WiMi">Wissenschaftliche(r) Mitarbeiter_in</option>
+                        <option value="StuMi">Studentische(r) Mitarbeiter_in</option>
+                        <option value="PostDoc">PostDoc</option>
+                        <option value="LehrPmbAufg">Lehrperson mit besonderen Aufgaben</option>
+                        <option value="andere">andere...</option>
+                    </select>
+                    <div>
+                        <input id="rolleLehrpersonAndere" placeholder="bitte angeben" type="text" name="rolleLehrpersonAndere" >
+                    </div>
+                    <label>In welchem Bundesland bist du tätig?</label>
+
+                    <select name="bundesland" id="bundesland">
+                        <option value="Baden-Württemberg">Baden-Württemberg</option>
+                        <option value="Bayern">Bayern</option>
+                        <option value="Berlin">Berlin</option>
+                        <option value="Brandenburg">Brandenburg</option>
+                        <option value="Bremen">Bremen</option>
+                        <option value="Hamburg">Hamburg</option>
+                        <option value="Hessen">Hessen</option>
+                        <option value="Mecklenburg-Vorpommern">Mecklenburg-Vorpommern</option>
+                        <option value="Niedersachsen">Niedersachsen</option>
+                        <option value="Nordrhein-Westfalen">Nordrhein-Westfalen</option>
+                        <option value="Rheinland-Pfalz">Rheinland-Pfalz</option>
+                        <option value="Saarland">Saarland</option>
+                        <option value="Sachsen">Sachsen</option>
+                        <option value="Sachsen-Anhalt">Sachsen-Anhalt</option>
+                        <option value="Schleswig-Holstein">Schleswig-Holstein</option>
+                        <option value="Thüringen">Thüringen</option>
+                    </select>
+                </section>
             </div>
             <div class="tab">
-                <h3 class="regular">Ergebnis</h3>
-                <label>Ergebnis</label>
-
-                <select name="grade" id="grade">
-                    <option value="1">Studierende werden informiert</option>
-                    <option value="2">Studierende dürfen selbst wählen</option>
-                </select>
+                <section class="col-md-12 col-xs-24">
+                    <h3 class="regular">Du hast es geschafft! 💪</h3>
+                </section>
+                <section class="col-md-12 col-xs-24">
+                    
+                    <img src="/assets/img/static/standingovation.gif"/>
+                </section>
             </div>
-            <div style="overflow:auto;">
-                <div style="float:right;">
+            <div class="col-md-12 formnav">
+                <div >
                     <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
                     <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
                 </div>
             </div>
 
-            <!-- Circles which indicates the steps of the form: -->
-            <div style="text-align:center;margin-top:40px;">
-                <span class="step"></span>
-                <span class="step"></span>
-                <span class="step"></span>
-                <span class="step"></span>
-                <span class="step"></span>
-                <span class="step"></span>
-                <span class="step"></span>
-            </div>
 
+            </section>
         </form>
-    </section>
 
-
-
-    <section class="col-md-6 tableofcontent fixedContainer">
-        <ul class="">
-            <li id="block-1" class="tabTitel">Allgemeine Angaben</li>
-            <li id="block-2" class="tabTitel">Didaktische Dimensionen</li>
-            <li id="block-3" class="tabTitel">Studentisches Feedback</li>
-            <li id="block-4" class="tabTitel">Beeinflussende Faktoren</li>
-            <li id="block-5" class="tabTitel">Demographie</li>
-            <li id="block-6" class="tabTitel">Ergebnis</li>
-        </ul>
-    </section>
 </div>
 

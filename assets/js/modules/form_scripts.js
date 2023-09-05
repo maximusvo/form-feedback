@@ -1,6 +1,6 @@
 jQuery(document).ready(function($) {
     // only show individual input fields, if needed (selected by id)
-    $('select[name=eventtype]').change(function () {
+    $('select[name=eventType]').change(function () {
         if ($(this).val() == '14') {
             $('#otherType').show();
             $('#otherType').addClass( "open" );
@@ -10,7 +10,7 @@ jQuery(document).ready(function($) {
         }
         console.log("done");
     });
-    $('select[name=eventtarget]').change(function () {
+    $('select[name=eventTarget]').change(function () {
         if ($(this).val() == '1') {
             $('#otherTypeTG').show();
             $('#otherTypeTG').addClass( "open" );
@@ -20,7 +20,7 @@ jQuery(document).ready(function($) {
         }
         console.log("done");
     });
-    $('select[name=event_faculty]').change(function () {
+    $('select[name=eventFaculty]').change(function () {
         if ($(this).val() == '13') {
             $('#otherTypeFaculty').show();
             $('#otherTypeFaculty').addClass( "open" );

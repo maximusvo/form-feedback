@@ -65,7 +65,8 @@ textarea,
   box-shadow: none;
   border: 0;
   width: 100%;
-  max-width: 400px;
+  //max-width: 400px;
+  max-width: auto;
   font-family: $font-mono;
   background-color: $grey-light;
   @include transition(background-color 0.24s ease-in-out);

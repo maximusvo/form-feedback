@@ -634,23 +634,23 @@ showTab(currentTab); // Display the current tab
 function showTab(n) {
   // This function will display the specified tab of the form ...
   var x = document.getElementsByClassName("tab");
-  var y = document.getElementsByClassName("tabTitel");
+  //var y = document.getElementsByClassName("tabTitel");
   x[n].style.display = "block";
 
   // ... and fix the Previous/Next buttons:
   if (n == 0) {
     document.getElementById("prevBtn").style.display = "none";
     // only highlight current tab headline in table of content
-    y[n].className += " tablehighlight";
-    y[n+1].classList.remove("tablehighlight");
+    //y[n].className += " tablehighlight";
+    //y[n+1].classList.remove("tablehighlight");
   } else {
     document.getElementById("prevBtn").style.display = "inline";
     // only highlight current tab headline in table of content
-    y[n].className += " tablehighlight";
-    y[n-1].classList.remove("tablehighlight");
-    if(y.length <= y[n+1]){
-        y[n+1].classList.remove("tablehighlight");
-    }
+    //y[n].className += " tablehighlight";
+    //y[n-1].classList.remove("tablehighlight");
+    //if(y.length <= y[n+1]){
+    //    y[n+1].classList.remove("tablehighlight");
+    //}
 
   }
   if (n == (x.length - 1)) {

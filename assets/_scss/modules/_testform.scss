@@ -65,7 +65,7 @@ input.invalid {
 }
 
 .tableofcontent {
-    margin-top: 25px !important;
+    margin-top: 150px !important;
     ul {
       list-style: none;
       color: black;
@@ -87,4 +87,34 @@ input.invalid {
     right: 0%;
     top: 5%;
     transform: translateX(-10%);
+}
+
+#multiinput {
+    width: auto;
+
+}
+.formnav {
+    margin-top: 20px;
+}
+table {
+
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+td:first-child {
+    text-align: left;
+}
+.statusindicator {
+    text-align:left;
+    margin-bottom: 20px;
 }
