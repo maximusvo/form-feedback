@@ -5,6 +5,7 @@
   padding: 40px;
   width: 100%;
   min-width: 300px;
+
 }
 
 /* Style the input fields */
@@ -95,6 +96,7 @@ input.invalid {
 }
 .formnav {
     margin-top: 20px;
+    padding-left: 0px;
 }
 table {
 
@@ -143,4 +145,12 @@ td:first-child {
     p {
         color: white;
     }
+}
+
+.formbuttons {
+    margin: 0px !important;
+}
+.finalimg {
+  width: 100%;
+  height: auto;
 }
