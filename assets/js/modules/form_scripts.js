@@ -178,6 +178,7 @@ function saveForm() {
 function clearForm() {
     document.getElementById("feedbackOne").innerHTML = "";
     document.getElementById("feedbackTwo").innerHTML = "";
+    document.getElementById("formpiecontainer").style.display = "none";
     localStorage.clear();
     document.getElementById("button").innerHTML = "Zurück zum Tool";
     button.addEventListener("click", formRestart);
