@@ -39,8 +39,8 @@ $text-color:        $black;
 $link-color:        $black;
 $link-hover:        $black;
 
-$link-background: rgba(252,5,42,0.6);
-$link-background-hover: rgba(252,5,42,1);
+$link-background: $fourth-color;
+$link-background-hover: RGBA(0, 203, 122, 0.7);
 
 $edupsprint-grey: #e6e7e8;
 $edupsprint-grey-light: #fafafa;

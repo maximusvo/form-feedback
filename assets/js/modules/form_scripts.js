@@ -88,16 +88,28 @@ function feedbackForm() {
         //document.getElementById("formpie").style.cssText = "background-image: conic-gradient(orange "+100*aims/25+"%, blue "+100*aims/25+"% "+100*results/25+"%, red " + 100*results/25 + "% " + 100*media/25 + "%, green " + 100*media/25 + "% " + 100*methods/25 + "%, black " + 100*content/25 + "%);";
         var data = [{
           values: [aims, media, content, results, methods],
+          marker: {colors: ['#FF5728', '#90D9DE', '#00CB7A', '#C9BDB7', '#FFFFFF']},
           labels: ['Ziele', 'Medien', 'Inhalte', 'Ergebnisse', 'Methoden'],
           type: 'pie'
         }];
         var layout = {
-          plot_bgcolor: "#0B344E",
-          height: 400,
+          //plot_bgcolor: "#0B344E",
+          paper_bgcolor: 'rgba(0,0,0,0)',
+          font: {
+              color: 'white',
+              //family:'Times New Roman'
+          },
+          height: 500,
           width: 500,
+            legend: {
+              orientation: "h",
+              x: 0.1,
+              y: -0.2
+            }
+          //showlegend: false,
 
         };
-        Plotly.newPlot('formpie', data, layout);
+        Plotly.newPlot('formpie', data, layout, {displayModeBar: false});
 
         button.addEventListener("click", clearForm);
         document.getElementById("button").innerHTML = "Ergebnis löschen";
