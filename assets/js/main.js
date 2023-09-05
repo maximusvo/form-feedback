@@ -654,9 +654,9 @@ function showTab(n) {
 
   }
   if (n == (x.length - 1)) {
-    document.getElementById("nextBtn").innerHTML = "Submit";
+    document.getElementById("nextBtn").innerHTML = "Abschicken";
   } else {
-    document.getElementById("nextBtn").innerHTML = "Next";
+    document.getElementById("nextBtn").innerHTML = "Weiter";
   }
   // ... and run a function that displays the correct step indicator:
   fixStepIndicator(n)
