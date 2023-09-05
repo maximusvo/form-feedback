@@ -71,19 +71,19 @@ function feedbackForm() {
 
         //document.getElementById("feedbackTwo").innerHTML = "Inputs: " + JSON.parse(localStorage.getItem("aims"));
         if(result <= 10){
-            document.getElementById("feedbackOne").innerHTML = "Richtungsgebend " + result;
+            document.getElementById("feedbackOne").innerHTML = "Richtungsgebend <br>" + result + " Punkte";
         }
         if(result >= 11 && result <= 17){
-            document.getElementById("feedbackOne").innerHTML = "Neugierig " + result;
+            document.getElementById("feedbackOne").innerHTML = "Neugierig <br>" + result + " Punkte";
         }
         if(result >= 18 && result <= 24){
-            document.getElementById("feedbackOne").innerHTML = "Kooperativ " + result;
+            document.getElementById("feedbackOne").innerHTML = "Kooperativ <br>" + result + " Punkte";
         }
         if(result >= 25 && result <= 31){
-            document.getElementById("feedbackOne").innerHTML = "Ko-Kreativ " + result;
+            document.getElementById("feedbackOne").innerHTML = "Ko-Kreativ <br>" + result + " Punkte";
         }
         if(result >= 32 && result <= 35){
-            document.getElementById("feedbackOne").innerHTML = "Lernbegleitend " + result;
+            document.getElementById("feedbackOne").innerHTML = "Lernbegleitend <br>" + result + " Punkte";
         }
         //document.getElementById("formpie").style.cssText = "background-image: conic-gradient(orange "+100*aims/25+"%, blue "+100*aims/25+"% "+100*results/25+"%, red " + 100*results/25 + "% " + 100*media/25 + "%, green " + 100*media/25 + "% " + 100*methods/25 + "%, black " + 100*content/25 + "%);";
         var data = [{
