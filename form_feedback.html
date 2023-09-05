@@ -3,16 +3,26 @@ layout: default
 ---
 
 <div class="row">
-    <section class="section col-xs-24">
-        <h1>Vielen Dank für die Teilnahme</h1>
-        <div class="content-wrap">
-            <p id="feedbackTwo"></p>
-            <p id="feedbackOne"></p>
+    <section class="section col-md-12 col-xs-24 feedback" onload="feedbackForm()">
+        <div class="row col-md-12 col-xs-24">
+            <div class="content-wrap">
+            <p>Die Auswertung hat ergeben, dass du folgender Typ bist</p>
+            <h1 id="feedbackOne">Richtungsgebend</h1>
+
+
+                <p id="feedbackTwo"></p>
+                <a class="edu-btn white" id="button" style="" >Ergebnis anzeigen</a>
+            </div>
+
         </div>
-        <div class="content-wrap btn-wrap">
-            <a class="edu-btn black" id="button" style="" >Ergebnis anzeigen</a>
+
+        <div class="row col-md-12 col-xs-24 ">
+            <div class="content-wrap">
+                <div class="" id="formpie"></div>
+            </div>
         </div>
-    </section>
+    </div>
+
 </div>
 
 <script src="{{ site.baseurl }}/assets/js/modules/form.js"></script>

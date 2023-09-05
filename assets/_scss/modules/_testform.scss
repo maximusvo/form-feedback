@@ -118,3 +118,29 @@ td:first-child {
     text-align:left;
     margin-bottom: 20px;
 }
+
+// test pie
+
+.pie {
+  width: 200px;
+  height: 200px;
+  background-image: conic-gradient(orange 50%, blue 50% 75%, red 75% 90%, green 90%);
+  border-radius: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+}
+
+
+.feedback {
+    text-align: left !important;
+    background-color: $secondary-color;
+    h1 {
+        color: $primary-color;
+        font-size: 5rem;
+    }
+    p {
+        color: white;
+    }
+}
