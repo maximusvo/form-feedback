@@ -85,7 +85,7 @@ function feedbackForm() {
         if(result >= 32 && result <= 35){
             document.getElementById("feedbackOne").innerHTML = "Lernbegleitend <br>" + result + " Punkte";
         }
-        //document.getElementById("formpie").style.cssText = "background-image: conic-gradient(orange "+100*aims/25+"%, blue "+100*aims/25+"% "+100*results/25+"%, red " + 100*results/25 + "% " + 100*media/25 + "%, green " + 100*media/25 + "% " + 100*methods/25 + "%, black " + 100*content/25 + "%);";
+        // draw pie chart in respect of user inputs
         var data = [{
           values: [aims, media, content, results, methods],
           marker: {colors: ['#FF5728', '#90D9DE', '#00CB7A', '#C9BDB7', '#FFFFFF']},
@@ -93,24 +93,33 @@ function feedbackForm() {
           type: 'pie'
         }];
         var layout = {
-          //plot_bgcolor: "#0B344E",
           paper_bgcolor: 'rgba(0,0,0,0)',
           font: {
               color: 'white',
               //family:'Times New Roman'
           },
-          height: 500,
-          width: 500,
+          //height: 500,
+          //width: 500,
+          autosize: true,
+            margin: {
+              l: 0,
+              r: 150,
+            },
             legend: {
               orientation: "h",
               x: 0.1,
-              y: -0.2
-            }
+              y: -0.2,
+            },
+
           //showlegend: false,
 
         };
-        Plotly.newPlot('formpie', data, layout, {displayModeBar: false});
-
+        var config = {
+            displayModeBar: false,
+            responsive: true,
+        }
+        Plotly.newPlot('formpie', data, layout, config);
+        // end drawing
         button.addEventListener("click", clearForm);
         document.getElementById("button").innerHTML = "Ergebnis löschen";
     }
