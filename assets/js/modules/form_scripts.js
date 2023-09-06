@@ -1,21 +1,62 @@
 
 jQuery(document).ready(function($) {
-    // only show individual input fields, if needed (selected by id)
+    // only activate current checkbox
     $('input[name=Ziele]').change(function () {
-    /*
-        for (i=0; i<$('input[name=Ziele]').length; i++ ){
-            console.log(i);
-            if($('input[name=Ziele]')[i].is(':checked')){
-                $('input[name=Ziele]')[i].show();
-            }
-            else {
-                $('input[name=Ziele]')[i].hide();
+        var checkboxes = document.getElementsByClassName("multiinput");
 
-
+        for (i=0; i < checkboxes.length; i++) {
+            if(checkboxes[i].name == "Ziele"){
+                if(checkboxes[i].value != $(this).val()) {
+                    document.getElementsByClassName("multiinput")[i].checked = false;
+                }
             }
-        }*/
-        console.log("done");
+        }
     });
+    $('input[name=Methoden]').change(function () {
+        var checkboxes = document.getElementsByClassName("multiinput");
+
+        for (i=0; i < checkboxes.length; i++) {
+            if(checkboxes[i].name == "Methoden"){
+                if(checkboxes[i].value != $(this).val()) {
+                    document.getElementsByClassName("multiinput")[i].checked = false;
+                }
+            }
+        }
+    });
+    $('input[name=Ergebnisse]').change(function () {
+        var checkboxes = document.getElementsByClassName("multiinput");
+
+        for (i=0; i < checkboxes.length; i++) {
+            if(checkboxes[i].name == "Ergebnisse"){
+                if(checkboxes[i].value != $(this).val()) {
+                    document.getElementsByClassName("multiinput")[i].checked = false;
+                }
+            }
+        }
+    });
+    $('input[name=Inhalte]').change(function () {
+        var checkboxes = document.getElementsByClassName("multiinput");
+
+        for (i=0; i < checkboxes.length; i++) {
+            if(checkboxes[i].name == "Inhalte"){
+                if(checkboxes[i].value != $(this).val()) {
+                    document.getElementsByClassName("multiinput")[i].checked = false;
+                }
+            }
+        }
+    });
+    $('input[name=Medien]').change(function () {
+        var checkboxes = document.getElementsByClassName("multiinput");
+
+        for (i=0; i < checkboxes.length; i++) {
+            if(checkboxes[i].name == "Medien"){
+                if(checkboxes[i].value != $(this).val()) {
+                    document.getElementsByClassName("multiinput")[i].checked = false;
+                }
+            }
+        }
+    });
+    // only show individual input fields, if needed (selected by id)
     $('select[name=eventType]').change(function () {
         if ($(this).val() == '14') {
             $('#otherType').show();
@@ -78,10 +119,11 @@ function feedbackForm() {
     if (typeof storedInputInput !== 'undefined' && storedInputInput !== null){
         var pieInput = [0,0,0,0,0,0];
         var matrixVariables = [Number(JSON.parse(localStorage.getItem("aims"))), Number(JSON.parse(localStorage.getItem("content"))), Number(JSON.parse(localStorage.getItem("results"))), Number(JSON.parse(localStorage.getItem("methods"))), Number(JSON.parse(localStorage.getItem("media")))];
-        console.log(matrixVariables.length);
-        var result = 0; // = content + aims + media + methods + results;
+        var result = 0;
         for(i=0; i<matrixVariables.length; i++){
+            // calc total points of user
             result = result + Number(matrixVariables[i]);
+            // calc pie dimensions
             switch(Number(matrixVariables[i])) {
               case 1:
                 pieInput[0]++;
@@ -102,25 +144,25 @@ function feedbackForm() {
                 pieInput[5]++;
                 break;
               default:
-                // code block
+
             }
         }
 
         //document.getElementById("feedbackTwo").innerHTML = "Inputs: " + JSON.parse(localStorage.getItem("aims"));
         if(result <= 10){
-            document.getElementById("feedbackOne").innerHTML = "Richtungsgebend <br>" + result + " Punkte";
+            document.getElementById("feedbackOne").innerHTML = "Richtungsgebend <br>";
         }
         if(result >= 11 && result <= 17){
-            document.getElementById("feedbackOne").innerHTML = "Neugierig <br>" + result + " Punkte";
+            document.getElementById("feedbackOne").innerHTML = "Neugierig <br>";
         }
         if(result >= 18 && result <= 24){
-            document.getElementById("feedbackOne").innerHTML = "Kooperativ <br>" + result + " Punkte";
+            document.getElementById("feedbackOne").innerHTML = "Kooperativ <br>";
         }
         if(result >= 25 && result <= 31){
-            document.getElementById("feedbackOne").innerHTML = "Ko-Kreativ <br>" + result + " Punkte";
+            document.getElementById("feedbackOne").innerHTML = "Ko-Kreativ <br>";
         }
         if(result >= 32 && result <= 35){
-            document.getElementById("feedbackOne").innerHTML = "Lernbegleitend <br>" + result + " Punkte";
+            document.getElementById("feedbackOne").innerHTML = "Lernbegleitend <br>";
         }
         // draw pie chart in respect of user inputs
         var data = [{

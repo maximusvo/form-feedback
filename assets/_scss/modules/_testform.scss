@@ -99,7 +99,6 @@ input.invalid {
     padding-left: 0px;
 }
 table {
-
   border-collapse: collapse;
   width: 100%;
 }
@@ -150,8 +149,36 @@ td:first-child {
 .formbuttons {
     margin: 0px !important;
 }
-.finalimg {
+.center {
   width: 100%;
   height: auto;
 }
+/*
+input[type=checkbox] {
+        border: 3px solid #fff;
+        width: 1em;
+        height: 1em;
+        background-color: white;
+        border-radius: 100%;
+        vertical-align: middle;
+        appearance: none;
+        -webkit-appearance: none;
+        outline: none;
+        cursor: pointer;
+}
 
+
+input[type=checkbox]:checked {
+    background-color: $secondary-color;
+}
+.checkbox-box {
+        width: 1.6em;
+        height: 1.6em;
+        background-color: $fourth-color;
+        border-radius: 100%;
+}
+*/
+.info {
+      display: inline;
+      width: 18px;
+}
