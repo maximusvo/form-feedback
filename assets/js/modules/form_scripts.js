@@ -69,21 +69,42 @@ jQuery(document).ready(function($) {
 });
 
 var button = document.getElementById("button");
-
 var status = 0;
 //button.addEventListener("click", buttonAction);
 
 function feedbackForm() {
-
     var storedInputSelect = JSON.parse(localStorage.getItem("formInputSelect"));
     var storedInputInput = JSON.parse(localStorage.getItem("formInputInput"));
     if (typeof storedInputInput !== 'undefined' && storedInputInput !== null){
-        var aims = Number(JSON.parse(localStorage.getItem("aims")));
-        var content = Number(JSON.parse(localStorage.getItem("content")));
-        var results = Number(JSON.parse(localStorage.getItem("results")));
-        var methods = Number(JSON.parse(localStorage.getItem("methods")));
-        var media = Number(JSON.parse(localStorage.getItem("media")));
-        var result = content + aims + media + methods + results;
+        var pieInput = [0,0,0,0,0,0];
+        var matrixVariables = [Number(JSON.parse(localStorage.getItem("aims"))), Number(JSON.parse(localStorage.getItem("content"))), Number(JSON.parse(localStorage.getItem("results"))), Number(JSON.parse(localStorage.getItem("methods"))), Number(JSON.parse(localStorage.getItem("media")))];
+        console.log(matrixVariables.length);
+        var result = 0; // = content + aims + media + methods + results;
+        for(i=0; i<matrixVariables.length; i++){
+            result = result + Number(matrixVariables[i]);
+            switch(Number(matrixVariables[i])) {
+              case 1:
+                pieInput[0]++;
+                break;
+              case 2:
+                pieInput[1]++;
+                break;
+              case 3:
+                pieInput[2]++;
+                break;
+              case 4:
+                pieInput[3]++;
+                break;
+              case 5:
+                pieInput[4]++;
+                break;
+              case 6:
+                pieInput[5]++;
+                break;
+              default:
+                // code block
+            }
+        }
 
         //document.getElementById("feedbackTwo").innerHTML = "Inputs: " + JSON.parse(localStorage.getItem("aims"));
         if(result <= 10){
@@ -103,9 +124,9 @@ function feedbackForm() {
         }
         // draw pie chart in respect of user inputs
         var data = [{
-          values: [aims, media, content, results, methods],
+          values: pieInput,
           marker: {colors: ['#FF5728', '#90D9DE', '#00CB7A', '#C9BDB7', '#FFFFFF']},
-          labels: ['Ziele', 'Medien', 'Inhalte', 'Ergebnisse', 'Methoden'],
+          labels: ['lehrendendefinierend', 'anhörend', 'repräsentativ', 'partnerschaftlich', 'studierendendefiniert'],
           type: 'pie'
         }];
         var layout = {
