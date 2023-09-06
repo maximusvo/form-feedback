@@ -1,6 +1,21 @@
 
 jQuery(document).ready(function($) {
     // only show individual input fields, if needed (selected by id)
+    $('input[name=Ziele]').change(function () {
+    /*
+        for (i=0; i<$('input[name=Ziele]').length; i++ ){
+            console.log(i);
+            if($('input[name=Ziele]')[i].is(':checked')){
+                $('input[name=Ziele]')[i].show();
+            }
+            else {
+                $('input[name=Ziele]')[i].hide();
+
+
+            }
+        }*/
+        console.log("done");
+    });
     $('select[name=eventType]').change(function () {
         if ($(this).val() == '14') {
             $('#otherType').show();
@@ -54,14 +69,15 @@ jQuery(document).ready(function($) {
 });
 
 var button = document.getElementById("button");
+
+var status = 0;
 //button.addEventListener("click", buttonAction);
-var saved = JSON.parse(localStorage.getItem("formInputSelect"));
 
 function feedbackForm() {
 
     var storedInputSelect = JSON.parse(localStorage.getItem("formInputSelect"));
     var storedInputInput = JSON.parse(localStorage.getItem("formInputInput"));
-    if (typeof saved !== 'undefined' && saved !== null){
+    if (typeof storedInputInput !== 'undefined' && storedInputInput !== null){
         var aims = Number(JSON.parse(localStorage.getItem("aims")));
         var content = Number(JSON.parse(localStorage.getItem("content")));
         var results = Number(JSON.parse(localStorage.getItem("results")));
@@ -181,6 +197,8 @@ function saveForm() {
     var storedInputInput = JSON.parse(localStorage.getItem("formInputInput"));
     console.log(storedInputSelect);
     console.log(formInputInput);
+    status++;
+    console.log(status);
     return;
 }
 
@@ -191,6 +209,7 @@ function clearForm() {
     localStorage.clear();
     document.getElementById("button").innerHTML = "Zurück zum Tool";
     button.addEventListener("click", formRestart);
+    status = 0;
     return;
 }
 
@@ -204,6 +223,44 @@ function empty() {
     document.getElementById("button").innerHTML = "Zurück zum Tool";
     button.addEventListener("click", formRestart);
     return;
+}
+
+function setCheckboxTrue(kind, value, classname) {
+    var checkboxes = document.getElementsByClassName(classname);
+    for (i=0; i < checkboxes.length; i++) {
+        if(checkboxes[i].name == kind){
+            if(checkboxes[i].value == value){
+                document.getElementsByClassName(classname)[i].checked = true;
+            }
+            else {
+
+            }
+        }
+    }
+    return;
+}
+function checkstatus() {
+    if(status){
+        // if status 1, load stored data, restore form
+
+        setCheckboxTrue("Ziele", Number(JSON.parse(localStorage.getItem("aims"))), "multiinput");
+        setCheckboxTrue("Inhalte", Number(JSON.parse(localStorage.getItem("content"))), "multiinput");
+        setCheckboxTrue("Medien", Number(JSON.parse(localStorage.getItem("methods"))), "multiinput");
+        setCheckboxTrue("Methoden", Number(JSON.parse(localStorage.getItem("methods"))), "multiinput");
+        setCheckboxTrue("Ergebnisse", Number(JSON.parse(localStorage.getItem("results"))), "multiinput");
+
+        var x = document.getElementsByTagName("select");
+        var y = document.getElementsByTagName("input");
+        var storedInputSelect = JSON.parse(localStorage.getItem("formInputSelect"));
+        var storedInputInput = JSON.parse(localStorage.getItem("formInputInput"));
+        for (i = 0; i < x.length; i++) {
+            x[i].value = storedInputSelect[i];
+        }
+        for (i = 0; i < y.length; i++) {
+            y[i].value = storedInputInput[i];
+        }
+    }
+
 }
 
 /*
@@ -221,4 +278,5 @@ function buttonAction (){
 }
 */
 window.addEventListener("load", feedbackForm);
+window.addEventListener("load", checkstatus);
 

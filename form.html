@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-<div class="row">
+<div class="row" onload="checkstatus()">
     <section class="col-md-24 col-xs-24">
         <form
                 id="regForm"
@@ -125,47 +125,47 @@ layout: default
                             </tr>
                             <tr>
                                 <td>Ziele</td>
-                                <td><input type="checkbox" id="multiinput" name="Ziele" value="1"/><label for="Ziele"></label></td>
-                                <td><input type="checkbox" id="multiinput" name="Ziele" value="2"/><label for="Ziele"></label></td>
-                                <td><input type="checkbox" id="multiinput" name="Ziele" value="3"/><label for="Ziele"></label></td>
-                                <td><input type="checkbox" id="multiinput" name="Ziele" value="4"/><label for="Ziele"></label></td>
-                                <td><input type="checkbox" id="multiinput" name="Ziele" value="5"/><label for="Ziele"></label></td>
-                                <td><input type="checkbox" id="multiinput" name="Ziele" value="0"/><label for="Ziele"></label></td>
+                                <td><input type="checkbox" class="multiinput" name="Ziele" value="1"/><label for="Ziele"></label></td>
+                                <td><input type="checkbox" class="multiinput" name="Ziele" value="2"/><label for="Ziele"></label></td>
+                                <td><input type="checkbox" class="multiinput" name="Ziele" value="3"/><label for="Ziele"></label></td>
+                                <td><input type="checkbox" class="multiinput" name="Ziele" value="4"/><label for="Ziele"></label></td>
+                                <td><input type="checkbox" class="multiinput" name="Ziele" value="5"/><label for="Ziele"></label></td>
+                                <td><input type="checkbox" class="multiinput" name="Ziele" value="0"/><label for="Ziele"></label></td>
                             </tr>
                             <tr>
                                 <td>Inhalte</td>
-                                <td><input type="checkbox" id="multiinput" name="Inhalte" value="1"/><label for="Ziele"></label></td>
-                                <td><input type="checkbox" id="multiinput" name="Inhalte" value="2"/><label for="Ziele"></label></td>
-                                <td><input type="checkbox" id="multiinput" name="Inhalte" value="3"/><label for="Ziele"></label></td>
-                                <td><input type="checkbox" id="multiinput" name="Inhalte" value="4"/><label for="Ziele"></label></td>
-                                <td><input type="checkbox" id="multiinput" name="Inhalte" value="5"/><label for="Ziele"></label></td>
-                                <td><input type="checkbox" id="multiinput" name="Inhalte" value="0"/><label for="Ziele"></label></td> </tr>
+                                <td><input type="checkbox" class="multiinput" name="Inhalte" value="1"/><label for="Ziele"></label></td>
+                                <td><input type="checkbox" class="multiinput" name="Inhalte" value="2"/><label for="Ziele"></label></td>
+                                <td><input type="checkbox" class="multiinput" name="Inhalte" value="3"/><label for="Ziele"></label></td>
+                                <td><input type="checkbox" class="multiinput" name="Inhalte" value="4"/><label for="Ziele"></label></td>
+                                <td><input type="checkbox" class="multiinput" name="Inhalte" value="5"/><label for="Ziele"></label></td>
+                                <td><input type="checkbox" class="multiinput" name="Inhalte" value="0"/><label for="Ziele"></label></td> </tr>
                             <tr>
                                 <td>Ergebnisse</td>
-                                <td><input type="checkbox" id="multiinput" name="Ergebnisse" value="1"/><label for="Ziele"></label></td>
-                                <td><input type="checkbox" id="multiinput" name="Ergebnisse" value="2"/><label for="Ziele"></label></td>
-                                <td><input type="checkbox" id="multiinput" name="Ergebnisse" value="3"/><label for="Ziele"></label></td>
-                                <td><input type="checkbox" id="multiinput" name="Ergebnisse" value="4"/><label for="Ziele"></label></td>
-                                <td><input type="checkbox" id="multiinput" name="Ergebnisse" value="5"/><label for="Ziele"></label></td>
-                                <td><input type="checkbox" id="multiinput" name="Ergebnisse" value="0"/><label for="Ziele"></label></td>
+                                <td><input type="checkbox" class="multiinput" name="Ergebnisse" value="1"/><label for="Ziele"></label></td>
+                                <td><input type="checkbox" class="multiinput" name="Ergebnisse" value="2"/><label for="Ziele"></label></td>
+                                <td><input type="checkbox" class="multiinput" name="Ergebnisse" value="3"/><label for="Ziele"></label></td>
+                                <td><input type="checkbox" class="multiinput" name="Ergebnisse" value="4"/><label for="Ziele"></label></td>
+                                <td><input type="checkbox" class="multiinput" name="Ergebnisse" value="5"/><label for="Ziele"></label></td>
+                                <td><input type="checkbox" class="multiinput" name="Ergebnisse" value="0"/><label for="Ziele"></label></td>
                             </tr>
                             <tr>
                                 <td>Methoden</td>
-                                <td><input type="checkbox" id="multiinput" name="Methoden" value="1"/><label for="Ziele"></label></td>
-                                <td><input type="checkbox" id="multiinput" name="Methoden" value="2"/><label for="Ziele"></label></td>
-                                <td><input type="checkbox" id="multiinput" name="Methoden" value="3"/><label for="Ziele"></label></td>
-                                <td><input type="checkbox" id="multiinput" name="Methoden" value="4"/><label for="Ziele"></label></td>
-                                <td><input type="checkbox" id="multiinput" name="Methoden" value="5"/><label for="Ziele"></label></td>
-                                <td><input type="checkbox" id="multiinput" name="Methoden" value="0"/><label for="Ziele"></label></td>
+                                <td><input type="checkbox" class="multiinput" name="Methoden" value="1"/><label for="Ziele"></label></td>
+                                <td><input type="checkbox" class="multiinput" name="Methoden" value="2"/><label for="Ziele"></label></td>
+                                <td><input type="checkbox" class="multiinput" name="Methoden" value="3"/><label for="Ziele"></label></td>
+                                <td><input type="checkbox" class="multiinput" name="Methoden" value="4"/><label for="Ziele"></label></td>
+                                <td><input type="checkbox" class="multiinput" name="Methoden" value="5"/><label for="Ziele"></label></td>
+                                <td><input type="checkbox" class="multiinput" name="Methoden" value="0"/><label for="Ziele"></label></td>
                             </tr>
                             <tr>
                                 <td>Medien</td>
-                                <td><input type="checkbox" id="multiinput" name="Medien" value="1"/><label for="Ziele"></label></td>
-                                <td><input type="checkbox" id="multiinput" name="Medien" value="2"/><label for="Ziele"></label></td>
-                                <td><input type="checkbox" id="multiinput" name="Medien" value="3"/><label for="Ziele"></label></td>
-                                <td><input type="checkbox" id="multiinput" name="Medien" value="4"/><label for="Ziele"></label></td>
-                                <td><input type="checkbox" id="multiinput" name="Medien" value="5"/><label for="Ziele"></label></td>
-                                <td><input type="checkbox" id="multiinput" name="Medien" value="0"/><label for="Ziele"></label></td>
+                                <td><input type="checkbox" class="multiinput" name="Medien" value="1"/><label for="Ziele"></label></td>
+                                <td><input type="checkbox" class="multiinput" name="Medien" value="2"/><label for="Ziele"></label></td>
+                                <td><input type="checkbox" class="multiinput" name="Medien" value="3"/><label for="Ziele"></label></td>
+                                <td><input type="checkbox" class="multiinput" name="Medien" value="4"/><label for="Ziele"></label></td>
+                                <td><input type="checkbox" class="multiinput" name="Medien" value="5"/><label for="Ziele"></label></td>
+                                <td><input type="checkbox" class="multiinput" name="Medien" value="0"/><label for="Ziele"></label></td>
                             </tr>
                         </table>
                     </div>
