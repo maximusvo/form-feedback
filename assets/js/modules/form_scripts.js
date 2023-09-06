@@ -125,8 +125,8 @@ function feedbackForm() {
         // draw pie chart in respect of user inputs
         var data = [{
           values: pieInput,
-          marker: {colors: ['#FF5728', '#90D9DE', '#00CB7A', '#C9BDB7', '#FFFFFF']},
-          labels: ['lehrendendefinierend', 'anhörend', 'repräsentativ', 'partnerschaftlich', 'studierendendefiniert'],
+          marker: {colors: ['#FFFFFF', '#90D9DE', '#C9BDB7', '#00CB7A', '#FF5728']},
+          labels: ['lehrendendefiniert', 'anhörend', 'repräsentativ', 'partnerschaftlich', 'studierendendefiniert'],
           type: 'pie'
         }];
         var layout = {
