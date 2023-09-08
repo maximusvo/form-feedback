@@ -681,6 +681,7 @@ function nextPrev(n) {
   // Otherwise, display the correct tab:
   showTab(currentTab);
   saveForm();
+  window.scrollTo(0, 0);
 }
 
 function validateForm() {

@@ -1,6 +1,7 @@
 
 jQuery(document).ready(function($) {
     // only activate current checkbox
+
     $('input[name=Ziele]').change(function () {
         var checkboxes = document.getElementsByClassName("multiinput");
 
