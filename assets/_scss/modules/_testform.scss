@@ -24,11 +24,12 @@ input.invalid {
 input[type=text]{
     background-color: white;
     border-bottom: 2px solid $fourth-color;
+    margin-bottom: 10px;
 }
 select {
     border: 2px solid $fourth-color;
     background-color: white;
-
+    margin-bottom: 10px;
 }
 /* Hide all steps by default: */
 .tab {
