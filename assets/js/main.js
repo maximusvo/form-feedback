@@ -654,7 +654,7 @@ function showTab(n) {
 
   }
   if (n == (x.length - 1)) {
-    document.getElementById("nextBtn").innerHTML = "Abschicken";
+    document.getElementById("nextBtn").innerHTML = "Auswerten";
   } else {
     document.getElementById("nextBtn").innerHTML = "Weiter";
   }
