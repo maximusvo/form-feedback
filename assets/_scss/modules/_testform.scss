@@ -92,6 +92,8 @@ input.invalid {
 
 .multiinput {
     width: auto;
+    display:block;
+    margin:0 auto;
 
 }
 .formnav {
@@ -104,13 +106,12 @@ table {
 }
 
 td, th {
-
   text-align: center;
   padding: 8px;
 }
 
 tr:nth-child(even) {
-  background-color: #dddddd;
+  //background-color: #dddddd;
 }
 td:first-child {
     text-align: left;
@@ -153,14 +154,21 @@ td:first-child {
   width: 100%;
   height: auto;
 }
-/*
+
 input[type=checkbox] {
         border: 3px solid #fff;
-        width: 1em;
-        height: 1em;
+        width: 10px;
+        height: 10px;
         background-color: white;
-        border-radius: 100%;
-        vertical-align: middle;
+        border-radius: 50%;
+
+        display:block;
+        transform:translateY(0%);
+        margin:0 auto;
+        vertical-align:middle;
+        text-align: center;
+        display: inline-block;
+
         appearance: none;
         -webkit-appearance: none;
         outline: none;
@@ -172,20 +180,66 @@ input[type=checkbox]:checked {
     background-color: $secondary-color;
 }
 .checkbox-box {
-        width: 1.6em;
-        height: 1.6em;
+        width: 20px;
+        height: 20px;
         background-color: $fourth-color;
-        border-radius: 100%;
+        border-radius: 50%;
+        margin:0 auto;
+        vertical-align:middle;
+        text-align: center;
+        display: inline-block;
 }
-*/
+
+.checkbox-el {
+  position: relative;
+  width: 25px;
+  display: inline-block;
+  height: 25px;
+  border-radius: 50%;
+  vertical-align: middle;
+  border: 2px solid $fourth-color;
+  -webkit-appearance: none;
+  outline: none;
+  cursor: pointer;
+  padding: 5px;
+
+}
+
+.checkbox-el input {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  z-index: 5;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkbox-circle {
+  position: relative;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  transform: scale(0.5);
+  transition: all 0.25s ease-in;
+}
+
+.checkbox-el input:checked + .checkbox-circle {
+  background-color: $secondary-color;
+  transform: scale(1)
+}
+
 .info {
-  align-items: center;
-  justify-content: center;
+      align-items: center;
+      justify-content: center;
       width: 18px;
       //position:relative;
 }
 .centered {
-    vertical-align:middle; text-align:center;
+    vertical-align:middle;
+    text-align: center;
     }
 .centered img {
     display:block;

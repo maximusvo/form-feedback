@@ -243,6 +243,7 @@ function saveForm() {
         media.push($(this).attr('value'));
     });
     localStorage.setItem("media", JSON.stringify(media));
+        console.log("media"+media);
 
 
     var x = document.getElementsByTagName("select");
@@ -259,10 +260,7 @@ function saveForm() {
     localStorage.setItem("formInputInput", JSON.stringify(formInputInput));
     var storedInputSelect = JSON.parse(localStorage.getItem("formInputSelect"));
     var storedInputInput = JSON.parse(localStorage.getItem("formInputInput"));
-    console.log(storedInputSelect);
-    console.log(formInputInput);
     status++;
-    console.log(status);
     return;
 }
 
@@ -309,7 +307,7 @@ function checkstatus() {
 
         setCheckboxTrue("Ziele", Number(JSON.parse(localStorage.getItem("aims"))), "multiinput");
         setCheckboxTrue("Inhalte", Number(JSON.parse(localStorage.getItem("content"))), "multiinput");
-        setCheckboxTrue("Medien", Number(JSON.parse(localStorage.getItem("methods"))), "multiinput");
+        setCheckboxTrue("Medien", Number(JSON.parse(localStorage.getItem("media"))), "multiinput");
         setCheckboxTrue("Methoden", Number(JSON.parse(localStorage.getItem("methods"))), "multiinput");
         setCheckboxTrue("Ergebnisse", Number(JSON.parse(localStorage.getItem("results"))), "multiinput");
 
