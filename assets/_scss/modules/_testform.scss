@@ -121,6 +121,16 @@ td:first-child {
     margin-bottom: 20px;
 }
 
+.matrixtag {
+    text-align:center;
+    margin-bottom: 20px;
+
+    .matrixtag-inner {
+    border-radius: 25px;
+    margin: 5px;
+    border: 2px solid $fourth-color;
+    }
+}
 // test pie
 
 .pie {
