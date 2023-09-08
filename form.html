@@ -31,7 +31,10 @@ layout: default
 
                 <div class="row">
                     <div class="col-md-12 col-xs-24">
-
+                        <label>Titel der Lehrveranstaltung</label>
+                        <div>
+                            <input id="eventtitel" class="" placeholder="bitte eingeben (optional)" type="text" name="eventtitel" >
+                        </div>
                         <label>Art der Lehr- und Lernveranstaltung</label>
                         {% if site.data.oertool.eventtype %}
                             <select name="eventType" id="eventType">
@@ -50,10 +53,6 @@ layout: default
                             <option value="Wahlpflichtfach">Wahlpflichtfach</option>
                             <option value="weder noch">weder noch</option>
                         </select>
-                        <label>Titel der Lehrveranstaltung</label>
-                        <div>
-                            <input id="eventtitel" class="open" placeholder="bitte eingeben" type="text" name="eventtitel" >
-                        </div>
                         <label>Zielgruppe</label>
                         <select name="eventTarget" id="eventTarget">
                             <option value="0">...</option>
