@@ -1,3 +1,5 @@
+- name: "..."
+  value: 0
 - name: "Vorlesung"
   value: 1
 - name: "Seminar"

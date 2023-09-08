@@ -1,3 +1,5 @@
+- name: "..."
+  value: 0
 - name: "Universität"
   value: 1
 - name: "Hochschule für angewandte Wissenschaften"

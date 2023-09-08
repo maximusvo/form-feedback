@@ -45,6 +45,7 @@ layout: default
                         {% endif %}
                         <label>Status der Lehr- und Lernveranstaltung</label>
                         <select name="eventStatus" id="eventStatus">
+                            <option value="0">...</option>
                             <option value="Pflichtfach">Pflichtfach</option>
                             <option value="Wahlpflichtfach">Wahlpflichtfach</option>
                             <option value="weder noch">weder noch</option>
@@ -55,11 +56,12 @@ layout: default
                         </div>
                         <label>Zielgruppe</label>
                         <select name="eventTarget" id="eventTarget">
-                            <option value="0">Studiengang...</option>
+                            <option value="0">...</option>
                             <option value="1">Bachelor</option>
                             <option value="2">Master</option>
                         </select>
                         <select name="otherTypeTG" id="otherTypeTG">
+                            <option value="0">...</option>
                             <option value="1">1. Semester</option>
                             <option value="2">2. Semester und höher</option>
                         </select>
@@ -73,6 +75,7 @@ layout: default
                         {% endif %}
                         <label>Zeitlicher Umfang</label>
                         <select name="eventtime" id="eventtime">
+                            <option value="0">...</option>
                             <option value="1">2 Semesterwochenstunden</option>
                             <option value="2">4 Semesterwochenstunden</option>
                             <option value="3">Anderer, und zwar..</option>
@@ -189,6 +192,7 @@ layout: default
                         <label>Hast du dir Feedback zur Lehr- und Lernveranstaltung von den Studierenden eingeholt?</label>
 
                         <select name="eventFeedbackVorhanden" id="eventFeedbackVorhanden">
+                            <option value="0">...</option>
                             <option value="ja">ja</option>
                             <option value="nein">nein</option>
                         </select>
@@ -199,6 +203,7 @@ layout: default
                         <label>Wie ist das Feedback seitens der Studierenden ausgefallen?</label>
 
                         <select name="feedbackStudents" id="feedbackStudents">
+                            <option value="0">...</option>
                             <option value="1">überwiegend sehr gut</option>
                             <option value="2">überwiegend gut</option>
                             <option value="3">überwiegend befriedigend</option>
@@ -208,6 +213,7 @@ layout: default
                         <label>Würdest du die Lehr-Lernveranstaltung in dieser Form wiederholen?</label>
 
                         <select name="eventErneutAnbieten" id="eventErneutAnbieten">
+                            <option value="0">...</option>
                             <option value="ja">ja</option>
                             <option value="nein">nein</option>
                         </select>
@@ -228,6 +234,7 @@ layout: default
                         <label>Glaubst du, dass die digitale Erweiterung der Partizipationsmöglichkeiten in Form von z.B. Feedback-Apps, Diskussionsforen oder interaktiven Whiteboards zu einem größeren Einfluss der Studierenden auf Entscheidungen hinsichtlich des Lehr- und Lernprozesses geführt hat?</label>
 
                         <select name="einflussStudentsTools" id="einflussStudentsTools">
+                            <option value="0">...</option>
                             <option value="ja">ja</option>
                             <option value="nein">nein</option>
                             <option value="kA">ich weiß es nicht</option>
@@ -257,6 +264,7 @@ layout: default
                         <label>Seit wann bist du in der Lehre tätig?</label>
 
                         <select name="lehreInJahren" id="lehreInJahren">
+                            <option value="0">...</option>
                             <option value="<1"><1 Jahr</option>
                             <option value="1-2">1-2 Jahre</option>
                             <option value="2-3">2-3 Jahre</option>
@@ -269,6 +277,7 @@ layout: default
                         <label>Welche Rolle hast du an der wissenschaftlichen Einrichtung?</label>
 
                         <select name="rolleLehrperson" id="rolleLehrperson">
+                            <option value="0">...</option>
                             <option value="Prof">Professor_in</option>
                             <option value="ForschGrupLeit">Forschungsgruppenleiter_in</option>
                             <option value="WiMi">Wissenschaftliche(r) Mitarbeiter_in</option>
@@ -283,6 +292,7 @@ layout: default
                         <label>In welchem Bundesland bist du tätig?</label>
 
                         <select name="bundesland" id="bundesland">
+                            <option value="0">...</option>
                             <option value="Baden-Württemberg">Baden-Württemberg</option>
                             <option value="Bayern">Bayern</option>
                             <option value="Berlin">Berlin</option>
