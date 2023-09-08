@@ -179,6 +179,16 @@ input[type=checkbox]:checked {
 }
 */
 .info {
-      display: inline;
+  align-items: center;
+  justify-content: center;
       width: 18px;
+      //position:relative;
 }
+.centered {
+    vertical-align:middle; text-align:center;
+    }
+.centered img {
+    display:block;
+    margin:0 ;
+    width: 18px;
+    }
