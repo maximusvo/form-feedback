@@ -150,7 +150,10 @@ function feedbackForm() {
         }
 
         //document.getElementById("feedbackTwo").innerHTML = "Inputs: " + JSON.parse(localStorage.getItem("aims"));
-        if(result <= 10){
+        if(result == 0){
+            document.getElementById("feedbackOne").innerHTML = "Ungenügend Angaben <br>";
+        }
+        if(result != 0 && result <= 10){
             document.getElementById("feedbackOne").innerHTML = "Richtungsgebend <br>";
         }
         if(result >= 11 && result <= 17){

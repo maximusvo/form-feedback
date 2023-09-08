@@ -21,7 +21,15 @@ input {
 input.invalid {
   background-color: #ffdddd;
 }
+input[type=text]{
+    background-color: white;
+    border-bottom: 2px solid $fourth-color;
+}
+select {
+    border: 2px solid $fourth-color;
+    background-color: white;
 
+}
 /* Hide all steps by default: */
 .tab {
   display: none;
@@ -131,19 +139,6 @@ td:first-child {
     border: 2px solid $fourth-color;
     }
 }
-// test pie
-
-.pie {
-  width: 200px;
-  height: 200px;
-  background-image: conic-gradient(orange 50%, blue 50% 75%, red 75% 90%, green 90%);
-  border-radius: 50%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 50px;
-}
-
 
 .feedback {
     text-align: left !important;
