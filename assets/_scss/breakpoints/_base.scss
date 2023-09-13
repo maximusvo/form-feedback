@@ -625,8 +625,8 @@ body:not(.safari){
   &.home{
 
     //background: url($baseurl + '/assets/img/static/background.png') no-repeat;
-    background-size: cover;
-    background-position: center;
+    //background-size: cover;
+    //background-position: center;
     background-color: $secondary-color;
 
     @media only screen and (max-width: 640px) {
@@ -738,7 +738,7 @@ PAGE & SECTIONS
 .section{
 
   padding-left: 30px;
-  height: 75vh;
+  height: 78vh;
   &.center{
     text-align: center;
   }
