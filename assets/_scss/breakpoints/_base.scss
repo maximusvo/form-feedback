@@ -691,6 +691,11 @@ PAGE & SECTIONS
   &.btn-wrap{
     padding-top: 60px;
   }
+  &.content-box-el{
+    box-sizing: content-box;
+      padding-top: 20px;
+      padding-bottom: 20px;
+  }
 }
 
 .topic-img{
@@ -737,14 +742,12 @@ PAGE & SECTIONS
 
 .section{
 
-  padding-left: 30px;
-  height: 78vh;
   &.center{
     text-align: center;
   }
-    &.left{
-      text-align: left;
-    }
+  &.left{
+    text-align: left;
+  }
   &.first{
     padding-top: 60px;
     margin-top: $header-height;
