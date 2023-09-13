@@ -49,24 +49,25 @@ select.invalid {
 
 /* Make circles that indicate the steps of the form: */
 .step {
-  height: 15px;
-  width: 15px;
+  height: 20px;
+  width: 20px;
   margin: 0 2px;
-  background-color: #bbbbbb;
+  background-color: #fff;
   border: none;
   border-radius: 50%;
   display: inline-block;
-  opacity: 0.5;
+  opacity: 1;
+  text-align: center;
 }
 
 /* Mark the active step: */
 .step.active {
-  opacity: 1;
+  opacity: 0.5;
 }
 
 /* Mark the steps that are finished and valid: */
 .step.finish {
-  background-color: $secondary-color;
+  background-color: $primary-color;
 } 
 
 .other {
