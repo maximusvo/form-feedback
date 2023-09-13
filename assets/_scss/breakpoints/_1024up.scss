@@ -160,7 +160,8 @@ HEADER STYLES
       background-color: transparent;
       display: inline-block;
       top: 50%;
-      transform: translateY(-50%);
+      right: 5%;
+      //transform: translateY(-50%);
       width: auto;
       padding: 0;
       max-height: none;
@@ -314,4 +315,12 @@ contentpage elements
 
 .caption{
   font-size: 1rem;
+}
+.forminfo {
+    height: 90vh;
+}
+.statusindicator {
+    .inner {
+        width: 50%;
+    }
 }
