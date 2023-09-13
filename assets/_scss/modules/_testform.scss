@@ -138,10 +138,6 @@ td:first-child {
         //height: 20vh;
     }
 }
-.formcontent {
-    padding: 18px;
-
-}
 
 .matrixtag {
     text-align:center;
@@ -283,4 +279,7 @@ input[type=checkbox]:checked {
 /* Show the tooltip text when you mouse over the tooltip container */
 .tooltip:hover .tooltiptext {
   visibility: visible;
+}
+.formcontent {
+    padding: 18px;
 }
