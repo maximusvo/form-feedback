@@ -622,7 +622,7 @@ body:not(.safari){
   }
 
   &.home{
-    height: 90vh;
+    height: 100vh;
     //background: url($baseurl + '/assets/img/static/background.png') no-repeat;
     background-size: cover;
     background-position: center;
@@ -656,7 +656,7 @@ body:not(.safari){
       //transform: translate(5%, -60%);
       display: block;
       //background-color: $white;
-      padding-top: 80px;
+      padding-top: 40px;
       padding-left: 40px;
           h1 {
             //font-family: $font-tech;
