@@ -25,4 +25,4 @@
 - name: "Öffentliche Verwaltung"
   value: 12
 - name: "Andere, und zwar.."
-  value: 13
+  value: "other"

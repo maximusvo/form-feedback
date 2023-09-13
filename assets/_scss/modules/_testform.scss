@@ -18,7 +18,7 @@ input {
 }
 
 /* Mark input boxes that gets an error on validation: */
-input.invalid {
+input[type=text].invalid {
   background-color: #ffdddd;
 }
 input[type=text]{
@@ -26,10 +26,21 @@ input[type=text]{
     border-bottom: 2px solid $fourth-color;
     margin-bottom: 10px;
 }
+input[type=text].other {
+    display:none;
+}
+.other {
+    display:none;
+}
+.hidden {
+}
 select {
     border: 2px solid $fourth-color;
     background-color: white;
     margin-bottom: 10px;
+}
+select.invalid {
+  background-color: #ffdddd;
 }
 /* Hide all steps by default: */
 .tab {
@@ -58,20 +69,8 @@ select {
   background-color: $secondary-color;
 } 
 
-#otherType {
+.other {
     display:none;
-}
-#otherTypeTG {
-    display:none;
-}
-#otherTypeFaculty {
-    display:none;
-}
-#otherEventTime {
-    display:none;
-}
-#otherEventInstitution {
-  display:none;
 }
 
 .tableofcontent {

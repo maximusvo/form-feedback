@@ -1,4 +1,3 @@
-
 jQuery(document).ready(function($) {
     // only activate current checkbox
 
@@ -58,56 +57,8 @@ jQuery(document).ready(function($) {
         }
     });
     // only show individual input fields, if needed (selected by id)
-    $('select[name=eventType]').change(function () {
-        if ($(this).val() == '14') {
-            $('#otherType').show();
-            $('#otherType').addClass( "open" );
-        } else {
-            $('#otherType').hide();
-            $('#otherType').removeClass( "open" );
-        }
-        console.log("done");
-    });
-    $('select[name=eventTarget]').change(function () {
-        if ($(this).val() == '1') {
-            $('#otherTypeTG').show();
-            $('#otherTypeTG').addClass( "open" );
-        } else {
-            $('#otherTypeTG').hide();
-            $('#otherTypeTG').removeClass( "open" );
-        }
-        console.log("done");
-    });
-    $('select[name=eventFaculty]').change(function () {
-        if ($(this).val() == '13') {
-            $('#otherTypeFaculty').show();
-            $('#otherTypeFaculty').addClass( "open" );
-        } else {
-            $('#otherTypeFaculty').hide();
-            $('#otherTypeFaculty').removeClass( "open" );
-        }
-        console.log("done");
-    });
-    $('select[name=eventtime]').change(function () {
-        if ($(this).val() == '3') {
-            $('#otherEventTime').show();
-            $('#otherEventTime').addClass( "open" );
-        } else {
-            $('#otherEventTime').hide();
-            $('#otherEventTime').removeClass( "open" );
-        }
-        console.log("done");
-    });
-    $('select[name=event_institution]').change(function () {
-        if ($(this).val() == '6') {
-            $('#otherEventInstitution').show();
-            $('#otherEventInstitution').addClass( "open" );
-        } else {
-            $('#otherEventInstitution').hide();
-            $('#otherEventInstitution').removeClass( "open" );
-        }
-        console.log("done");
-    });
+
+
 });
 
 var button = document.getElementById("button");
@@ -320,9 +271,15 @@ function checkstatus() {
         var storedInputInput = JSON.parse(localStorage.getItem("formInputInput"));
         for (i = 0; i < x.length; i++) {
             x[i].value = storedInputSelect[i];
+            if(x[i].value == "other"){
+                x[i].onclick();
+                }
         }
         for (i = 0; i < y.length; i++) {
             y[i].value = storedInputInput[i];
+            if(y[i].value == "other"){
+                y[i].onclick();
+            }
         }
     }
 
@@ -342,6 +299,19 @@ function buttonAction (){
     }
 }
 */
+function checkfield(field_id, target_id) {
+    var x = document.getElementById(field_id);
+    var y = document.getElementById(target_id);
+    if("other" == x.value){
+        y.classList.add("open");
+        y.style.display = 'block';
+    }
+    else {
+        y.classList.remove("open");
+        y.style.display = 'none';
+    }
+    console.log("checkfiled done with field id: " + field_id);
+}
 window.addEventListener("load", feedbackForm);
 window.addEventListener("load", checkstatus);
 

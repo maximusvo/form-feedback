@@ -629,6 +629,10 @@ function sendContentToStaticman(formSel, waitMsgDiv, successMsgDiv, errorMsgDiv)
 // test formspree
 
 var currentTab = 0; // Current tab is set to be the first tab (0)
+// load current tab of an old session
+if(JSON.parse(localStorage.getItem("currentTab")) != null) {
+    currentTab = JSON.parse(localStorage.getItem("currentTab"));
+}
 showTab(currentTab); // Display the current tab
 
 function showTab(n) {
@@ -671,6 +675,7 @@ function nextPrev(n) {
   x[currentTab].style.display = "none";
   // Increase or decrease the current tab by 1:
   currentTab = currentTab + n;
+  localStorage.setItem("currentTab", JSON.stringify(currentTab));
   // if you have reached the end of the form... :
   if (currentTab >= x.length) {
     //...the form gets submitted:
@@ -686,9 +691,17 @@ function nextPrev(n) {
 
 function validateForm() {
   // This function deals with validation of the form fields
-  var x, y, i, valid = true;
+  var x, y, z, i, valid = true;
   x = document.getElementsByClassName("tab");
   y = x[currentTab].getElementsByTagName("input");
+  z = x[currentTab].getElementsByTagName("select");
+    for (i = 0; i < z.length; i++) {
+        if(z[i].value == "0" & !z[i].classList.contains("hidden")){
+            z[i].classList.add("invalid");
+            valid = false;
+        }
+
+    }
   // A loop that checks every input field in the current tab:
   for (i = 0; i < y.length; i++) {
     // If a field has class "open" and is empty...

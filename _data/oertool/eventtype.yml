@@ -27,5 +27,5 @@
 - name: "Hybrid-Format"
   value: 13
 - name: "Andere, und zwar.."
-  value: 14
+  value: "other"
   field: 0

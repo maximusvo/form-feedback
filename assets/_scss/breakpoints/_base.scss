@@ -51,8 +51,8 @@ LAYOUT & GRID STYLES
 
 .section{
 
-  position: relative;
-  display: table;
+  //position: relative;
+  //display: table;
 
   &.fullwidth{
     width:100%
@@ -466,7 +466,7 @@ HEADER STYLES
       display: none;
     }
     .branding-nav {
-      font-family: $font-tech;
+      //font-family: $font-tech;
     }
     ul.main-nav{
 
@@ -622,24 +622,24 @@ body:not(.safari){
   }
 
   &.home{
-    height: 40vh;
+    height: 90vh;
     //background: url($baseurl + '/assets/img/static/background.png') no-repeat;
     background-size: cover;
     background-position: center;
+    background-color: $secondary-color;
 
     @media only screen and (max-width: 640px) {
       height: 300px;
     }
 
     p{
-      height: 250px;
       text-decoration: none;
-      color: $black;
+      color: $white;
       font-family: $heading-font;
-      font-weight: 700;
-      line-height: 40px;
-      font-size: 3rem;
-      text-transform: uppercase;
+      //font-weight: 700;
+      //line-height: 40px;
+      font-size: 1rem;
+      //text-transform: uppercase;
       text-align: left !important;
 
     }
@@ -648,19 +648,20 @@ body:not(.safari){
       font-size: 2rem !important;
       line-height: 1.1em;
     }
-    .branding{
-      position: absolute;
-      top: 10%;
-      left: 50%;
-      transform: translate(-50%,-50%);
-      display: block;
-      text-align: center;
-      background-color: $white;
-      padding-top: 10px;
-      padding-bottom: 10px;
 
+    .branding{
+      //position: absolute;
+      //top: 10%;
+      //left: 50%;
+      //transform: translate(5%, -60%);
+      display: block;
+      //background-color: $white;
+      padding-top: 80px;
+      padding-left: 40px;
           h1 {
-            font-family: $font-tech;
+            //font-family: $font-tech;
+            color: $fourth-color;
+
           }
     }
   }
@@ -733,10 +734,16 @@ PAGE & SECTIONS
 }
 
 .section{
-  width: 100%;
-  text-align: center;
-  padding: 30px 0;
+  //width: 100%;
 
+  padding-left: 30px;
+  height: 70vh;
+  &.center{
+    text-align: center;
+  }
+    &.left{
+      text-align: left;
+    }
   &.first{
     padding-top: 60px;
     margin-top: $header-height;
@@ -746,14 +753,17 @@ PAGE & SECTIONS
     background-color: $white;
     color: $black;
   }
-
+  &.orange{
+    background-color: $primary-color;
+    color: $black;
+  }
   &.green{
-    background-color: $darkgreen;
+    background-color: $fourth-color;
     color: $black;
   }
 
-  &.grey-light{
-    background-color: $grey-light;
+  &.light-blue{
+    background-color: $third-color;
     color: $black;
   }
 
@@ -1364,5 +1374,13 @@ FOOTER STYLES
   strong {
     text-align: left !important;
   }
+
+}
+
+.frontpage {
+    img{
+        width: 100%;
+        height: auto;
+    }
 
 }

@@ -43,7 +43,9 @@ WRAPPER STYLES
 }
 
 .section {
-  padding: 60px 0;
+  padding-left: 60px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .caption{
@@ -64,16 +66,9 @@ HERO
   }
   &.home{
       p{
-        height: 220px;
-        padding-top: 20px;
-        text-decoration: none;
-        color: $black;
-        font-family: $heading-font;
-        font-weight: 700;
-        line-height: 50px;
-        font-size: 4rem;
-        text-transform: uppercase;
-        text-align: left !important;
+        //font-weight: 700;
+        //line-height: 50px;
+        font-size: 1.5rem;
 
       }
       h1 {
@@ -83,8 +78,8 @@ HERO
       }
         .branding{
           h1 {
-            text-align: center !important;
-            font-size: 6rem !important;
+            text-align: left !important;
+            font-size: 9rem !important;
             line-height: 2.1em;
           }
         }

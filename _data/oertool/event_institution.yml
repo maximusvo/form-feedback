@@ -11,5 +11,5 @@
 - name: "Fachhochschule"
   value: 5
 - name: "Andere, und zwar.."
-  value: 6
+  value: "other"
   field: 0

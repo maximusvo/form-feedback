@@ -37,13 +37,13 @@ layout: default
                         </div>
                         <label>Art der Lehr- und Lernveranstaltung</label>
                         {% if site.data.oertool.eventtype %}
-                            <select name="eventType" id="eventType">
+                            <select name="eventType" class="checkreload" id="eventType" onclick="checkfield('eventType', 'otherType')">
                                 {% for et in site.data.oertool.eventtype %}
                                     <option value="{{ et.value }}">{{ et.name }}</option>
                                 {% endfor %}
                             </select>
                             <div>
-                                <input id="otherType" placeholder="bitte eingeben" type="text" name="otherType" >
+                                <input class="other" id="otherType" placeholder="bitte eingeben" type="text" name="otherType" >
                             </div>
                         {% endif %}
                         <label>Status der Lehr- und Lernveranstaltung</label>
@@ -54,12 +54,12 @@ layout: default
                             <option value="weder noch">weder noch</option>
                         </select>
                         <label>Zielgruppe</label>
-                        <select name="eventTarget" id="eventTarget">
+                        <select name="eventTarget" id="eventTarget" onclick="checkfield('eventTarget', 'otherTypeTG')">
                             <option value="0">...</option>
                             <option value="1">Bachelor</option>
-                            <option value="2">Master</option>
+                            <option value="other">Master</option>
                         </select>
-                        <select name="otherTypeTG" id="otherTypeTG">
+                        <select class="other hidden" name="otherTypeTG" id="otherTypeTG">
                             <option value="0">...</option>
                             <option value="1">1. Semester</option>
                             <option value="2">2. Semester und höher</option>
@@ -73,35 +73,35 @@ layout: default
                         </select>
                         {% endif %}
                         <label>Zeitlicher Umfang</label>
-                        <select name="eventtime" id="eventtime">
+                        <select name="eventtime" id="eventtime" onclick="checkfield('eventtime', 'otherEventTime')">
                             <option value="0">...</option>
                             <option value="1">2 Semesterwochenstunden</option>
                             <option value="2">4 Semesterwochenstunden</option>
-                            <option value="3">Anderer, und zwar..</option>
+                            <option value="other">Anderer, und zwar..</option>
                         </select>
                         <div>
-                            <input id="otherEventTime" placeholder="bitte eingeben" type="text" name="otherEventTime" >
+                            <input class="other" id="otherEventTime" placeholder="bitte eingeben" type="text" name="otherEventTime" >
                         </div>
                         <label>Hochschulart</label>
                         {% if site.data.oertool.event_institution %}
-                        <select name="event_institution" id="event_institution">
+                        <select name="event_institution" id="event_institution" onclick="checkfield('event_institution', 'otherEventInstitution')">
                             {% for ei in site.data.oertool.event_institution %}
                             <option value="{{ ei.value }}">{{ ei.name }}</option>
                             {% endfor %}
                         </select>
                         <div>
-                            <input id="otherEventInstitution" placeholder="bitte eingeben" type="text" name="otherEventInstitution" >
+                            <input class="other" id="otherEventInstitution" placeholder="bitte eingeben" type="text" name="otherEventInstitution" >
                         </div>
                         {% endif %}
                         <label>Fachbereich</label>
                         {% if site.data.oertool.event_faculty %}
-                        <select name="eventFaculty" id="eventFaculty">
+                        <select name="eventFaculty" id="eventFaculty" onclick="checkfield('eventFaculty', 'otherTypeFaculty')">
                             {% for tg in site.data.oertool.event_faculty %}
                             <option value="{{ tg.value }}">{{ tg.name }}</option>
                             {% endfor %}
                         </select>
                         <div>
-                            <input id="otherTypeFaculty" placeholder="bitte eingeben" type="text" name="otherTypeFaculty" >
+                            <input class="other" id="otherTypeFaculty" placeholder="bitte eingeben" type="text" name="otherTypeFaculty" >
                         </div>
                         {% endif %}
                     </div>
@@ -111,6 +111,7 @@ layout: default
 
                 <div class="col-md-12 col-xs-24">
                     <h3 class="regular">Partizipationsausprägung</h3>
+                    <p>Im Folgenden wird der Begriff der "Openness" in OEP auf den Partizipationsaspekt fokussiert. Mit Partizipation im Lehr- und Lernkontext wird ein gemeinsamer Lernprozess auf Augenhöhe beschrieben, bei dem sowohl Lehrende als auch Studierende als Gestalter:innen betrachtet werden. Die Art der Beteiligung kann dabei wie nachfolgend aufgezeigt in unterschiedlichen Formen gestaltet sein.</p>
                 </div>
 
                 <div class="row">
@@ -119,12 +120,12 @@ layout: default
                             <tr>
                                 <th></th>
                                 <th></th>
-                                <th>1</th>
-                                <th>2</th>
-                                <th>3</th>
-                                <th>4</th>
-                                <th>5</th>
-                                <th>6</th>
+                                <th>a</th>
+                                <th>b</th>
+                                <th>c</th>
+                                <th>d</th>
+                                <th>e</th>
+                                <th>f</th>
                             </tr>
                             <tr>
                                 <td><div class="centered" ><img class="" src="/assets/img/static/info.png"/></div></td>
@@ -184,31 +185,37 @@ layout: default
 
                 <div class="col-md-12 col-xs-24">
                     <h3 class="regular">Studentisches Feedback</h3>
+                    <p>Das Feedback der Studierenden kann zur Weiterentwicklung deiner Lehrpraxis und zur Steigerung der Lehr-Lernqualität beitragen.</p>
                 </div>
 
                 <div class="row">
                     <div class="col-md-12 col-xs-24">
                         <label>Hast du dir Feedback zur Lehr- und Lernveranstaltung von den Studierenden eingeholt?</label>
 
-                        <select name="eventFeedbackVorhanden" id="eventFeedbackVorhanden">
+                        <select name="eventFeedbackVorhanden" id="eventFeedbackVorhanden" onclick="checkfield('eventFeedbackVorhanden', 'feedbackYes')">
                             <option value="0">...</option>
-                            <option value="ja">ja</option>
+                            <option value="other">ja</option>
                             <option value="nein">nein</option>
                         </select>
-                        <div>
-                            <label>Zu welchen Aspekten hast du dir das Feedback eingeholt?</label>
-                            <input id="eventFeedbackWhat" placeholder="bitte begründen" type="text" name="eventFeedbackWhat" >
-                        </div>
-                        <label>Wie ist das Feedback seitens der Studierenden ausgefallen?</label>
+                        <div class="other" id="feedbackYes">
+                            <div>
+                                <label>Zu welchen Aspekten hast du dir das Feedback eingeholt?</label>
+                                <input id="eventFeedbackWhat" placeholder="bitte begründen" type="text" name="eventFeedbackWhat" >
+                            </div>
+                            <label>Wie ist das Feedback seitens der Studierenden ausgefallen?</label>
 
-                        <select name="feedbackStudents" id="feedbackStudents">
-                            <option value="0">...</option>
-                            <option value="1">überwiegend sehr gut</option>
-                            <option value="2">überwiegend gut</option>
-                            <option value="3">überwiegend befriedigend</option>
-                            <option value="4">überwiegend schlecht</option>
-                            <option value="5">ausbaufähig, weil...</option>
-                        </select>
+                            <select class="hidden" name="feedbackStudents" id="feedbackStudents" onclick="checkfield('feedbackStudents', 'feedbackStudentsWhy')">
+                                <option value="0">...</option>
+                                <option value="1">überwiegend sehr gut</option>
+                                <option value="2">überwiegend gut</option>
+                                <option value="3">überwiegend befriedigend</option>
+                                <option value="4">überwiegend schlecht</option>
+                                <option value="other">ausbaufähig, weil...</option>
+                            </select>
+                            <div>
+                                <input class="other" id="feedbackStudentsWhy" placeholder="bitte eingeben" type="text" name="otherType" >
+                            </div>
+                        </div>
                         <label>Würdest du die Lehr-Lernveranstaltung in dieser Form wiederholen?</label>
 
                         <select name="eventErneutAnbieten" id="eventErneutAnbieten">
@@ -217,7 +224,7 @@ layout: default
                             <option value="nein">nein</option>
                         </select>
                         <div>
-                            <input id="eventErneutAnbietenWhy" placeholder="bitte begründen" type="text" name="eventErneutAnbietenWhy" >
+                            <input class="open" id="eventErneutAnbietenWhy" placeholder="bitte begründen" type="text" name="eventErneutAnbietenWhy" >
                         </div>
                     </div>
                 </div>
@@ -226,11 +233,12 @@ layout: default
 
                 <div class="col-md-12 col-xs-24">
                     <h3 class="regular">Beeinflussende Faktoren</h3>
+                    <p>Das Lernen und Lehren kann von weiteren Faktoren u.a. im Zuge der Digitalisierung beeinflusst werden.</p>
                 </div>
 
                 <div class="row">
                     <div class="col-md-12 col-xs-24">
-                        <label>Glaubst du, dass die digitale Erweiterung der Partizipationsmöglichkeiten in Form von z.B. Feedback-Apps, Diskussionsforen oder interaktiven Whiteboards zu einem größeren Einfluss der Studierenden auf Entscheidungen hinsichtlich des Lehr- und Lernprozesses geführt hat?</label>
+                        <label>Glaubst du, dass digitale Medien zu mehr studentischer Beteiligung in der Lehre und im Lernen geführt haben?</label>
 
                         <select name="einflussStudentsTools" id="einflussStudentsTools">
                             <option value="0">...</option>
@@ -239,15 +247,15 @@ layout: default
                             <option value="kA">ich weiß es nicht</option>
                         </select>
                         <div>
-                            <input id="einflussStudentsToolsWhy" placeholder="bitte begründen" type="text" name="einflussStudentsToolsWhy" >
+                            <input id="einflussStudentsToolsWhy" class="open" placeholder="bitte begründen" type="text" name="einflussStudentsToolsWhy" >
                         </div>
-                        <label>Welche Aspekte haben sich aus deiner Sicht fördernd auf die studentische Partizipation in deiner Lehr-Lerneinheit ausgewirkt (z.B. Informations- und Kommunikationskompetenz, fachlicher Erfahrungshintergrund der Lernenden)?</label>
+                        <label>Welche Aspekte haben sich aus deiner Sicht fördernd auf die studentische Partizipation ausgewirkt?</label>
                         <div>
-                            <input id="einflussPartizipationPro" placeholder="...?" type="text" name="einflussPartizipationPro" >
+                            <input id="einflussPartizipationPro" class="open" placeholder="...?" type="text" name="einflussPartizipationPro" >
                         </div>
-                        <label>Welche Aspekte haben sich aus deiner Sicht hemmend auf die studentische Partizipation in deiner Lehr-Lernveranstaltung ausgewirkt (z.B. Teilnehmer*innenzahl, Modulvorgaben)?</label>
+                        <label>Welche Aspekte haben sich aus deiner Sicht hemmend auf die studentische Partizipation ausgewirkt?</label>
                         <div>
-                            <input id="einflussPartizipationCon" placeholder="...?" type="text" name="einflussPartizipationCon" >
+                            <input id="einflussPartizipationCon" class="open" placeholder="...?" type="text" name="einflussPartizipationCon" >
                         </div>
                     </div>
                 </div>
@@ -256,6 +264,7 @@ layout: default
 
                 <div class="col-md-12 col-xs-24">
                     <h3 class="regular">Demografie</h3>
+                    <p>Zu guter Letzt sind wir interessiert, welche Lehrerfahrung du mitbringst.</p>
                 </div>
 
                 <div class="row">
@@ -275,7 +284,7 @@ layout: default
                         </select>
                         <label>Welche Rolle hast du an der wissenschaftlichen Einrichtung?</label>
 
-                        <select name="rolleLehrperson" id="rolleLehrperson">
+                        <select name="rolleLehrperson" id="rolleLehrperson" onclick="checkfield('rolleLehrperson', 'rolleLehrpersonAndere')">
                             <option value="0">...</option>
                             <option value="Prof">Professor_in</option>
                             <option value="ForschGrupLeit">Forschungsgruppenleiter_in</option>
@@ -283,10 +292,10 @@ layout: default
                             <option value="StuMi">Studentische(r) Mitarbeiter_in</option>
                             <option value="PostDoc">PostDoc</option>
                             <option value="LehrPmbAufg">Lehrperson mit besonderen Aufgaben</option>
-                            <option value="andere">andere...</option>
+                            <option value="other">andere...</option>
                         </select>
                         <div>
-                            <input id="rolleLehrpersonAndere" placeholder="bitte angeben" type="text" name="rolleLehrpersonAndere" >
+                            <input id="rolleLehrpersonAndere" class="other" placeholder="bitte angeben" type="text" name="rolleLehrpersonAndere" >
                         </div>
                         <label>In welchem Bundesland bist du tätig?</label>
 
@@ -308,6 +317,7 @@ layout: default
                             <option value="Sachsen-Anhalt">Sachsen-Anhalt</option>
                             <option value="Schleswig-Holstein">Schleswig-Holstein</option>
                             <option value="Thüringen">Thüringen</option>
+                            <option value="Ausserhalb von Deutschland">Außerhalb von Deutschland</option>
                         </select>
                     </div>
                 </div>
