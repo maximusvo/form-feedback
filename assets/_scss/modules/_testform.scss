@@ -154,6 +154,9 @@ td:first-child {
 
 .feedback {
     text-align: left !important;
+    margin-top: 8vh;
+    height: 150vh;
+    width:100%;
     background-color: $secondary-color;
     h1 {
         color: $primary-color;
