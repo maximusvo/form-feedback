@@ -192,7 +192,7 @@ h5, .h5 {
   font-size: 2rem;
   line-height: 1.1em;
   margin-bottom: 0.375em;
-  text-align: center;
+  text-align: left;
 }
 
 /*********************
@@ -684,6 +684,7 @@ PAGE & SECTIONS
 
 .content-wrap{
   width: 85%;
+  padding-top: 20px;
   margin: 0 auto;
 
   &.btn-wrap{
@@ -734,10 +735,9 @@ PAGE & SECTIONS
 }
 
 .section{
-  //width: 100%;
 
   padding-left: 30px;
-  height: 70vh;
+  height: 75vh;
   &.center{
     text-align: center;
   }
