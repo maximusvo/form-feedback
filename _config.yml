@@ -15,9 +15,9 @@
 # in the templates via {{ site.myvariable }}.
 email: unbox-contact@posteo.de
 baseurl: "" # the subpath of your site, e.g. /blog
-twitter_username: ma__vo
+twitter_username:
 permalink: /blog/:title
-url: "www.unbox-blackbox.org"
+url: "howtoopen.education"
 
 # Build settings
 highlighter: rouge
@@ -48,10 +48,10 @@ sass:
   sass_dir:          assets/_scss
   #style:            :compressed
 
-repository: 'unbox-blackbox'
+repository: 'form-feedback'
 
-title: "Offene Bildung selbst einschätzen"
-description: "Mit diesem Tool können Lehrende einschätzen, wie partizipativ ihre Bildungsformate sind."
+title: "How to open education?"
+description: "Mit diesem Tool können Lehrende einschätzen, wie partizipativ ihre Bildungsformate sind und erhalten Feedback."
 logo: "/assets/img/static/mavo.jpg"
 twitter:
   username: ma__vo
