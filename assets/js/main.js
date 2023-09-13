@@ -696,7 +696,7 @@ function validateForm() {
   y = x[currentTab].getElementsByTagName("input");
   z = x[currentTab].getElementsByTagName("select");
     for (i = 0; i < z.length; i++) {
-        if(z[i].value == "0" & !z[i].classList.contains("hidden")){
+        if(z[i].value == "0" & !z[i].classList.contains("hiddencontent")){
             z[i].classList.add("invalid");
             valid = false;
         }
