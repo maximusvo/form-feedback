@@ -36,7 +36,7 @@ layout: default
                         </div>
                         <label>Art der Lehr- und Lernveranstaltung</label>
                         {% if site.data.oertool.eventtype %}
-                            <select name="eventType" class="checkreload" id="eventType" onclick="checkfield('eventType', 'otherType')">
+                            <select name="eventType" class="checkreload" id="eventType" onchange="checkfield('eventType', 'otherType')">
                                 {% for et in site.data.oertool.eventtype %}
                                     <option value="{{ et.value }}">{{ et.name }}</option>
                                 {% endfor %}
@@ -53,7 +53,7 @@ layout: default
                             <option value="weder noch">weder noch</option>
                         </select>
                         <label>Zielgruppe</label>
-                        <select name="eventTarget" id="eventTarget" onclick="checkfield('eventTarget', 'otherTypeTG')">
+                        <select name="eventTarget" id="eventTarget" onchange="checkfield('eventTarget', 'otherTypeTG')">
                             <option value="0">...</option>
                             <option value="1">Bachelor</option>
                             <option value="other">Master</option>
@@ -72,7 +72,7 @@ layout: default
                         </select>
                         {% endif %}
                         <label>Zeitlicher Umfang</label>
-                        <select name="eventtime" id="eventtime" onclick="checkfield('eventtime', 'otherEventTime')">
+                        <select name="eventtime" id="eventtime" onchange="checkfield('eventtime', 'otherEventTime')">
                             <option value="0">...</option>
                             <option value="1">2 Semesterwochenstunden</option>
                             <option value="2">4 Semesterwochenstunden</option>
@@ -83,7 +83,7 @@ layout: default
                         </div>
                         <label>Hochschulart</label>
                         {% if site.data.oertool.event_institution %}
-                        <select name="event_institution" id="event_institution" onclick="checkfield('event_institution', 'otherEventInstitution')">
+                        <select name="event_institution" id="event_institution" onchange="checkfield('event_institution', 'otherEventInstitution')">
                             {% for ei in site.data.oertool.event_institution %}
                             <option value="{{ ei.value }}">{{ ei.name }}</option>
                             {% endfor %}
@@ -94,7 +94,7 @@ layout: default
                         {% endif %}
                         <label>Fachbereich</label>
                         {% if site.data.oertool.event_faculty %}
-                        <select name="eventFaculty" id="eventFaculty" onclick="checkfield('eventFaculty', 'otherTypeFaculty')">
+                        <select name="eventFaculty" id="eventFaculty" onchange="checkfield('eventFaculty', 'otherTypeFaculty')">
                             {% for tg in site.data.oertool.event_faculty %}
                             <option value="{{ tg.value }}">{{ tg.name }}</option>
                             {% endfor %}
@@ -203,7 +203,7 @@ layout: default
                             </div>
                             <label>Wie ist das Feedback seitens der Studierenden ausgefallen?</label>
 
-                            <select class="hidden" name="feedbackStudents" id="feedbackStudents" onclick="checkfield('feedbackStudents', 'feedbackStudentsWhy')">
+                            <select class="hidden" name="feedbackStudents" id="feedbackStudents" onchange="checkfield('feedbackStudents', 'feedbackStudentsWhy')">
                                 <option value="0">...</option>
                                 <option value="1">überwiegend sehr gut</option>
                                 <option value="2">überwiegend gut</option>
@@ -283,7 +283,7 @@ layout: default
                         </select>
                         <label>Welche Rolle hast du an der wissenschaftlichen Einrichtung?</label>
 
-                        <select name="rolleLehrperson" id="rolleLehrperson" onclick="checkfield('rolleLehrperson', 'rolleLehrpersonAndere')">
+                        <select name="rolleLehrperson" id="rolleLehrperson" onchange="checkfield('rolleLehrperson', 'rolleLehrpersonAndere')">
                             <option value="0">...</option>
                             <option value="Prof">Professor_in</option>
                             <option value="ForschGrupLeit">Forschungsgruppenleiter_in</option>

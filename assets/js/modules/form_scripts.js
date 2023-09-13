@@ -272,13 +272,13 @@ function checkstatus() {
         for (i = 0; i < x.length; i++) {
             x[i].value = storedInputSelect[i];
             if(x[i].value == "other"){
-                x[i].onclick();
+                x[i].onchange();
                 }
         }
         for (i = 0; i < y.length; i++) {
             y[i].value = storedInputInput[i];
             if(y[i].value == "other"){
-                y[i].onclick();
+                y[i].onchange();
             }
         }
     }
