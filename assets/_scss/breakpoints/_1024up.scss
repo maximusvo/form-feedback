@@ -41,7 +41,7 @@ WRAPPER STYLES
   p,.subheading{
     margin-bottom: 50px;
   }
-  a, p,.subheading, .content-element .infobox-headline, .content-element .infobox-copy, ul li, ol li {
+  a, p,.subheading, .content-element .infobox-headline, .content-element .infobox-copy, ul li, ol li, label {
     font-size: 1.25rem;
   }
 
@@ -317,7 +317,7 @@ contentpage elements
   font-size: 1rem;
 }
 .forminfo {
-    height: 90vh;
+    height: 110vh;
 }
 .statusindicator {
     .inner {
