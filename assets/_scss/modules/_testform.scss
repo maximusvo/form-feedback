@@ -127,12 +127,14 @@ td:first-child {
 }
 .statusindicator {
     padding: 0px;
+
     .inner {
         text-align:left;
         //margin-bottom: 20px;
         background-color: $fourth-color;
         width: 50%;
         padding: 7.5px;
+        padding-top: 15px;
         //height: 20vh;
     }
 }
