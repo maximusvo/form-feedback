@@ -56,6 +56,28 @@ jQuery(document).ready(function($) {
             }
         }
     });
+    $('input[name=Kontext]').change(function () {
+        var checkboxes = document.getElementsByClassName("multiinput");
+
+        for (i=0; i < checkboxes.length; i++) {
+            if(checkboxes[i].name == "Kontext"){
+                if(checkboxes[i].value != $(this).val()) {
+                    document.getElementsByClassName("multiinput")[i].checked = false;
+                }
+            }
+        }
+    });
+    $('input[name=Evaluation]').change(function () {
+        var checkboxes = document.getElementsByClassName("multiinput");
+
+        for (i=0; i < checkboxes.length; i++) {
+            if(checkboxes[i].name == "Evaluation"){
+                if(checkboxes[i].value != $(this).val()) {
+                    document.getElementsByClassName("multiinput")[i].checked = false;
+                }
+            }
+        }
+    });
     // only show individual input fields, if needed (selected by id)
 
 
@@ -70,7 +92,7 @@ function feedbackForm() {
     var storedInputInput = JSON.parse(localStorage.getItem("formInputInput"));
     if (typeof storedInputInput !== 'undefined' && storedInputInput !== null){
         var pieInput = [0,0,0,0,0,0];
-        var matrixVariables = [Number(JSON.parse(localStorage.getItem("aims"))), Number(JSON.parse(localStorage.getItem("content"))), Number(JSON.parse(localStorage.getItem("results"))), Number(JSON.parse(localStorage.getItem("methods"))), Number(JSON.parse(localStorage.getItem("media")))];
+        var matrixVariables = [Number(JSON.parse(localStorage.getItem("aims"))), Number(JSON.parse(localStorage.getItem("content"))), Number(JSON.parse(localStorage.getItem("results"))), Number(JSON.parse(localStorage.getItem("methods"))), Number(JSON.parse(localStorage.getItem("media"))),Number(JSON.parse(localStorage.getItem("context"))), Number(JSON.parse(localStorage.getItem("evaluation")))];
         var result = 0;
         for(i=0; i<matrixVariables.length; i++){
             // calc total points of user
@@ -100,24 +122,34 @@ function feedbackForm() {
             }
         }
 
-        //document.getElementById("feedbackTwo").innerHTML = "Inputs: " + JSON.parse(localStorage.getItem("aims"));
         if(result == 0){
             document.getElementById("feedbackOne").innerHTML = "Ungenügend Angaben <br>";
         }
         if(result != 0 && result <= 10){
             document.getElementById("feedbackOne").innerHTML = "Richtungsgebend <br>";
+            document.getElementById("feedbackTwo").innerHTML = "Toll, dass du das Tool genutzt hast, um deine Lehrpraxis hinsichtlich der Partizipationsausprägung einzuschätzen! Als Typ »richtungsgebend« übernimmst du viel Verantwortung und schaffst ein Lehr- und Lernsetting, welches den Studierenden eine Richtung vorgibt. Sofern du einen Teil deiner Verantwortung abgeben möchtest und dir dabei noch mehr studentische Partizipation in der Planung, Gestaltung und Evaluation deiner Lehr- und Lehrveranstaltung wünscht, lohnt es sich, einen Blick in die folgenden Tipps zu werfen.";
+            //document.getElementById("feedbackThree").innerHTML = "Toll, dass du das Tool genutzt hast, um deine Lehrpraxis hinsichtlich der Partizipationsausprägung für dich einzuschätzen! Als Typ “richtungsgebend”  übernimmst du viel Verantwortung und schaffst ein Lehr- und Lernsetting, welches den Studierenden eine Richtung vorgibt. Sofern du einen Teil deiner Verantwortung abgeben möchtest und dir dabei noch mehr studentische Partizipation in der Planung, Gestaltung und Evaluation deiner Lehr- und Lehrveranstaltung wünscht, lohnt es sich, einen Blick in die folgenden Tipps zu werfen.";
+
         }
         if(result >= 11 && result <= 17){
             document.getElementById("feedbackOne").innerHTML = "Neugierig <br>";
+            document.getElementById("feedbackTwo").innerHTML = "Toll, dass du das Tool genutzt hast, um deine Lehrpraxis hinsichtlich der Partizipationsausprägung für dich einzuschätzen! Als Typ »neugierig« bist du an den Meinungen der Studierenden interessiert und holst dir bereits Feedback zu einzelnen Elementen ein. Hervorragend! Regelmäßiges Feedback von Studierenden an Dozierende und vice versa trägt wesentlich zur Steigerung der Unterrichtsqualität bei. Sofern du dir neben der Feedbackkultur noch mehr studentische Partizipation in der Planung, Gestaltung und Evaluation deiner Lehr- und Lehrveranstaltung wünscht, lohnt es sich, einen Blick in die folgenden Tipps zu werfen.";
+
         }
         if(result >= 18 && result <= 24){
             document.getElementById("feedbackOne").innerHTML = "Kooperativ <br>";
+            document.getElementById("feedbackTwo").innerHTML = "Du bist bereits vertraut mit den Möglichkeiten zur Einbindung einer Studierendenvertretung in die Lehr- und Lernprozessgestaltung. Großartig! Falls du das nicht schon gemacht hast, dann zeige den Kursteilnehmenden auch, inwiefern die Interessenvertretung auf die Kursgestaltung und -umsetzung einwirkt. Durch einen transparenten Prozess kannst du noch mehr Vertrauen bei den Studierenden schaffen und dich zudem rückversichern, dass die Interessen der gesamten Gruppe Berücksichtigung finden.<br>Überlege zudem, ob du bei zukünftigen Lehr- und Lernveranstaltungen dieser Art auch mehr Raum für direkte studentische Beteiligung und Mitbestimmung schaffen kannst. Anbei geben wir dir ein paar Tipps, wie das konkret realisiert werden kann.";
+
         }
         if(result >= 25 && result <= 31){
             document.getElementById("feedbackOne").innerHTML = "Ko-Kreativ <br>";
+            document.getElementById("feedbackTwo").innerHTML = "Großartig! Du lebst Partizipation bereits in deiner Lehre, in dem du die Studierenden direkt mitgestalten lässt. Toll! Anbei findest du darüber hinaus noch ein paar wertvolle Tipps für deine Lehr-und Lernpraxis.";
+
         }
         if(result >= 32 && result <= 35){
             document.getElementById("feedbackOne").innerHTML = "Lernbegleitend <br>";
+            document.getElementById("feedbackTwo").innerHTML = "Hervorragend! Du bietest in deiner Lehr- und Lernveranstaltung den Studierenden Möglichkeiten zum selbstbestimmten Lernen, in denen sie ihre eigenen Interessen entwickeln bzw. diesen nachgehen können. Dabei nimmst du dich als Lehrende(r) zurück, begleitest den Prozess und förderst die Lernautonomie, welche wiederum eine wichtige Voraussetzung zum partizipativen Lernen ist. Selbstbestimmung ist aber nicht mit studentischer Partizipation gleichzusetzen.<br>Überlege deshalb, ob du bei zukünftigen Lehr- und Lernveranstaltungen dieser Art auch mehr Raum für einen ko-kreativen Ansatz schaffen magst. Anbei geben wir dir ein paar Tipps, wie das konkret realisiert werden kann.";
+
         }
         // draw pie chart in respect of user inputs
         var data = [{
@@ -172,6 +204,8 @@ function saveForm() {
     var results = [];
     var methods = [];
     var media = [];
+    var context = [];
+    var evaluation = [];
     // save feedback aims
     $("input[name='Ziele']:checked").each(function() {
         aims.push($(this).attr('value'));
@@ -197,7 +231,14 @@ function saveForm() {
         media.push($(this).attr('value'));
     });
     localStorage.setItem("media", JSON.stringify(media));
-        console.log("media"+media);
+    $("input[name='Kontext']:checked").each(function() {
+        context.push($(this).attr('value'));
+    });
+    localStorage.setItem("context", JSON.stringify(context));
+    $("input[name='Evaluation']:checked").each(function() {
+        evaluation.push($(this).attr('value'));
+    });
+    localStorage.setItem("evaluation", JSON.stringify(evaluation));
 
 
     var x = document.getElementsByTagName("select");
@@ -264,6 +305,8 @@ function checkstatus() {
         setCheckboxTrue("Medien", Number(JSON.parse(localStorage.getItem("media"))), "multiinput");
         setCheckboxTrue("Methoden", Number(JSON.parse(localStorage.getItem("methods"))), "multiinput");
         setCheckboxTrue("Ergebnisse", Number(JSON.parse(localStorage.getItem("results"))), "multiinput");
+        setCheckboxTrue("Kontext", Number(JSON.parse(localStorage.getItem("context"))), "multiinput");
+        setCheckboxTrue("Evaluation", Number(JSON.parse(localStorage.getItem("evaluation"))), "multiinput");
 
         var x = document.getElementsByTagName("select");
         var y = document.getElementsByTagName("input");

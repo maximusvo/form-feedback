@@ -156,8 +156,7 @@ td:first-child {
 
 .feedback {
     text-align: left !important;
-    margin-top: 8vh;
-    height: 150vh;
+    margin-top: 80px;
     width:100%;
     background-color: $secondary-color;
     h1 {
@@ -252,13 +251,6 @@ input[type=checkbox]:checked {
   background-color: $secondary-color;
   transform: scale(1)
 }
-
-.info {
-      align-items: center;
-      justify-content: center;
-      width: 18px;
-      //position:relative;
-}
 .centered {
     vertical-align:middle;
     text-align: center;
@@ -268,6 +260,27 @@ input[type=checkbox]:checked {
     margin:0 ;
     width: 18px;
 }
-label {
-    font-size: 1rem;
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 350px;
+  background-color: $primary-color;
+  color: #fff;
+  text-align: left;
+  padding: 8px;
+  border-radius: 6px;
+
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 2;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }
