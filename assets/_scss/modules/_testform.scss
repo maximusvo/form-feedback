@@ -284,3 +284,88 @@ input[type=checkbox]:checked {
 .formcontent {
     padding: 18px;
 }
+#typeOne{
+    display: none;
+}
+.collapsfeed {
+ padding: 0px;
+}
+.collapsible {
+  cursor: pointer;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 50px;
+  padding-bottom: 20px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  margin: 0px !important;
+  &.orange {
+    background-color: $primary-color;
+    color: $black;
+
+    &:after {
+      content: '\2B07'; /* Unicode character for "plus" sign (+) */
+      //color: $fourth-color;
+      float: right;
+      margin-left: 5px;
+    }
+    &.active:after {
+      content: "\2B06"; /* Unicode character for "minus" sign (-) */
+    }
+  }
+  &.blue {
+    background-color: $third-color;
+    color: $black;
+
+    &:after {
+      content: '\2B07'; /* Unicode character for "plus" sign (+) */
+      //color: $fourth-color;
+      float: right;
+      margin-left: 5px;
+    }
+    &.active:after {
+      content: "\2B06"; /* Unicode character for "minus" sign (-) */
+    }
+  }
+  &.green {
+    background-color: $fourth-color;
+    color: $black;
+
+    &:after {
+      content: '\2B07'; /* Unicode character for "plus" sign (+) */
+      //color: $fourth-color;
+      float: right;
+      margin-left: 5px;
+    }
+    &.active:after {
+      content: "\2B06"; /* Unicode character for "minus" sign (-) */
+    }
+  }
+
+}
+
+.active, .collapsible:hover {
+  background-color: none;
+}
+
+.content {
+  padding: 20px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  &.orange{
+    background-color: $primary-color;
+    color: $black;
+  }
+  &.green{
+    background-color: $fourth-color;
+    color: $black;
+  }
+
+  &.blue{
+    background-color: $third-color;
+    color: $black;
+  }
+}

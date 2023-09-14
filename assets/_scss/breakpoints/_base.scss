@@ -167,7 +167,7 @@ h1, .h1 {
   line-height: 1.1em;
 }
 
-h2, .h2 {
+h2, .h2, .collapsible {
   font-size: 2rem;
   line-height: 1.1em;
   margin-bottom: 0.375em;
@@ -755,6 +755,10 @@ PAGE & SECTIONS
 
   &.white{
     background-color: $white;
+    color: $black;
+  }
+  &.brown {
+    background-color: $fifth-color;
     color: $black;
   }
   &.orange{

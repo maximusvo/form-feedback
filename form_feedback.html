@@ -27,18 +27,50 @@ layout: default
     </section>
 </div>
 <div class="row" id="">
-    <section class="section orange col-md-12 col-xs-24">
-        <div class="content-wrap">
+    <section class="section brown col-md-12 col-xs-24">
+        <div class="content-wrap content-box-el">
             <h2 class="regular"></h2>
             <p id="feedbackTwo"></p>
-            <div class="content-wrap formbuttons">
-                <a class="edu-btn white" id="button" style="" >Ergebnis anzeigen</a>
-            </div>
         </div>
     </section>
     <section class="section white hidemobil col-md-12 col-xs-24">
-        <div class="content-wrap frontpage">
+        <div class="content-wrap frontpage content-box-el">
             <img src="assets/img/static/home-img-1.png"/>
         </div>
     </section>
+</div>
+<div class="row" id="">
+    <section class="section white hidemobil col-md-12 col-xs-24">
+        <div class="content-wrap frontpage content-box-el">
+            <img src="assets/img/static/home-img-1.png"/>
+        </div>
+    </section>
+    <section class="collapsfeed col-md-12 col-xs-24">
+        <div class="">
+            {% if site.data.oertool.feedback %}
+                {% for feedback in site.data.oertool.feedback %}
+                {% if feedback.type == 1 %}
+                <div id="typeOne" >
+                    <button class="collapsible orange">Vorbereitung</button>
+                    <div class="content orange">{% if feedback.prep_de %}<p>{{feedback.prep_de}}</p>{% endif %}</div>
+                    <button class="collapsible green">Durchführung</button>
+                    <div class="content green">{% if feedback.start_de %}<p>{{feedback.start_de}}</p>{% endif %}</div>
+                    <button class="collapsible blue">Evaluation</button>
+                    <div class="content blue">{% if feedback.eva_de %}<p>{{feedback.eva_de}}</p>{% endif %}</div>
+                </div>
+                {% endif %}
+                {% endfor %}
+            {% endif %}
+            <p id="feedbackThree"></p>
+            <p id="feedbackFour"></p>
+            <p id="feedbackFive"></p>
+        </div>
+    </section>
+</div>
+<div class="row">
+    <section class="section white col-md-24 col-xs-24">
+        <div class="content-wrap">
+            <a class="edu-btn black" id="button" style="" >Ergebnis anzeigen</a>
+        </div>
+    <section>
 </div>

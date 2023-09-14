@@ -128,8 +128,7 @@ function feedbackForm() {
         if(result != 0 && result <= 10){
             document.getElementById("feedbackOne").innerHTML = "Richtungsgebend <br>";
             document.getElementById("feedbackTwo").innerHTML = "Toll, dass du das Tool genutzt hast, um deine Lehrpraxis hinsichtlich der Partizipationsausprägung einzuschätzen! Als Typ »richtungsgebend« übernimmst du viel Verantwortung und schaffst ein Lehr- und Lernsetting, welches den Studierenden eine Richtung vorgibt. Sofern du einen Teil deiner Verantwortung abgeben möchtest und dir dabei noch mehr studentische Partizipation in der Planung, Gestaltung und Evaluation deiner Lehr- und Lehrveranstaltung wünscht, lohnt es sich, einen Blick in die folgenden Tipps zu werfen.";
-            //document.getElementById("feedbackThree").innerHTML = "Toll, dass du das Tool genutzt hast, um deine Lehrpraxis hinsichtlich der Partizipationsausprägung für dich einzuschätzen! Als Typ “richtungsgebend”  übernimmst du viel Verantwortung und schaffst ein Lehr- und Lernsetting, welches den Studierenden eine Richtung vorgibt. Sofern du einen Teil deiner Verantwortung abgeben möchtest und dir dabei noch mehr studentische Partizipation in der Planung, Gestaltung und Evaluation deiner Lehr- und Lehrveranstaltung wünscht, lohnt es sich, einen Blick in die folgenden Tipps zu werfen.";
-
+            document.getElementById("typeOne").style.display = 'block';
         }
         if(result >= 11 && result <= 17){
             document.getElementById("feedbackOne").innerHTML = "Neugierig <br>";
@@ -358,3 +357,19 @@ function checkfield(field_id, target_id) {
 window.addEventListener("load", feedbackForm);
 window.addEventListener("load", checkstatus);
 
+if(document.getElementsByClassName("collapsible") != null){
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.maxHeight){
+          content.style.maxHeight = null;
+        } else {
+          content.style.maxHeight = content.scrollHeight + "px";
+        }
+      });
+    }
+}
