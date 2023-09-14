@@ -13,7 +13,7 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-email: unbox-contact@posteo.de
+email: Bonny.Brandenburger@wi.uni-potsdam.de
 baseurl: "" # the subpath of your site, e.g. /blog
 twitter_username:
 permalink: /blog/:title
@@ -54,6 +54,6 @@ title: "How to open education?"
 description: "Mit diesem Tool können Lehrende einschätzen, wie partizipativ ihre Bildungsformate sind und erhalten Feedback."
 logo: "/assets/img/static/mavo.jpg"
 twitter:
-  username: ma__vo
+  username:
   card: summary_large_image
 lang: "de_DE"
