@@ -9,35 +9,15 @@
     <link rel="stylesheet" href="/assets/main.css">
     <meta property="og:image" content="https://{{site.url}}/assets/img/static/background.png" />
     <meta name="twitter:image" content="https://{{site.url}}/assets/img/static/background.png" />
-
     {% seo %}
-
-
 </head>
 <body>
   <style>
-  html {
-    touch-action: manipulation;
-}
+      html {
+        touch-action: manipulation;
+      }
   </style>
 {% include header.liquid %}
-{% raw %}
-<script id="search-results-template" type="text/mustache">
-  {{#entries}}
-    <article>
-      <h3>
-        {{#date}}<small><time datetime="{{pubdate}}" pubdate>{{displaydate}}</time></small>{{/date}}
-        <a href="{{url}}">{{title}}</a>
-      </h3>
-      {{#is_post}}
-      <ul>
-        {{#tags}}<li>{{.}} </li>{{/tags}}
-      </ul>
-      {{/is_post}}
-    </article>
-  {{/entries}}
-</script>
-{% endraw %}
 <div class="page-wrap">
     <section id="search-results" style="display: none;"> </section>
     {{ content }}
