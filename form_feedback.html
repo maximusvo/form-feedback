@@ -58,6 +58,46 @@ layout: default
                     <button class="collapsible blue">Evaluation</button>
                     <div class="content blue">{% if feedback.eva_de %}<p>{{feedback.eva_de}}</p>{% endif %}</div>
                 </div>
+                {%endif%}
+                {% if feedback.type == 2 %}
+                <div id="typeTwo" >
+                    <button class="collapsible orange">Vorbereitung</button>
+                    <div class="content orange">{% if feedback.prep_de %}<p>{{feedback.prep_de}}</p>{% endif %}</div>
+                    <button class="collapsible green">Durchführung</button>
+                    <div class="content green">{% if feedback.start_de %}<p>{{feedback.start_de}}</p>{% endif %}</div>
+                    <button class="collapsible blue">Evaluation</button>
+                    <div class="content blue">{% if feedback.eva_de %}<p>{{feedback.eva_de}}</p>{% endif %}</div>
+                </div>
+                {% endif %}
+                {% if feedback.type == 3 %}
+                <div id="typeThree" >
+                    <button class="collapsible orange">Vorbereitung</button>
+                    <div class="content orange">{% if feedback.prep_de %}<p>{{feedback.prep_de}}</p>{% endif %}</div>
+                    <button class="collapsible green">Durchführung</button>
+                    <div class="content green">{% if feedback.start_de %}<p>{{feedback.start_de}}</p>{% endif %}</div>
+                    <button class="collapsible blue">Evaluation</button>
+                    <div class="content blue">{% if feedback.eva_de %}<p>{{feedback.eva_de}}</p>{% endif %}</div>
+                </div>
+                {% endif %}
+                {% if feedback.type == 4 %}
+                <div id="typeFour" >
+                    <button class="collapsible orange">Vorbereitung</button>
+                    <div class="content orange">{% if feedback.prep_de %}<p>{{feedback.prep_de}}</p>{% endif %}</div>
+                    <button class="collapsible green">Durchführung</button>
+                    <div class="content green">{% if feedback.start_de %}<p>{{feedback.start_de}}</p>{% endif %}</div>
+                    <button class="collapsible blue">Evaluation</button>
+                    <div class="content blue">{% if feedback.eva_de %}<p>{{feedback.eva_de}}</p>{% endif %}</div>
+                </div>
+                {% endif %}
+                {% if feedback.type == 5 %}
+                <div id="typeFive" >
+                    <button class="collapsible orange">Vorbereitung</button>
+                    <div class="content orange">{% if feedback.prep_de %}<p>{{feedback.prep_de}}</p>{% endif %}</div>
+                    <button class="collapsible green">Durchführung</button>
+                    <div class="content green">{% if feedback.start_de %}<p>{{feedback.start_de}}</p>{% endif %}</div>
+                    <button class="collapsible blue">Evaluation</button>
+                    <div class="content blue">{% if feedback.eva_de %}<p>{{feedback.eva_de}}</p>{% endif %}</div>
+                </div>
                 {% endif %}
                 {% endfor %}
             {% endif %}
