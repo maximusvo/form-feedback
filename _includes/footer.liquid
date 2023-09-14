@@ -38,39 +38,6 @@
         <!-- js custom -->
         <script src="{{ site.baseurl }}/assets/js/modules/IsotopeController.js"></script>
         <script src="{{ site.baseurl }}/assets/js/main.js?v=2.0"></script>
-
-        <script>
-            jQuery(document).ready(function($) {
-                $('#search-query').lunrSearch({
-                  indexUrl  : '/js/index.json',           // url for the .json file containing search index data
-                  results   : '#search-results',          // selector for containing search results element
-                  template  : '#search-results-template', // selector for Mustache.js template
-                  titleMsg  : '<h1>Search results<h1>',   // message attached in front of results (can be empty)
-                  emptyMsg  : '<p>Nothing found.</p>'     // shown message if search returns no results
-                });
-
-               var drawRandomTeaser = function () {
-                    $.each($('.project-teaser.random-image'), function(i,e) {
-                        var pattern = Trianglify({
-                                          height: 200,
-                                          width: $(e).width(),
-                                          cell_size: 30 + Math.random() * 100});
-                        $('.teaser-image', this).html(pattern.canvas());
-                    });
-               }
-
-               $(window).resize(drawRandomTeaser);
-               drawRandomTeaser();
-
-                $('.btn-rss').click(function () {
-                    $('#rsslinks').fadeToggle(200);
-                });
-
-                window.controller = new Controller($);
-                window.controller.init();
-
-            });
-        </script>
         <script src="{{ site.baseurl }}/assets/js/modules/form_scripts.js"></script>
         <script src="{{ site.baseurl }}/assets/js/vendor/plotly-2.25.2.min.js" charset="utf-8"></script>
         <script src="{{ site.baseurl }}/assets/js/vendor/print.min.js" charset="utf-8"></script>
