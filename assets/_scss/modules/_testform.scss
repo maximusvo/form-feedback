@@ -312,47 +312,26 @@ input[type=checkbox]:checked {
   text-align: left;
   outline: none;
   margin: 0px !important;
+  &:after {
+    content: '\F107'; /* Unicode character for "plus" sign (+) */
+    font-family: 'fontello';
+    float: right;
+    margin-left: 5px;
+  }
+  &.active:after {
+    content: "\F106"; /* Unicode character for "minus" sign (-) */
+  }
   &.orange {
     background-color: $primary-color;
     color: $black;
-
-    &:after {
-      content: '\2B07'; /* Unicode character for "plus" sign (+) */
-      //color: $fourth-color;
-      float: right;
-      margin-left: 5px;
-    }
-    &.active:after {
-      content: "\2B06"; /* Unicode character for "minus" sign (-) */
-    }
   }
   &.blue {
     background-color: $third-color;
     color: $black;
-
-    &:after {
-      content: '\2B07'; /* Unicode character for "plus" sign (+) */
-      //color: $fourth-color;
-      float: right;
-      margin-left: 5px;
-    }
-    &.active:after {
-      content: "\2B06"; /* Unicode character for "minus" sign (-) */
-    }
   }
   &.green {
     background-color: $fourth-color;
     color: $black;
-
-    &:after {
-      content: '\2B07'; /* Unicode character for "plus" sign (+) */
-      //color: $fourth-color;
-      float: right;
-      margin-left: 5px;
-    }
-    &.active:after {
-      content: "\2B06"; /* Unicode character for "minus" sign (-) */
-    }
   }
 
 }
