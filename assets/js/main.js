@@ -626,7 +626,7 @@ function sendContentToStaticman(formSel, waitMsgDiv, successMsgDiv, errorMsgDiv)
 
 }(window));
 
-// test formspree
+// form basic
 
 var currentTab = 0; // Current tab is set to be the first tab (0)
 // load current tab of an old session
@@ -725,10 +725,11 @@ function fixStepIndicator(n) {
   // This function removes the "active" class of all steps...
   var i, x = document.getElementsByClassName("step");
   for (i = 0; i < x.length; i++) {
-    x[i].className = x[i].className.replace(" active", "");
+    //x[i].className = x[i].className.replace(" active", "");
   }
   //... and adds the "active" class to the current step:
-  x[n].className += " active";
+  //x[n].className += " active";
+  document.getElementById("stepindicator").innerHTML = "1 / "+(n+1);
 }
 
 // checking if form was saved and loading stuff, if so
@@ -748,4 +749,4 @@ if(typeof saved !== 'undefined' && saved !== null){
     }
 }
 
-// test end
+// end form

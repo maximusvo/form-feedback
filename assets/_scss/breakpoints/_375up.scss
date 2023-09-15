@@ -1,3 +1,9 @@
+.feedback {
+      h1 {
+          font-size: 4rem !important;
+          line-height: 1em !important;
+      }
+}
 .hero {
   .logo {
     width: 50vw;
@@ -74,6 +80,7 @@
 
 .feedback {
     height: 800px;
+    margin-top: 50px;
     h1 {
         font-size: 3.5rem;
     }

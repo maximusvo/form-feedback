@@ -29,7 +29,7 @@ html, body{
 
 body {
   height: 100%;
-  font-family: $font-karla;
+  font-family: $font-hanken;
   font-size: 100%;
   line-height: 1.5;
   color: $text-color;
@@ -101,7 +101,7 @@ a, a:visited {
     margin-left: 5px;
     content:"\2192";
     display: inline-block;
-    font-family: $font-worksans;
+    font-family: $font-hanken;
     line-height: 1;
   }
 
@@ -136,7 +136,7 @@ a, a:visited {
     margin-right: 5px;
     content:"\2197";
     display: inline-block;
-    font-family: $font-worksans;
+    font-family: $font-hanken;
     line-height: 1;
     @include transition(all .25s ease);
     transform: rotate(0deg);
@@ -244,7 +244,7 @@ WRAPPER STYLES
         margin-right: 5px;
         // content:"\2022";
         display: inline-block;
-        font-family: $font-worksans;
+        font-family: $font-hanken;
         font-size: 1.6em;
         line-height: 1;
         // position: absolute;
@@ -475,7 +475,7 @@ HEADER STYLES
       background-color: $white;
       margin-top: -6px;
       font-size: 1.5rem;
-      font-family: $font-mono;
+      font-family: $font-hanken;
       position: absolute;
       width: 100%;
       padding: 0;
@@ -515,7 +515,7 @@ HEADER STYLES
       li{
         display: block;
         margin-right: 0px;
-        text-transform: uppercase;
+        //text-transform: uppercase;
         text-align: center;
 
         &:last-of-type{
@@ -567,7 +567,7 @@ HEADER STYLES
           }
 
           &:hover, &:focus{
-            color: $secondary-color !important;
+            color: $fourth-color !important;
           }
         }
 
@@ -683,7 +683,7 @@ PAGE & SECTIONS
   width: 100%;
 }
 
-.content-wrap{
+.content-wrap {
   width: 85%;
   padding-top: 20px;
   margin: 0 auto;
@@ -964,7 +964,7 @@ EDUSPRINT
 
     &::before, &::after{
       display: inline-block;
-      font-family: $font-worksans;
+      font-family: $font-hanken;
       line-height: 1;
       position: relative;
       top:2px;
@@ -1104,7 +1104,7 @@ EDUSPRINT
         &::before{
           margin-right: 15px;
           display: inline-block;
-          font-family: $font-worksans;
+          font-family: $font-hanken;
           line-height: 1;
           position: relative;
           top:2px;
@@ -1204,7 +1204,7 @@ FOOTER STYLES
     li{
 
       &.nav-footer-headline{
-        font-family: $font-karla;
+        font-family: $font-hanken;
         font-weight: 700;
       }
 
@@ -1398,13 +1398,10 @@ FOOTER STYLES
     padding: 15px;
         .inner{
             box-sizing: content-box;
-
         }
-
 }
 .feedback {
     .inner {
-    box-sizing: content-box;
+        box-sizing: content-box;
     }
-
 }

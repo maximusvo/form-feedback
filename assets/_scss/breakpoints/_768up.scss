@@ -59,7 +59,14 @@ WRAPPER STYLES
 /*********************
 HERO
 *********************/
-
+.feedback {
+      h1 {
+        font-size: 9rem !important;
+        line-height: 2.1em;
+      }
+      height: 600px;
+      margin-top: 80px;
+}
 .hero {
   .logo {
     width: 50vw;
@@ -273,9 +280,6 @@ FOOTER STYLES
 }
 .forminfo {
     height: 700px;
-}
-.feedback {
-    height: 600px;
 }
 .content-wrap {
 
