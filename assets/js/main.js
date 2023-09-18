@@ -729,7 +729,7 @@ function fixStepIndicator(n) {
   }
   //... and adds the "active" class to the current step:
   //x[n].className += " active";
-  document.getElementById("stepindicator").innerHTML = "1 / "+(n+1);
+  document.getElementById("stepindicator").innerHTML = (n+1)+" / "+x.length;
 }
 
 // checking if form was saved and loading stuff, if so
