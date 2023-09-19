@@ -150,6 +150,8 @@ td:first-child {
 .feedback {
     text-align: left !important;
     width:100%;
+    padding-bottom: 20px;
+    height: auto;
     background-color: $secondary-color;
     h1 {
         color: $primary-color;
@@ -361,4 +363,7 @@ input[type=checkbox]:checked {
     background-color: $third-color;
     color: $black;
   }
+}
+.variablec {
+    display: none;
 }

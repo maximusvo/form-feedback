@@ -1,6 +1,15 @@
 jQuery(document).ready(function($) {
-    // only activate current checkbox
+    // save form if something changed
+    $('input').on('change', function () {
+        saveForm();
+        console.log("something changed, saved");
+    });
 
+    $('select').on('change', function () {
+        saveForm();
+        console.log("something changed, saved");
+    });
+    // only activate current checkbox
     $('input[name=Ziele]').change(function () {
         var checkboxes = document.getElementsByClassName("multiinput");
 
@@ -78,18 +87,129 @@ jQuery(document).ready(function($) {
             }
         }
     });
-    // only show individual input fields, if needed (selected by id)
-
-
 });
 
 var button = document.getElementById("button");
-var status = 0;
+var currentTab = 0;
 //button.addEventListener("click", buttonAction);
+
+function showTab(n) {
+  // This function will display the specified tab of the form ...
+  var x = document.getElementsByClassName("tab");
+  //var y = document.getElementsByClassName("tabTitel");
+  x[n].style.display = "block";
+
+  // ... and fix the Previous/Next buttons:
+  if (n == 0) {
+    document.getElementById("prevBtn").style.display = "none";
+    // only highlight current tab headline in table of content
+    //y[n].className += " tablehighlight";
+    //y[n+1].classList.remove("tablehighlight");
+  } else {
+    document.getElementById("prevBtn").style.display = "inline";
+    // only highlight current tab headline in table of content
+    //y[n].className += " tablehighlight";
+    //y[n-1].classList.remove("tablehighlight");
+    //if(y.length <= y[n+1]){
+    //    y[n+1].classList.remove("tablehighlight");
+    //}
+
+  }
+  if (n == (x.length - 1)) {
+    document.getElementById("nextBtn").innerHTML = "Auswerten";
+  } else {
+    document.getElementById("nextBtn").innerHTML = "Weiter";
+  }
+  // ... and run a function that displays the correct step indicator:
+  fixStepIndicator(n)
+}
+
+function nextPrev(n) {
+  // This function will figure out which tab to display
+  var x = document.getElementsByClassName("tab");
+  // Exit the function if any field in the current tab is invalid:
+  if (n == 1 && !validateForm()) return false;
+  // Hide the current tab:
+  x[currentTab].style.display = "none";
+  // Increase or decrease the current tab by 1:
+  currentTab = currentTab + n;
+  localStorage.setItem("currentTab", JSON.stringify(currentTab));
+  // if you have reached the end of the form... :
+  if (currentTab >= x.length) {
+    //...the form gets submitted:
+    document.getElementById("regForm").submit();
+
+    return false;
+  }
+  // Otherwise, display the correct tab:
+  showTab(currentTab);
+  saveForm();
+  window.scrollTo(0, 0);
+}
+
+function validateForm() {
+  // This function deals with validation of the form fields
+  var x, y, z, i, valid = true;
+  x = document.getElementsByClassName("tab");
+  y = x[currentTab].getElementsByTagName("input");
+  z = x[currentTab].getElementsByTagName("select");
+    for (i = 0; i < z.length; i++) {
+        if(z[i].value == "0" & !z[i].classList.contains("hiddencontent")){
+            z[i].classList.add("invalid");
+            valid = false;
+        }
+
+    }
+  // A loop that checks every input field in the current tab:
+  for (i = 0; i < y.length; i++) {
+    // If a field has class "open" and is empty...
+    if (y[i].classList.contains("open")) {
+          if (y[i].value == ""){
+          // add an "invalid" class to the field:
+          y[i].className += " invalid";
+          // and set the current valid status to false:
+          valid = false;
+      }
+    }
+  }
+  // If the valid status is true, mark the step as finished and valid:
+  if (valid) {
+    document.getElementsByClassName("step")[currentTab].className += " finish";
+  }
+  return valid; // return the valid status
+}
+
+function fixStepIndicator(n) {
+  // This function removes the "active" class of all steps...
+  var i, x = document.getElementsByClassName("step");
+  for (i = 0; i < x.length; i++) {
+    //x[i].className = x[i].className.replace(" active", "");
+  }
+  //... and adds the "active" class to the current step:
+  //x[n].className += " active";
+  document.getElementById("stepindicator").innerHTML = (n+1)+" / "+x.length;
+}
+function hideClass(classname){
+    var a = document.getElementsByClassName(classname);
+    for(i=0; i<a.length; i++){
+        a[i].style.display = 'none';
+
+    }
+    return;
+}
+function showClass(classname){
+    var a = document.getElementsByClassName(classname);
+    for(i=0; i<a.length; i++){
+        a[i].style.display = 'block';
+
+    }
+    return;
+}
 
 function feedbackForm() {
     var storedInputSelect = JSON.parse(localStorage.getItem("formInputSelect"));
     var storedInputInput = JSON.parse(localStorage.getItem("formInputInput"));
+
     if (typeof storedInputInput !== 'undefined' && storedInputInput !== null){
         var pieInput = [0,0,0,0,0,0];
         var matrixVariables = [Number(JSON.parse(localStorage.getItem("aims"))), Number(JSON.parse(localStorage.getItem("content"))), Number(JSON.parse(localStorage.getItem("results"))), Number(JSON.parse(localStorage.getItem("methods"))), Number(JSON.parse(localStorage.getItem("media"))),Number(JSON.parse(localStorage.getItem("context"))), Number(JSON.parse(localStorage.getItem("evaluation")))];
@@ -129,26 +249,36 @@ function feedbackForm() {
             document.getElementById("feedbackOne").innerHTML = "Richtungs&shy;gebend";
             document.getElementById("feedbackTwo").innerHTML = "Toll, dass du das Tool genutzt hast, um deine Lehrpraxis hinsichtlich der Partizipationsausprägung einzuschätzen! Als Typ »richtungsgebend« übernimmst du viel Verantwortung und schaffst ein Lehr- und Lernsetting, welches den Studierenden eine Richtung vorgibt. Sofern du einen Teil deiner Verantwortung abgeben möchtest und dir dabei noch mehr studentische Partizipation in der Planung, Gestaltung und Evaluation deiner Lehr- und Lehrveranstaltung wünscht, lohnt es sich, einen Blick in die folgenden Tipps zu werfen.";
             document.getElementById("typeOne").style.display = 'block';
+            document.getElementById("feedbackfieldone").style.display = 'block';
+            document.getElementById("feedbackfieldtwo").style.display = 'block';
         }
         if(result >= 11 && result <= 17){
             document.getElementById("feedbackOne").innerHTML = "Neugierig";
             document.getElementById("feedbackTwo").innerHTML = "Toll, dass du das Tool genutzt hast, um deine Lehrpraxis hinsichtlich der Partizipationsausprägung für dich einzuschätzen! Als Typ »neugierig« bist du an den Meinungen der Studierenden interessiert und holst dir bereits Feedback zu einzelnen Elementen ein. Hervorragend! Regelmäßiges Feedback von Studierenden an Dozierende und vice versa trägt wesentlich zur Steigerung der Unterrichtsqualität bei. Sofern du dir neben der Feedbackkultur noch mehr studentische Partizipation in der Planung, Gestaltung und Evaluation deiner Lehr- und Lehrveranstaltung wünscht, lohnt es sich, einen Blick in die folgenden Tipps zu werfen.";
             document.getElementById("typeTwo").style.display = 'block';
+            document.getElementById("feedbackfieldone").style.display = 'block';
+            document.getElementById("feedbackfieldtwo").style.display = 'block';
         }
         if(result >= 18 && result <= 24){
             document.getElementById("feedbackOne").innerHTML = "Kooperativ";
             document.getElementById("feedbackTwo").innerHTML = "Du bist bereits vertraut mit den Möglichkeiten zur Einbindung einer Studierendenvertretung in die Lehr- und Lernprozessgestaltung. Großartig! Falls du das nicht schon gemacht hast, dann zeige den Kursteilnehmenden auch, inwiefern die Interessenvertretung auf die Kursgestaltung und -umsetzung einwirkt. Durch einen transparenten Prozess kannst du noch mehr Vertrauen bei den Studierenden schaffen und dich zudem rückversichern, dass die Interessen der gesamten Gruppe Berücksichtigung finden.<br>Überlege zudem, ob du bei zukünftigen Lehr- und Lernveranstaltungen dieser Art auch mehr Raum für direkte studentische Beteiligung und Mitbestimmung schaffen kannst. Anbei geben wir dir ein paar Tipps, wie das konkret realisiert werden kann.";
             document.getElementById("typeThree").style.display = 'block';
+            document.getElementById("feedbackfieldone").style.display = 'block';
+            document.getElementById("feedbackfieldtwo").style.display = 'block';
         }
         if(result >= 25 && result <= 31){
             document.getElementById("feedbackOne").innerHTML = "Ko-Kreativ <br>";
             document.getElementById("feedbackTwo").innerHTML = "Großartig! Du lebst Partizipation bereits in deiner Lehre, in dem du die Studierenden direkt mitgestalten lässt. Toll! Anbei findest du darüber hinaus noch ein paar wertvolle Tipps für deine Lehr-und Lernpraxis.";
             document.getElementById("typeFour").style.display = 'block';
+            document.getElementById("feedbackfieldone").style.display = 'block';
+            document.getElementById("feedbackfieldtwo").style.display = 'block';
         }
         if(result >= 32 && result <= 35){
             document.getElementById("feedbackOne").innerHTML = "Lern&shy;begleitend";
             document.getElementById("feedbackTwo").innerHTML = "Hervorragend! Du bietest in deiner Lehr- und Lernveranstaltung den Studierenden Möglichkeiten zum selbstbestimmten Lernen, in denen sie ihre eigenen Interessen entwickeln bzw. diesen nachgehen können. Dabei nimmst du dich als Lehrende(r) zurück, begleitest den Prozess und förderst die Lernautonomie, welche wiederum eine wichtige Voraussetzung zum partizipativen Lernen ist. Selbstbestimmung ist aber nicht mit studentischer Partizipation gleichzusetzen.<br>Überlege deshalb, ob du bei zukünftigen Lehr- und Lernveranstaltungen dieser Art auch mehr Raum für einen ko-kreativen Ansatz schaffen magst. Anbei geben wir dir ein paar Tipps, wie das konkret realisiert werden kann.";
             document.getElementById("typeFive").style.display = 'block';
+            document.getElementById("feedbackfieldone").style.display = 'block';
+            document.getElementById("feedbackfieldtwo").style.display = 'block';
         }
         // draw pie chart in respect of user inputs
         var data = [{
@@ -185,15 +315,30 @@ function feedbackForm() {
         }
         Plotly.newPlot('formpie', data, layout, config);
         // end drawing
+        otherTypeTG = Number(JSON.parse(localStorage.getItem(JSON.stringify("otherTypeTG"))));
+        eventTarget = Number(JSON.parse(localStorage.getItem(JSON.stringify("eventTarget"))));
+        tgcount = Number(JSON.parse(localStorage.getItem(JSON.stringify("tgcount"))));
+        if(otherTypeTG == 1){
+            showClass ("variablea");
+        }
+        if(otherTypeTG == 2 || eventTarget == 1 ){
+            showClass ("variableb");
+        }
+        if(tgcount <= 4){
+            showClass ("variablec");
+        }
+        if(tgcount > 4){
+            showClass ("variabled");
+        }
         button.addEventListener("click", clearForm);
         document.getElementById("button").innerHTML = "Ergebnis löschen";
+
     }
     else{
         document.getElementById("feedbackOne").innerHTML = "Es liegen keine Ergebnisse vor.";
         document.getElementById("button").innerHTML = "Zurück zum Tool";
         button.addEventListener("click", formRestart);
     }
-
     return;
 }
 
@@ -205,6 +350,7 @@ function saveForm() {
     var media = [];
     var context = [];
     var evaluation = [];
+
     // save feedback aims
     $("input[name='Ziele']:checked").each(function() {
         aims.push($(this).attr('value'));
@@ -254,7 +400,6 @@ function saveForm() {
     localStorage.setItem("formInputInput", JSON.stringify(formInputInput));
     var storedInputSelect = JSON.parse(localStorage.getItem("formInputSelect"));
     var storedInputInput = JSON.parse(localStorage.getItem("formInputInput"));
-    status++;
     return;
 }
 
@@ -265,7 +410,6 @@ function clearForm() {
     localStorage.clear();
     document.getElementById("button").innerHTML = "Zurück zum Tool";
     button.addEventListener("click", formRestart);
-    status = 0;
     return;
 }
 
@@ -296,8 +440,10 @@ function setCheckboxTrue(kind, value, classname) {
     return;
 }
 function checkstatus() {
-    if(status){
-        // if status 1, load stored data, restore form
+    console.log("start loading");
+    if(JSON.parse(localStorage.getItem("formInputSelect")) != null) {
+
+        // if status != null, load stored data, restore form
 
         setCheckboxTrue("Ziele", Number(JSON.parse(localStorage.getItem("aims"))), "multiinput");
         setCheckboxTrue("Inhalte", Number(JSON.parse(localStorage.getItem("content"))), "multiinput");
@@ -323,10 +469,30 @@ function checkstatus() {
                 y[i].onchange();
             }
         }
+        console.log("saved stuff loaded");
     }
+    else {
+        console.log("nothing saved");
+    }
+    if(JSON.parse(localStorage.getItem("currentTab")) != null) {
+        currentTab = JSON.parse(localStorage.getItem("currentTab"));
+        console.log("current tab: "+currentTab);
+        console.log("loading done");
+
+    }
+    showTab(currentTab);
 
 }
 
+function saveVal (name) {
+
+    var a = document.getElementById(name).value;
+    localStorage.setItem(JSON.stringify(name), JSON.stringify(a));
+    var storedval = JSON.parse(localStorage.getItem(JSON.stringify(name)));
+
+    console.log("function saveVal saved element: "+name+", value: "+storedval);
+
+}
 /*
 function buttonAction (){
     if (typeof saved !== 'undefined' && saved !== null){
@@ -341,22 +507,27 @@ function buttonAction (){
     }
 }
 */
-function checkfield(field_id, target_id) {
-    var x = document.getElementById(field_id);
-    var y = document.getElementById(target_id);
-    if("other" == x.value){
-        y.classList.add("open");
-        y.style.display = 'block';
+function checkfield(field_id, target_id, optionOne, optionTwo) {
+    if(optionOne){
+        var x = document.getElementById(field_id);
+        var y = document.getElementById(target_id);
+        if("other" == x.value){
+            y.classList.add("open");
+            y.style.display = 'block';
+        }
+        else {
+            y.classList.remove("open");
+            y.style.display = 'none';
+        }
+        console.log("checkfiled done with field id: " + field_id);
     }
-    else {
-        y.classList.remove("open");
-        y.style.display = 'none';
+    if(optionTwo){
+        saveVal (field_id);
     }
-    console.log("checkfiled done with field id: " + field_id);
-}
-window.addEventListener("load", feedbackForm);
-window.addEventListener("load", checkstatus);
 
+}
+window.addEventListener("load", checkstatus);
+window.addEventListener("load", feedbackForm);
 if(document.getElementsByClassName("collapsible") != null){
     var coll = document.getElementsByClassName("collapsible");
     var i;
