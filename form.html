@@ -50,7 +50,7 @@ layout: default
                         {% if site.data.oertool.eventformat %}
                         <select name="eventFormat" id="eventFormat">
                             {% for ef in site.data.oertool.eventformat %}
-                            <option value="{{ et.value }}">{{ ef.name }}</option>
+                            <option value="{{ ef.value }}">{{ ef.name }}</option>
                             {% endfor %}
                         </select>
                         {% endif %}
