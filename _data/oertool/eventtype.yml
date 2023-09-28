@@ -20,12 +20,6 @@
   value: 9
 - name: "Exkursion"
   value: 10
-- name: "Präsenz-Format"
-  value: 11
-- name: "Online-Format"
-  value: 12
-- name: "Hybrid-Format"
-  value: 13
 - name: "Andere, und zwar.."
   value: "other"
   field: 0

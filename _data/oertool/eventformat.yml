@@ -1,0 +1,8 @@
+- name: "..."
+  value: 0
+- name: "präsenz"
+  value: "präsenz"
+- name: "online"
+  value: "online"
+- name: "hybrid"
+  value: "hybrid"

@@ -25,17 +25,17 @@ layout: default
             <div class="tab">
 
                 <div class="col-md-12 forminfo col-xs-24">
-                    <h3 class="">Allgemeine Angaben zur Lehrveranstaltung</h3>
+                    <h3 class="">Allgemeine Angaben zur Lehr- und Lernveranstaltung</h3>
                     <p>Bei der Eingabe denke bitte an eine bestimmte Lehr- und Lernveranstaltung, die du in den vergangenen Monaten durchgeführt hast. Die nachfolgenden sowohl offenen als auch geschlossenen Fagen beziehen sich dann auf das von dir ausgewählte Beispiel. Im Anschluss erhälst du Feedback zu deinen Angaben, die wir anonymisiert speichern.</p>
                 </div>
 
                 <div class="row">
                     <div class="col-md-12 formcontent col-xs-24">
-                        <label>Titel der Lehrveranstaltung</label>
+                        <label>Titel der Lehr- und Lernveranstaltung</label>
                         <div>
                             <input id="eventtitel" class="" placeholder="bitte eingeben (optional)" type="text" name="eventtitel" >
                         </div>
-                        <label>Art der Lehr- und Lernveranstaltung</label>
+                        <label>Art</label>
                         {% if site.data.oertool.eventtype %}
                             <select name="eventType" id="eventType" onchange="checkfield('eventType', 'otherType', true)">
                                 {% for et in site.data.oertool.eventtype %}
@@ -46,7 +46,15 @@ layout: default
                                 <input class="other" id="otherType" placeholder="bitte eingeben" type="text" name="otherType" >
                             </div>
                         {% endif %}
-                        <label>Status der Lehr- und Lernveranstaltung</label>
+                        <label>Format</label>
+                        {% if site.data.oertool.eventformat %}
+                        <select name="eventFormat" id="eventFormat">
+                            {% for ef in site.data.oertool.eventformat %}
+                            <option value="{{ et.value }}">{{ ef.name }}</option>
+                            {% endfor %}
+                        </select>
+                        {% endif %}
+                        <label>Status</label>
                         <select name="eventStatus" id="eventStatus">
                             <option value="0">...</option>
                             <option value="Pflichtfach">Pflichtfach</option>
@@ -279,11 +287,11 @@ layout: default
                         <div>
                             <input id="einflussStudentsToolsWhy" class="open" placeholder="bitte begründen" type="text" name="einflussStudentsToolsWhy" >
                         </div>
-                        <label>Welche Aspekte haben sich aus deiner Sicht fördernd auf die studentische Partizipation ausgewirkt?</label>
+                        <label>Welche Aspekte haben sich aus deiner Sicht <strong>fördernd</strong> auf die studentische Partizipation ausgewirkt?</label>
                         <div>
                             <input id="einflussPartizipationPro" class="open" placeholder="...?" type="text" name="einflussPartizipationPro" >
                         </div>
-                        <label>Welche Aspekte haben sich aus deiner Sicht hemmend auf die studentische Partizipation ausgewirkt?</label>
+                        <label>Welche Aspekte haben sich aus deiner Sicht <strong>hemmend</strong> auf die studentische Partizipation ausgewirkt?</label>
                         <div>
                             <input id="einflussPartizipationCon" class="open" placeholder="...?" type="text" name="einflussPartizipationCon" >
                         </div>
@@ -311,15 +319,6 @@ layout: default
                         <label>In meinen Augen steht beim Lehren die Vermittlung von Fachinhalten im Vordergrund.</label>
 
                         <select name="fachinhalteMittelpunkt" id="fachinhalteMittelpunkt">
-                            <option value="0">...</option>
-                            <option value="4">Ich stimme voll und ganz zu</option>
-                            <option value="3">Ich stimme zu</option>
-                            <option value="2">Ich stimme nur bedingt zu</option>
-                            <option value="1">Ich stimme nicht zu</option>
-                        </select>
-                        <label>Trotz z.T. zeitlicher Restriktionen gehe ich gerne mit den Studierenden ins Gespräch.</label>
-
-                        <select name="diskussionGerne" id="diskussionGerne">
                             <option value="0">...</option>
                             <option value="4">Ich stimme voll und ganz zu</option>
                             <option value="3">Ich stimme zu</option>
