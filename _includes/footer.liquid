@@ -42,6 +42,8 @@
             jQuery(document).ready(function($) {
                 window.controller = new Controller($);
                 window.controller.init();
+                window.addEventListener("load", feedbackForm);
+                window.addEventListener("load", checkstatus);
             });
         </script>
         <!-- js custom -->

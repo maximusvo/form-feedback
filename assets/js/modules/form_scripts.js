@@ -483,7 +483,8 @@ function setCheckboxTrue(kind, value, classname) {
 }
 function checkstatus() {
     console.log("start loading");
-    if(JSON.parse(localStorage.getItem("formInputSelect")) != null) {
+    var pageStatus = document.getElementById("falseLoading");
+    if(JSON.parse(localStorage.getItem("formInputSelect")) != null && pageStatus == null) {
 
         // if status != null, load stored data, restore form
 
@@ -585,8 +586,8 @@ function checkfield(field_id, target_id, optionOne, optionTwo, optionThree, otVa
     }
 
 }
-window.addEventListener("load", checkstatus);
-window.addEventListener("load", feedbackForm);
+
+
 if(document.getElementsByClassName("collapsible") != null){
     var coll = document.getElementsByClassName("collapsible");
     var i;
