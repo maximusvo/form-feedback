@@ -507,7 +507,7 @@ function buttonAction (){
     }
 }
 */
-function checkfield(field_id, target_id, optionOne, optionTwo) {
+function checkfield(field_id, target_id, optionOne, optionTwo, optionThree, otValue) {
     if(optionOne){
         var x = document.getElementById(field_id);
         var y = document.getElementById(target_id);
@@ -518,6 +518,19 @@ function checkfield(field_id, target_id, optionOne, optionTwo) {
         else {
             y.classList.remove("open");
             y.style.display = 'none';
+        }
+        console.log("checkfiled done with field id: " + field_id);
+    }
+    if(optionThree){
+        var x = document.getElementById(field_id);
+        var y = document.getElementById(target_id);
+        if(otValue == x.value){
+            y.classList.remove("open");
+            y.style.display = 'none';
+        }
+        else {
+            y.classList.add("open");
+            y.style.display = 'block';
         }
         console.log("checkfiled done with field id: " + field_id);
     }
