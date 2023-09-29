@@ -19,6 +19,11 @@
     input[type=text]::placeholder {
        color: $white;
     }
+    select {
+        background-color: $secondary-color;
+        color: $white;
+    }
+
 }
 /* Style the input fields */
 input {
@@ -122,11 +127,13 @@ select.invalid {
 table {
   border-collapse: collapse;
   width: 100%;
+
 }
 
 td, th {
   text-align: center;
   padding: 4px;
+
 }
 
 tr:nth-child(even) {
@@ -188,6 +195,13 @@ td:first-child {
 }
 
 input[type=checkbox] {
+    .feedbackForm {
+        text-align: left;
+        border: 3px solid #fff;
+        width: 10px;
+        height: 10px;
+    }
+    .multiinput{
         border: 3px solid #fff;
         width: 10px;
         height: 10px;
@@ -205,11 +219,14 @@ input[type=checkbox] {
         -webkit-appearance: none;
         outline: none;
         cursor: pointer;
+        }
 }
 
 
 input[type=checkbox]:checked {
+.multiinput{
     background-color: $secondary-color;
+    }
 }
 .checkbox-box {
         width: 20px;
@@ -401,4 +418,13 @@ input[type=checkbox]:checked {
     a{
         text-decoration-line: underline;
     }
+}
+
+.feedbackForm{
+    td, th {
+      text-align: left !important;
+      padding: 4px;
+
+    }
+
 }

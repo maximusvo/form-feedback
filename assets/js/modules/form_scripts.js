@@ -208,7 +208,27 @@ function showClass(classname){
     }
     return;
 }
-
+function checkResult (results){
+        var z = false;
+        var i;
+        for(i=0; i<results.length-1; i++){
+            if (results[i] != 0){
+                for(j=i+1; j<results.length-1; j++){
+                    if(results[i]>=results[j]){
+                         z=true;
+                    }
+                    else {
+                         z=false;
+                         break;
+                    }
+                }
+                if(z){
+                    return i;
+                }
+            }
+        }
+        return i-1;
+}
 function feedbackForm() {
     var storedInputSelect = JSON.parse(localStorage.getItem("formInputSelect"));
     var storedInputInput = JSON.parse(localStorage.getItem("formInputInput"));
@@ -237,46 +257,58 @@ function feedbackForm() {
               case 5:
                 pieInput[4]++;
                 break;
-              case 6:
+              case 0:
                 pieInput[5]++;
                 break;
               default:
 
             }
         }
-
-        if(result == 0){
-            document.getElementById("feedbackOne").innerHTML = "Ungenügend Angaben <br>";
+        result=0;
+        for (i=0; i<pieInput.length; i++){
+            if(pieInput[i]>=4){
+                result=i;
+            }
         }
-        if(result != 0 && result <= 10){
+
+        if(!result){
+            result = Number(checkResult(pieInput));
+        }
+        console.log(result);
+
+        if(result == 5){
+            document.getElementById("feedbackOne").innerHTML = "Ungenügend Angaben <br>";
+            document.getElementById("contact").style.display = 'none';
+        }
+        if(result == 0){
             document.getElementById("feedbackOne").innerHTML = "Richtungs&shy;gebend";
             document.getElementById("feedbackTwo").innerHTML = "Toll, dass du das Tool genutzt hast, um deine Lehrpraxis hinsichtlich der Partizipationsausprägung einzuschätzen! Als Typ »richtungsgebend« übernimmst du viel Verantwortung und schaffst ein Lehr- und Lernsetting, welches den Studierenden eine Richtung vorgibt. Sofern du einen Teil deiner Verantwortung abgeben möchtest und dir dabei noch mehr studentische Partizipation in der Planung, Gestaltung und Evaluation deiner Lehr- und Lehrveranstaltung wünscht, lohnt es sich, einen Blick in die folgenden Tipps zu werfen.";
             document.getElementById("typeOne").style.display = 'block';
             document.getElementById("feedbackfieldone").style.display = 'block';
             document.getElementById("feedbackfieldtwo").style.display = 'block';
         }
-        if(result >= 11 && result <= 17){
+        if(result == 1){
             document.getElementById("feedbackOne").innerHTML = "Neugierig";
             document.getElementById("feedbackTwo").innerHTML = "Toll, dass du das Tool genutzt hast, um deine Lehrpraxis hinsichtlich der Partizipationsausprägung für dich einzuschätzen! Als Typ »neugierig« bist du an den Meinungen der Studierenden interessiert und holst dir bereits Feedback zu einzelnen Elementen ein. Hervorragend! Regelmäßiges Feedback von Studierenden an Dozierende und vice versa trägt wesentlich zur Steigerung der Unterrichtsqualität bei. Sofern du dir neben der Feedbackkultur noch mehr studentische Partizipation in der Planung, Gestaltung und Evaluation deiner Lehr- und Lehrveranstaltung wünscht, lohnt es sich, einen Blick in die folgenden Tipps zu werfen.";
             document.getElementById("typeTwo").style.display = 'block';
             document.getElementById("feedbackfieldone").style.display = 'block';
             document.getElementById("feedbackfieldtwo").style.display = 'block';
         }
-        if(result >= 18 && result <= 24){
+        if(result == 2){
             document.getElementById("feedbackOne").innerHTML = "Kooperativ";
             document.getElementById("feedbackTwo").innerHTML = "Du bist bereits vertraut mit den Möglichkeiten zur Einbindung einer Studierendenvertretung in die Lehr- und Lernprozessgestaltung. Großartig! Falls du das nicht schon gemacht hast, dann zeige den Kursteilnehmenden auch, inwiefern die Interessenvertretung auf die Kursgestaltung und -umsetzung einwirkt. Durch einen transparenten Prozess kannst du noch mehr Vertrauen bei den Studierenden schaffen und dich zudem rückversichern, dass die Interessen der gesamten Gruppe Berücksichtigung finden.<br>Überlege zudem, ob du bei zukünftigen Lehr- und Lernveranstaltungen dieser Art auch mehr Raum für direkte studentische Beteiligung und Mitbestimmung schaffen kannst. Anbei geben wir dir ein paar Tipps, wie das konkret realisiert werden kann.";
             document.getElementById("typeThree").style.display = 'block';
             document.getElementById("feedbackfieldone").style.display = 'block';
             document.getElementById("feedbackfieldtwo").style.display = 'block';
         }
-        if(result >= 25 && result <= 31){
+        if(result == 3){
             document.getElementById("feedbackOne").innerHTML = "Ko-Kreativ <br>";
             document.getElementById("feedbackTwo").innerHTML = "Großartig! Du lebst Partizipation bereits in deiner Lehre, in dem du die Studierenden direkt mitgestalten lässt. Toll! Anbei findest du darüber hinaus noch ein paar wertvolle Tipps für deine Lehr-und Lernpraxis.";
             document.getElementById("typeFour").style.display = 'block';
             document.getElementById("feedbackfieldone").style.display = 'block';
             document.getElementById("feedbackfieldtwo").style.display = 'block';
         }
-        if(result >= 32 && result <= 35){
+        if(result == 4){
             document.getElementById("feedbackOne").innerHTML = "Lern&shy;begleitend";
             document.getElementById("feedbackTwo").innerHTML = "Hervorragend! Du bietest in deiner Lehr- und Lernveranstaltung den Studierenden Möglichkeiten zum selbstbestimmten Lernen, in denen sie ihre eigenen Interessen entwickeln bzw. diesen nachgehen können. Dabei nimmst du dich als Lehrende(r) zurück, begleitest den Prozess und förderst die Lernautonomie, welche wiederum eine wichtige Voraussetzung zum partizipativen Lernen ist. Selbstbestimmung ist aber nicht mit studentischer Partizipation gleichzusetzen.<br>Überlege deshalb, ob du bei zukünftigen Lehr- und Lernveranstaltungen dieser Art auch mehr Raum für einen ko-kreativen Ansatz schaffen magst. Anbei geben wir dir ein paar Tipps, wie das konkret realisiert werden kann.";
             document.getElementById("typeFive").style.display = 'block';
@@ -286,8 +318,8 @@ function feedbackForm() {
         // draw pie chart in respect of user inputs
         var data = [{
           values: pieInput,
-          marker: {colors: ['#FFFFFF', '#90D9DE', '#C9BDB7', '#00CB7A', '#FF5728']},
-          labels: ['lehrendendefiniert', 'anhörend', 'repräsentativ', 'partnerschaftlich', 'studierendendefiniert'],
+          marker: {colors: ['#FFFFFF', '#90D9DE', '#C9BDB7', '#00CB7A', '#FF5728', '#000000']},
+          labels: ['lehrendendefiniert', 'anhörend', 'repräsentativ', 'partnerschaftlich', 'studierendendefiniert', 'keine Angabe'],
           type: 'pie'
         }];
         var layout = {
@@ -321,10 +353,10 @@ function feedbackForm() {
         otherTypeTG = Number(JSON.parse(localStorage.getItem(JSON.stringify("otherTypeTG"))));
         eventTarget = Number(JSON.parse(localStorage.getItem(JSON.stringify("eventTarget"))));
         tgcount = Number(JSON.parse(localStorage.getItem(JSON.stringify("tgcount"))));
-        if(otherTypeTG == 1){
+        if(eventTarget == "other" && otherTypeTG == 1){
             showClass ("variablea");
         }
-        if(otherTypeTG == 2 || eventTarget == 1 ){
+        else{
             showClass ("variableb");
         }
         if(tgcount <= 4){
@@ -332,6 +364,9 @@ function feedbackForm() {
         }
         if(tgcount > 4){
             showClass ("variabled");
+        }
+        if(tgcount <= 4 && otherTypeTG != 1){
+            showClass ("variablee");
         }
         button.addEventListener("click", clearForm);
         document.getElementById("button").innerHTML = "Ergebnis löschen";
@@ -567,4 +602,19 @@ if(document.getElementsByClassName("collapsible") != null){
         }
       });
     }
+}
+
+function printFile () {
+
+		var pdf = new jsPDF('p', 'pt', 'letter');
+		pdf.html(document.getElementById('html'), {
+			callback: function (pdf) {
+				var iframe = document.createElement('iframe');
+				iframe.setAttribute('style', 'position:absolute;right:0; top:0; bottom:0; height:100%; width:500px');
+				document.body.appendChild(iframe);
+				iframe.src = pdf.output('datauristring');
+			}
+		}
+		);
+
 }

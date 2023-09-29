@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-
+<div id="html">
 <div class="row">
     <section class="col-md-12 col-xs-24 feedback" onload="feedbackForm()">
         <div class="feedback inner">
@@ -99,24 +99,28 @@ layout: default
         {% endif %}
     </section>
 </div>
-<div class="row" >
+<div class="row" id="contact">
     <section class="section blue col-md-12 col-xs-24">
         <div class="content-wrap content-box-el">
-            <h2 class="regular">Kontakt</h2>
+            <h2 class="regular">Feedback geben</h2>
             <form
                     id="conForm"
-                    action="https://formspree.io/f/mnqkojnq"
+                    action="https://formspree.io/f/mvojvzwl"
                     method="POST"
             >
-
+                <label>Wie hilfreich empfandest du das Tool?</label>
                 <div>
-                    <input class="" id="name" placeholder="Name" type="text" name="name" >
+                    <select name="formFeedback" id="formFeedback" class="formFeedback">
+                        <option value="0">...</option>
+                        <option value="4">sehr hilfreich</option>
+                        <option value="3">hilfreich</option>
+                        <option value="2">ausbaufähig</option>
+                        <option value="1">nicht hilfreich</option>
+                    </select>
                 </div>
                 <div>
-                    <input class="" id="mail" placeholder="E-Mail-Adresse" type="text" name="mail" >
-                </div>
-                <div>
-                    <input class="" id="content" placeholder="Nachricht" type="text" name="content" >
+                    <label>Möchtest du noch etwas mitteilen?</label>
+                    <input class="" id="feedbackTxt" placeholder="Nachricht" type="text" name="feedbackTxt" >
                 </div>
                 <div class="col-md-12 formnav col-xs-24">
 
@@ -130,10 +134,13 @@ layout: default
     <section class="section blue col-md-12 col-xs-24">
         <div class="content-wrap content-box-el">
             <div class="col-md-12 formnav col-xs-24">
-
+                <!--
+                <button class="edu-btn orange" type="button" onclick="printFile()">Ergebnis drucken</button>
+                -->
             </div>
         </div>
     </section>
+</div>
 </div>
 <!--
 <div class="row">
