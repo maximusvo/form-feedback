@@ -6,7 +6,20 @@
   min-width: 300px;
 
 }
-
+#conForm {
+    background-color: $secondary-color;
+    color: $white;
+    margin: 100px auto;
+    width: 100%;
+    min-width: 300px;
+    input[type=text] {
+        background-color: $secondary-color;
+        color: $white;
+    }
+    input[type=text]::placeholder {
+       color: $white;
+    }
+}
 /* Style the input fields */
 input {
   padding: 10px;
@@ -375,4 +388,9 @@ input[type=checkbox]:checked {
 }
 .variabled {
     display: none;
+}
+#feedbackfieldtwo {
+    .section {
+        padding-bottom: 0px;
+    }
 }
