@@ -138,6 +138,9 @@ function nextPrev(n) {
   if (currentTab >= x.length) {
     //...the form gets submitted:
     document.getElementById("regForm").submit();
+    currentTab = 0;
+    localStorage.setItem("currentTab", JSON.stringify(currentTab));
+    localStorage.setItem("formDone", JSON.stringify("true"));
 
     return false;
   }
@@ -404,12 +407,16 @@ function saveForm() {
 }
 
 function clearForm() {
+    localStorage.clear();
+    location.reload();
+    /*
     document.getElementById("feedbackOne").innerHTML = "";
     document.getElementById("feedbackTwo").innerHTML = "";
     document.getElementById("formpiecontainer").style.display = "none";
-    localStorage.clear();
+
     document.getElementById("button").innerHTML = "Zurück zum Tool";
     button.addEventListener("click", formRestart);
+    */
     return;
 }
 
@@ -479,6 +486,10 @@ function checkstatus() {
         console.log("current tab: "+currentTab);
         console.log("loading done");
 
+    }
+    if(JSON.parse(localStorage.getItem("formDone"))) {
+        document.getElementById("formdone").style.display = "block";
+        console.log("form done");
     }
     showTab(currentTab);
 
