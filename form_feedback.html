@@ -46,7 +46,7 @@ layout: default
         {% if site.data.oertool.feedback %}
             {% for feedback in site.data.oertool.feedback %}
                 {% if feedback.type == 1 %}
-                    <div id="typeOne" >
+                    <div id="typeOne" class="collapstxt">
                         <button class="collapsible orange">Vorbereitung</button>
                         <div class="content orange">{% if feedback.prep_de %}<p>{{feedback.prep_de}}</p>{% endif %}</div>
                         <button class="collapsible green">Durchführung</button>
@@ -56,7 +56,7 @@ layout: default
                     </div>
                 {%endif%}
                 {% if feedback.type == 2 %}
-                    <div id="typeTwo" >
+                    <div id="typeTwo" class="collapstxt">
                         <button class="collapsible orange">Vorbereitung</button>
                         <div class="content orange">{% if feedback.prep_de %}<p>{{feedback.prep_de}}</p>{% endif %}</div>
                         <button class="collapsible green">Durchführung</button>
@@ -66,7 +66,7 @@ layout: default
                     </div>
                 {% endif %}
                 {% if feedback.type == 3 %}
-                    <div id="typeThree" >
+                    <div id="typeThree" class="collapstxt">
                         <button class="collapsible orange">Vorbereitung</button>
                         <div class="content orange">{% if feedback.prep_de %}<p>{{feedback.prep_de}}</p>{% endif %}</div>
                         <button class="collapsible green">Durchführung</button>
@@ -76,7 +76,7 @@ layout: default
                     </div>
                 {% endif %}
                 {% if feedback.type == 4 %}
-                    <div id="typeFour" >
+                    <div id="typeFour" class="collapstxt">
                         <button class="collapsible orange">Vorbereitung</button>
                         <div class="content orange">{% if feedback.prep_de %}<p>{{feedback.prep_de}}</p>{% endif %}</div>
                         <button class="collapsible green">Durchführung</button>
@@ -86,7 +86,7 @@ layout: default
                     </div>
                 {% endif %}
                 {% if feedback.type == 5 %}
-                    <div id="typeFive" >
+                    <div id="typeFive" class="collapstxt">
                         <button class="collapsible orange">Vorbereitung</button>
                         <div class="content orange">{% if feedback.prep_de %}<p>{{feedback.prep_de}}</p>{% endif %}</div>
                         <button class="collapsible green">Durchführung</button>
