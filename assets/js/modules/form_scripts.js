@@ -1,14 +1,17 @@
 jQuery(document).ready(function($) {
     // save form if something changed
-    $('input').on('change', function () {
-        saveForm();
-        console.log("something changed, saved");
-    });
+    var pageStatus = document.getElementById("regForm");
+    if(pageStatus){
+        $('input').on('change', function () {
+            saveForm();
+            console.log("something changed, saved");
+        });
 
-    $('select').on('change', function () {
-        saveForm();
-        console.log("something changed, saved");
-    });
+        $('select').on('change', function () {
+            saveForm();
+            console.log("something changed, saved");
+        });
+    }
     // only activate current checkbox
     $('input[name=Ziele]').change(function () {
         var checkboxes = document.getElementsByClassName("multiinput");
@@ -209,20 +212,20 @@ function showClass(classname){
     return;
 }
 function checkResult (results){
-        var z = false;
+        var flag = false;
         var i;
         for(i=0; i<results.length-1; i++){
             if (results[i] != 0){
                 for(j=i+1; j<results.length-1; j++){
                     if(results[i]>=results[j]){
-                         z=true;
+                         flag=true;
                     }
                     else {
-                         z=false;
+                         flag=false;
                          break;
                     }
                 }
-                if(z){
+                if(flag){
                     return i;
                 }
             }
@@ -483,8 +486,8 @@ function setCheckboxTrue(kind, value, classname) {
 }
 function checkstatus() {
     console.log("start loading");
-    var pageStatus = document.getElementById("falseLoading");
-    if(JSON.parse(localStorage.getItem("formInputSelect")) != null && pageStatus == null) {
+    var pageStatus = document.getElementById("regForm");
+    if(JSON.parse(localStorage.getItem("formInputSelect")) != null && pageStatus != null) {
 
         // if status != null, load stored data, restore form
 
