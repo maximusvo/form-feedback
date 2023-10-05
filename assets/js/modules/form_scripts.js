@@ -474,7 +474,7 @@ function saveForm() {
 
 function clearForm() {
     localStorage.clear();
-    location.reload();
+    location.reload(true);
     /*
     document.getElementById("feedbackOne").innerHTML = "";
     document.getElementById("feedbackTwo").innerHTML = "";
