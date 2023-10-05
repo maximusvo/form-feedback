@@ -285,6 +285,10 @@ FOOTER STYLES
 
   &.content-box-el{
     height: 400px;
+    img {
+        height: 100%;
+        width: auto;
+    }
   }
 }
 .tooltip .tooltiptext {
