@@ -289,6 +289,7 @@ function feedbackForm() {
             document.getElementById("typeOne").style.display = 'block';
             document.getElementById("feedbackfieldone").style.display = 'block';
             document.getElementById("feedbackfieldtwo").style.display = 'block';
+            document.getElementById("feedbackimg").src = 'assets/img/static/oep_illus/TypRichtungsweisend.jpg';
         }
         if(result == 1){
             document.getElementById("feedbackOne").innerHTML = "Neugierig";
@@ -296,6 +297,7 @@ function feedbackForm() {
             document.getElementById("typeTwo").style.display = 'block';
             document.getElementById("feedbackfieldone").style.display = 'block';
             document.getElementById("feedbackfieldtwo").style.display = 'block';
+            document.getElementById("feedbackimg").src = 'assets/img/static/oep_illus/TypNeugierig.jpg';
         }
         if(result == 2){
             document.getElementById("feedbackOne").innerHTML = "Kooperativ";
@@ -303,6 +305,7 @@ function feedbackForm() {
             document.getElementById("typeThree").style.display = 'block';
             document.getElementById("feedbackfieldone").style.display = 'block';
             document.getElementById("feedbackfieldtwo").style.display = 'block';
+            document.getElementById("feedbackimg").src = 'assets/img/static/oep_illus/TypKooperativ.jpg';
         }
         if(result == 3){
             document.getElementById("feedbackOne").innerHTML = "Ko-Kreativ <br>";
@@ -310,6 +313,7 @@ function feedbackForm() {
             document.getElementById("typeFour").style.display = 'block';
             document.getElementById("feedbackfieldone").style.display = 'block';
             document.getElementById("feedbackfieldtwo").style.display = 'block';
+            document.getElementById("feedbackimg").src = 'assets/img/static/oep_illus/TypKoKreativ.jpg';
         }
         if(result == 4){
             document.getElementById("feedbackOne").innerHTML = "Lern&shy;begleitend";
@@ -317,6 +321,7 @@ function feedbackForm() {
             document.getElementById("typeFive").style.display = 'block';
             document.getElementById("feedbackfieldone").style.display = 'block';
             document.getElementById("feedbackfieldtwo").style.display = 'block';
+            document.getElementById("feedbackimg").src = 'assets/img/static/oep_illus/TypLernbegleitend.jpg';
         }
         // draw pie chart in respect of user inputs
         var data = [{
@@ -325,10 +330,32 @@ function feedbackForm() {
           labels: ['lehrendendefiniert', 'anhörend', 'repräsentativ', 'partnerschaftlich', 'studierendendefiniert', 'keine Angabe'],
           type: 'pie'
         }];
-        var layout = {
+        var layoutOne = {
           paper_bgcolor: 'rgba(0,0,0,0)',
           font: {
               color: 'white',
+              //family:'Times New Roman'
+          },
+          //height: 500,
+          //width: 500,
+          autosize: true,
+            margin: {
+              l: 0,
+              r: 150,
+            },
+            legend: {
+              orientation: "h",
+              x: 0.1,
+              y: -0.2,
+            },
+
+          //showlegend: false,
+
+        };
+        var layoutTwo = {
+          paper_bgcolor: 'rgba(0,0,0,0)',
+          font: {
+              color: 'black',
               //family:'Times New Roman'
           },
           //height: 500,
@@ -351,7 +378,8 @@ function feedbackForm() {
             displayModeBar: false,
             responsive: true,
         }
-        Plotly.newPlot('formpie', data, layout, config);
+        Plotly.newPlot('formpie', data, layoutOne, config);
+        Plotly.newPlot('formpieprint', data, layoutTwo, config);
         // end drawing
         otherTypeTG = Number(JSON.parse(localStorage.getItem(JSON.stringify("otherTypeTG"))));
         eventTarget = Number(JSON.parse(localStorage.getItem(JSON.stringify("eventTarget"))));

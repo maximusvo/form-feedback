@@ -31,7 +31,7 @@ $baseurl: "{{ site.baseurl }}";
 
 // modules
 @import "modules/forms";
-@import "modules/testform";
+@import "modules/oepform";
 @import "modules/contentpage-elements";
 @import "modules/teasers";
 @import "modules/filter-items";
@@ -39,6 +39,7 @@ $baseurl: "{{ site.baseurl }}";
 @import "modules/comments";
 @import "modules/project-edit";
 @import "modules/digitalen-welt";
+@import "modules/printer";
 
 //spritesheet
 @import "../svg-build/sass/style";

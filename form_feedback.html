@@ -8,16 +8,17 @@ layout: default
                 <div class="content-wrap">
                     <p>Die Auswertung hat ergeben, dass du folgender Typ bist</p>
                     <h1 id="feedbackOne"></h1>
-                    <!--
-                    <button type="button" onclick="printJS('docs/printjs.pdf')">
-                        Print PDF
-                    </button>
-                    -->
+
                 </div>
             </div>
-            <div class="row col-md-12 col-xs-24 col-md-push-0 col-xs-push-5">
+            <div class="row col-md-12 col-xs-24 col-md-push-0 col-xs-push-5 printer-hidden">
                 <div class="content-wrap" id="formpiecontainer">
                     <div class="" id="formpie"></div>
+                </div>
+            </div>
+            <div class="row col-md-12 col-xs-24 col-md-push-0 col-xs-push-1 printer-only">
+                <div class="content-wrap" id="formpiecontainer">
+                    <div class="" id="formpieprint"></div>
                 </div>
             </div>
         </div>
@@ -30,9 +31,9 @@ layout: default
             <p id="feedbackTwo"></p>
         </div>
     </section>
-    <section class="section white hidemobil col-md-12 col-xs-24">
+    <section class="section white hidemobil printer-hidden col-md-12 col-xs-24">
         <div class="content-wrap frontpage content-box-el">
-            <img src="assets/img/static/home-img-1.png"/>
+            <img id="feedbackimg" src=""/>
         </div>
     </section>
 </div>
@@ -45,7 +46,7 @@ layout: default
         {% if site.data.oertool.feedback %}
             {% for feedback in site.data.oertool.feedback %}
                 {% if feedback.type == 1 %}
-                    <div id="typeOne" class="collapstxt">
+                    <div id="typeOne" class="collapstxt printer-visible">
                         <button class="collapsible orange">Vorbereitung</button>
                         <div class="content orange">{% if feedback.prep_de %}<p>{{feedback.prep_de}}</p>{% endif %}</div>
                         <button class="collapsible green">Durchführung</button>
@@ -55,7 +56,7 @@ layout: default
                     </div>
                 {%endif%}
                 {% if feedback.type == 2 %}
-                    <div id="typeTwo" class="collapstxt">
+                    <div id="typeTwo" class="collapstxt printer-visible">
                         <button class="collapsible orange">Vorbereitung</button>
                         <div class="content orange">{% if feedback.prep_de %}<p>{{feedback.prep_de}}</p>{% endif %}</div>
                         <button class="collapsible green">Durchführung</button>
@@ -65,7 +66,7 @@ layout: default
                     </div>
                 {% endif %}
                 {% if feedback.type == 3 %}
-                    <div id="typeThree" class="collapstxt">
+                    <div id="typeThree" class="collapstxt printer-visible">
                         <button class="collapsible orange">Vorbereitung</button>
                         <div class="content orange">{% if feedback.prep_de %}<p>{{feedback.prep_de}}</p>{% endif %}</div>
                         <button class="collapsible green">Durchführung</button>
@@ -75,7 +76,7 @@ layout: default
                     </div>
                 {% endif %}
                 {% if feedback.type == 4 %}
-                    <div id="typeFour" class="collapstxt">
+                    <div id="typeFour" class="collapstxt printer-visible">
                         <button class="collapsible orange">Vorbereitung</button>
                         <div class="content orange">{% if feedback.prep_de %}<p>{{feedback.prep_de}}</p>{% endif %}</div>
                         <button class="collapsible green">Durchführung</button>
@@ -85,7 +86,7 @@ layout: default
                     </div>
                 {% endif %}
                 {% if feedback.type == 5 %}
-                    <div id="typeFive" class="collapstxt">
+                    <div id="typeFive" class="collapstxt printer-visible">
                         <button class="collapsible orange">Vorbereitung</button>
                         <div class="content orange">{% if feedback.prep_de %}<p>{{feedback.prep_de}}</p>{% endif %}</div>
                         <button class="collapsible green">Durchführung</button>
@@ -98,7 +99,7 @@ layout: default
         {% endif %}
     </section>
 </div>
-<div class="row" id="contact">
+<div class="row printer-hidden" id="contact">
     <section class="section blue col-md-12 col-xs-24">
         <div class="content-wrap content-box-el">
             <h2 class="regular">Feedback geben</h2>
@@ -133,9 +134,9 @@ layout: default
     <section class="section blue col-md-12 col-xs-24">
         <div class="content-wrap content-box-el">
             <div class="col-md-12 formnav col-xs-24">
-                <!--
-                <button class="edu-btn orange" type="button" onclick="printFile()">Ergebnis drucken</button>
-                -->
+
+                <button class="edu-btn orange" type="button" onclick="document.title = 'OEP-Tool_Result';window.print();">Ergebnis drucken</button>
+
             </div>
         </div>
     </section>

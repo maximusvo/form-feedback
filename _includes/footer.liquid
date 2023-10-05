@@ -1,4 +1,4 @@
-<footer class="footer section center white">
+<footer class="footer section center white printer-hidden">
 
     <div class="sponsors-nav">
         <ul>
@@ -18,7 +18,8 @@
            </li>
         </ul>
         <div class="foot-links">
-        <a class="imprint simple-btn" href="/impressum">Impressum</a>
+            <a class="imprint simple-btn" href="/impressum">Impressum</a>
+            <a class="imprint simple-btn" href="/impressum">Datenschutz</a>
         </div>
     </div>
 </footer>
@@ -49,16 +50,8 @@
         <!-- js custom -->
         <script src="{{ site.baseurl }}/assets/js/modules/IsotopeController.js"></script>
         <script src="{{ site.baseurl }}/assets/js/main.js?v=2.0"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
         <script src="{{ site.baseurl }}/assets/js/modules/form_scripts.js"></script>
 
-		<script type="text/javascript">
-			var jsPDF = window.jspdf.jsPDF;
-			$(document).ready(function() {
-				if(jsPDF && jsPDF.version) {
-					$('#dversion').text('Version ' + jsPDF.version);
-				}
-			});
-		</script>
+
 </body>
 </html>
