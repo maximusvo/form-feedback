@@ -252,7 +252,7 @@ input[type=checkbox]:checked {
   border-radius: 50%;
   vertical-align: middle;
   border: 2px solid $fourth-color;
-  -webkit-appearance: none;
+  //-webkit-appearance: none;
   outline: none;
   cursor: pointer;
   padding: 5px;
