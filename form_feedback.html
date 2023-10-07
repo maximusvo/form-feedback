@@ -37,7 +37,7 @@ layout: default
         </div>
     </section>
 </div>
-<div class="row" id="feedbackfieldtwo">
+<div class="row page-break" id="feedbackfieldtwo">
     <section class="section white hidemobil col-md-12 col-xs-24">
         <div class="content-wrap frontpage content-box-el">
         </div>
@@ -141,7 +141,22 @@ layout: default
         </div>
     </section>
 </div>
-
+<div class="row printer-only page-break">
+    <section class="section blue col-md-12 col-xs-24">
+        <div class="content-wrap content-box-el">
+            <h2>Referenzen</h2>
+            {% if site.data.oertool.sources %}
+                {% for source in site.data.oertool.sources %}
+                <p>{{ source.name }}</p>
+                {% endfor %}
+            </select>
+            <div>
+                <input class="other" id="otherTypeFaculty" placeholder="bitte eingeben" type="text" name="otherTypeFaculty" >
+            </div>
+            {% endif %}
+        </div>
+    </section>
+</div>
 <!--
 <div class="row">
     <section class="col-md-24 col-xs-24" style="background-color: white;">
