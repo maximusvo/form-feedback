@@ -285,7 +285,7 @@ function feedbackForm() {
         }
         if(result == 0){
             document.getElementById("feedbackOne").innerHTML = "Richtungs&shy;gebend";
-            document.getElementById("feedbackTwo").innerHTML = "Toll, dass du das Tool genutzt hast, um deine Lehrpraxis hinsichtlich der Partizipationsausprägung einzuschätzen! Als Typ »richtungsgebend« übernimmst du viel Verantwortung und schaffst ein Lehr- und Lernsetting, welches den Studierenden eine Richtung vorgibt. Sofern du einen Teil deiner Verantwortung abgeben möchtest und dir dabei noch mehr studentische Partizipation in der Planung, Gestaltung und Evaluation deiner Lehr- und Lehrveranstaltung wünscht, lohnt es sich, einen Blick in die folgenden Tipps zu werfen.";
+            document.getElementById("feedbackTwo").innerHTML = "Toll, dass du das Tool genutzt hast, um deine Lehrpraxis hinsichtlich der Partizipationsausprägung einzuschätzen! Als Typ »richtungsgebend« übernimmst du viel Verantwortung und schaffst ein Lehr- und Lernsetting, welches den Studierenden eine Richtung vorgibt. Wenn du einen Teil deiner Verantwortung abgeben und Studierende mehr an der Planung, Gestaltung und Evaluation deiner Lehr- und Lehrveranstaltung beteiligen möchtest, lohnt es sich, einen Blick in die folgenden Tipps zu werfen.";
             document.getElementById("typeOne").style.display = 'block';
             document.getElementById("feedbackfieldone").style.display = 'block';
             document.getElementById("feedbackfieldtwo").style.display = 'block';
@@ -301,7 +301,7 @@ function feedbackForm() {
         }
         if(result == 2){
             document.getElementById("feedbackOne").innerHTML = "Kooperativ";
-            document.getElementById("feedbackTwo").innerHTML = "Du bist bereits vertraut mit den Möglichkeiten zur Einbindung einer Studierendenvertretung in die Lehr- und Lernprozessgestaltung. Großartig! Falls du das nicht schon gemacht hast, dann zeige den Kursteilnehmenden auch, inwiefern die Interessenvertretung auf die Kursgestaltung und -umsetzung einwirkt. Durch einen transparenten Prozess kannst du noch mehr Vertrauen bei den Studierenden schaffen und dich zudem rückversichern, dass die Interessen der gesamten Gruppe Berücksichtigung finden.<br>Überlege zudem, ob du bei zukünftigen Lehr- und Lernveranstaltungen dieser Art auch mehr Raum für direkte studentische Beteiligung und Mitbestimmung schaffen kannst. Anbei geben wir dir ein paar Tipps, wie das konkret realisiert werden kann.";
+            document.getElementById("feedbackTwo").innerHTML = "Du bist bereits vertraut mit den Möglichkeiten zur Einbindung einer Studierendenvertretung in die Lehr- und Lernprozessgestaltung. Großartig! Falls du das nicht schon gemacht hast, dann zeige den Kursteilnehmenden auch inwiefern die Interessenvertretung auf die Kursgestaltung und -umsetzung einwirkt. Durch einen transparenten Prozess kannst du noch mehr Vertrauen bei den Studierenden schaffen und dich zudem rückversichern, dass die Interessen der gesamten Gruppe Berücksichtigung finden.<br>Überlege zudem, ob du bei zukünftigen Lehr- und Lernveranstaltungen dieser Art auch mehr Raum für direkte studentische Beteiligung und Mitbestimmung schaffen kannst. Im Folgenden geben wir dir ein paar Tipps, wie du das realisieren kannst.";
             document.getElementById("typeThree").style.display = 'block';
             document.getElementById("feedbackfieldone").style.display = 'block';
             document.getElementById("feedbackfieldtwo").style.display = 'block';
@@ -309,7 +309,7 @@ function feedbackForm() {
         }
         if(result == 3){
             document.getElementById("feedbackOne").innerHTML = "Ko-Kreativ <br>";
-            document.getElementById("feedbackTwo").innerHTML = "Großartig! Du lebst Partizipation bereits in deiner Lehre, in dem du die Studierenden direkt mitgestalten lässt. Toll! Anbei findest du darüber hinaus noch ein paar wertvolle Tipps für deine Lehr-und Lernpraxis.";
+            document.getElementById("feedbackTwo").innerHTML = "Großartig! Du lebst Partizipation bereits in deiner Lehre, indem du die Studierenden direkt mitgestalten lässt. Im Folgenden findest du Tipps für deine Lehr-und Lernpraxis.";
             document.getElementById("typeFour").style.display = 'block';
             document.getElementById("feedbackfieldone").style.display = 'block';
             document.getElementById("feedbackfieldtwo").style.display = 'block';
