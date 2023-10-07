@@ -242,7 +242,7 @@ function feedbackForm() {
         var result = 0;
         for(i=0; i<matrixVariables.length; i++){
             // calc total points of user
-            result = result + Number(matrixVariables[i]);
+            // old stuff >> result = result + Number(matrixVariables[i]);
             // calc pie dimensions
             switch(Number(matrixVariables[i])) {
               case 1:
@@ -267,7 +267,7 @@ function feedbackForm() {
 
             }
         }
-        result=0;
+
         for (i=0; i<pieInput.length; i++){
             if(pieInput[i]>=4){
                 result=i;
@@ -277,7 +277,11 @@ function feedbackForm() {
         if(!result){
             result = Number(checkResult(pieInput));
         }
-        console.log(result);
+        for (i=0; i<pieInput.length; i++){
+            if(pieInput[i]==0){
+                pieInput[i]=null;
+            }
+        }
 
         if(result == 5){
             document.getElementById("feedbackOne").innerHTML = "Ungenügend Angaben <br>";
