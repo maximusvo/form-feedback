@@ -25,10 +25,10 @@
     }
 
 }
-/* Style the input fields */
+/* Style input fields */
 input {
   padding: 10px;
-  width: 100%;
+  //width: 100%;
 }
 
 /* Mark input boxes that gets an error on validation: */
@@ -224,13 +224,13 @@ input[type=checkbox] {
         -webkit-appearance: none;
         outline: none;
         cursor: pointer;
-        }
+    }
 }
 
 
 input[type=checkbox]:checked {
-.multiinput{
-    background-color: $secondary-color;
+    .multiinput{
+        background-color: $secondary-color;
     }
 }
 .checkbox-box {
@@ -252,7 +252,7 @@ input[type=checkbox]:checked {
   border-radius: 50%;
   vertical-align: middle;
   border: 2px solid $fourth-color;
-  //-webkit-appearance: none;
+  -webkit-appearance: none;
   outline: none;
   cursor: pointer;
   padding: 5px;
