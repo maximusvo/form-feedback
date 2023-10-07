@@ -97,34 +97,37 @@ var currentTab = 0;
 //button.addEventListener("click", buttonAction);
 
 function showTab(n) {
-  // This function will display the specified tab of the form ...
-  var x = document.getElementsByClassName("tab");
-  //var y = document.getElementsByClassName("tabTitel");
-  x[n].style.display = "block";
+  var pageStatus = document.getElementById("regForm");
+  if(pageStatus){
+      // This function will display the specified tab of the form ...
+      var x = document.getElementsByClassName("tab");
+      //var y = document.getElementsByClassName("tabTitel");
+      x[n].style.display = "block";
 
-  // ... and fix the Previous/Next buttons:
-  if (n == 0) {
-    document.getElementById("prevBtn").style.display = "none";
-    // only highlight current tab headline in table of content
-    //y[n].className += " tablehighlight";
-    //y[n+1].classList.remove("tablehighlight");
-  } else {
-    document.getElementById("prevBtn").style.display = "inline";
-    // only highlight current tab headline in table of content
-    //y[n].className += " tablehighlight";
-    //y[n-1].classList.remove("tablehighlight");
-    //if(y.length <= y[n+1]){
-    //    y[n+1].classList.remove("tablehighlight");
-    //}
+      // ... and fix the Previous/Next buttons:
+      if (n == 0) {
+        document.getElementById("prevBtn").style.display = "none";
+        // only highlight current tab headline in table of content
+        //y[n].className += " tablehighlight";
+        //y[n+1].classList.remove("tablehighlight");
+      } else {
+        document.getElementById("prevBtn").style.display = "inline";
+        // only highlight current tab headline in table of content
+        //y[n].className += " tablehighlight";
+        //y[n-1].classList.remove("tablehighlight");
+        //if(y.length <= y[n+1]){
+        //    y[n+1].classList.remove("tablehighlight");
+        //}
 
+      }
+      if (n == (x.length - 1)) {
+        document.getElementById("nextBtn").innerHTML = "Auswerten";
+      } else {
+        document.getElementById("nextBtn").innerHTML = "Weiter";
+      }
+      // ... and run a function that displays the correct step indicator:
+      fixStepIndicator(n);
   }
-  if (n == (x.length - 1)) {
-    document.getElementById("nextBtn").innerHTML = "Auswerten";
-  } else {
-    document.getElementById("nextBtn").innerHTML = "Weiter";
-  }
-  // ... and run a function that displays the correct step indicator:
-  fixStepIndicator(n)
 }
 
 function nextPrev(n) {
@@ -233,61 +236,61 @@ function checkResult (results){
         return i-1;
 }
 function feedbackForm() {
-    var storedInputSelect = JSON.parse(localStorage.getItem("formInputSelect"));
-    var storedInputInput = JSON.parse(localStorage.getItem("formInputInput"));
+    // calc feedback if form is done
 
-    if (typeof storedInputInput !== 'undefined' && storedInputInput !== null){
-        var pieInput = [0,0,0,0,0,0];
+    if (JSON.parse(localStorage.getItem("formDone"))){
+        var feedbackResult = [0,0,0,0,0,0];
+        // get martix values from local storage
         var matrixVariables = [Number(JSON.parse(localStorage.getItem("aims"))), Number(JSON.parse(localStorage.getItem("content"))), Number(JSON.parse(localStorage.getItem("results"))), Number(JSON.parse(localStorage.getItem("methods"))), Number(JSON.parse(localStorage.getItem("media"))),Number(JSON.parse(localStorage.getItem("context"))), Number(JSON.parse(localStorage.getItem("evaluation")))];
-        var result = 0;
+        var resultingType = 0;
         for(i=0; i<matrixVariables.length; i++){
-            // calc total points of user
-            // old stuff >> result = result + Number(matrixVariables[i]);
-            // calc pie dimensions
+            // calc feedback result by counting matrix values
             switch(Number(matrixVariables[i])) {
               case 1:
-                pieInput[0]++;
+                feedbackResult[0]++;
                 break;
               case 2:
-                pieInput[1]++;
+                feedbackResult[1]++;
                 break;
               case 3:
-                pieInput[2]++;
+                feedbackResult[2]++;
                 break;
               case 4:
-                pieInput[3]++;
+                feedbackResult[3]++;
                 break;
               case 5:
-                pieInput[4]++;
+                feedbackResult[4]++;
                 break;
               case 0:
-                pieInput[5]++;
+                feedbackResult[5]++;
                 break;
               default:
 
             }
         }
-
-        for (i=0; i<pieInput.length; i++){
-            if(pieInput[i]>=4){
-                result=i;
+        // find resulting teaching type
+        for (i=0; i<feedbackResult.length; i++){
+            if(feedbackResult[i]>=4){
+                resultingType=i;
             }
         }
-
-        if(!result){
-            result = Number(checkResult(pieInput));
+        if(!resultingType){
+            resultingType = Number(checkResult(feedbackResult));
         }
-        for (i=0; i<pieInput.length; i++){
-            if(pieInput[i]==0){
-                pieInput[i]=null;
+
+        // change feedbackResult "0" to "null" to hide in pie chart
+        for (i=0; i<feedbackResult.length; i++){
+            if(feedbackResult[i]==0){
+                feedbackResult[i]=null;
             }
         }
-
-        if(result == 5){
+        // output teaching type
+        if(resultingType == 5){
             document.getElementById("feedbackOne").innerHTML = "Ungenügend Angaben <br>";
-            document.getElementById("contact").style.display = 'none';
+            document.getElementById("typemsg").innerHTML = 'Du hast keine Angaben zur Studierendenbeteiligung gemacht.';
+            document.getElementById("formpie").style.display = 'none';
         }
-        if(result == 0){
+        if(resultingType == 0){
             document.getElementById("feedbackOne").innerHTML = "Richtungs&shy;gebend";
             document.getElementById("feedbackTwo").innerHTML = "Toll, dass du das Tool genutzt hast, um deine Lehrpraxis hinsichtlich der Partizipationsausprägung einzuschätzen! Als Typ »richtungsgebend« übernimmst du viel Verantwortung und schaffst ein Lehr- und Lernsetting, welches den Studierenden eine Richtung vorgibt. Wenn du einen Teil deiner Verantwortung abgeben und Studierende mehr an der Planung, Gestaltung und Evaluation deiner Lehr- und Lehrveranstaltung beteiligen möchtest, lohnt es sich, einen Blick in die folgenden Tipps zu werfen.";
             document.getElementById("typeOne").style.display = 'block';
@@ -295,7 +298,7 @@ function feedbackForm() {
             document.getElementById("feedbackfieldtwo").style.display = 'block';
             document.getElementById("feedbackimg").src = 'assets/img/static/oep_illus/TypRichtungsweisend.jpg';
         }
-        if(result == 1){
+        if(resultingType == 1){
             document.getElementById("feedbackOne").innerHTML = "Neugierig";
             document.getElementById("feedbackTwo").innerHTML = "Toll, dass du das Tool genutzt hast, um deine Lehrpraxis hinsichtlich der Partizipationsausprägung für dich einzuschätzen! Als Typ »neugierig« bist du an den Meinungen der Studierenden interessiert und holst dir bereits Feedback zu einzelnen Elementen ein. Hervorragend! Regelmäßiges Feedback von Studierenden an Dozierende und vice versa trägt wesentlich zur Steigerung der Unterrichtsqualität bei. Sofern du dir neben der Feedbackkultur noch mehr studentische Partizipation in der Planung, Gestaltung und Evaluation deiner Lehr- und Lehrveranstaltung wünscht, lohnt es sich, einen Blick in die folgenden Tipps zu werfen.";
             document.getElementById("typeTwo").style.display = 'block';
@@ -303,7 +306,7 @@ function feedbackForm() {
             document.getElementById("feedbackfieldtwo").style.display = 'block';
             document.getElementById("feedbackimg").src = 'assets/img/static/oep_illus/TypNeugierig.jpg';
         }
-        if(result == 2){
+        if(resultingType == 2){
             document.getElementById("feedbackOne").innerHTML = "Kooperativ";
             document.getElementById("feedbackTwo").innerHTML = "Du bist bereits vertraut mit den Möglichkeiten zur Einbindung einer Studierendenvertretung in die Lehr- und Lernprozessgestaltung. Großartig! Falls du das nicht schon gemacht hast, dann zeige den Kursteilnehmenden auch inwiefern die Interessenvertretung auf die Kursgestaltung und -umsetzung einwirkt. Durch einen transparenten Prozess kannst du noch mehr Vertrauen bei den Studierenden schaffen und dich zudem rückversichern, dass die Interessen der gesamten Gruppe Berücksichtigung finden.<br>Überlege zudem, ob du bei zukünftigen Lehr- und Lernveranstaltungen dieser Art auch mehr Raum für direkte studentische Beteiligung und Mitbestimmung schaffen kannst. Im Folgenden geben wir dir ein paar Tipps, wie du das realisieren kannst.";
             document.getElementById("typeThree").style.display = 'block';
@@ -311,7 +314,7 @@ function feedbackForm() {
             document.getElementById("feedbackfieldtwo").style.display = 'block';
             document.getElementById("feedbackimg").src = 'assets/img/static/oep_illus/TypKooperativ.jpg';
         }
-        if(result == 3){
+        if(resultingType == 3){
             document.getElementById("feedbackOne").innerHTML = "Ko-Kreativ <br>";
             document.getElementById("feedbackTwo").innerHTML = "Großartig! Du lebst Partizipation bereits in deiner Lehre, indem du die Studierenden direkt mitgestalten lässt. Im Folgenden findest du Tipps für deine Lehr-und Lernpraxis.";
             document.getElementById("typeFour").style.display = 'block';
@@ -319,7 +322,7 @@ function feedbackForm() {
             document.getElementById("feedbackfieldtwo").style.display = 'block';
             document.getElementById("feedbackimg").src = 'assets/img/static/oep_illus/TypKoKreativ.jpg';
         }
-        if(result == 4){
+        if(resultingType == 4){
             document.getElementById("feedbackOne").innerHTML = "Lern&shy;begleitend";
             document.getElementById("feedbackTwo").innerHTML = "Hervorragend! Du bietest in deiner Lehr- und Lernveranstaltung den Studierenden Möglichkeiten zum selbstbestimmten Lernen, in denen sie ihre eigenen Interessen entwickeln bzw. diesen nachgehen können. Dabei nimmst du dich als Lehrende(r) zurück, begleitest den Prozess und förderst die Lernautonomie, welche wiederum eine wichtige Voraussetzung zum partizipativen Lernen ist. Selbstbestimmung ist aber nicht mit studentischer Partizipation gleichzusetzen.<br>Überlege deshalb, ob du bei zukünftigen Lehr- und Lernveranstaltungen dieser Art auch mehr Raum für einen ko-kreativen Ansatz schaffen magst. Anbei geben wir dir ein paar Tipps, wie das konkret realisiert werden kann.";
             document.getElementById("typeFive").style.display = 'block';
@@ -327,9 +330,9 @@ function feedbackForm() {
             document.getElementById("feedbackfieldtwo").style.display = 'block';
             document.getElementById("feedbackimg").src = 'assets/img/static/oep_illus/TypLernbegleitend.jpg';
         }
-        // draw pie chart in respect of user inputs
+        // draw pie chart in respect of user inputs (unsing plotly)
         var data = [{
-          values: pieInput,
+          values: feedbackResult,
           marker: {colors: ['#FFFFFF', '#90D9DE', '#C9BDB7', '#00CB7A', '#FF5728', '#000000']},
           labels: ['lehrendendefiniert', 'anhörend', 'repräsentativ', 'partnerschaftlich', 'studierendendefiniert', 'keine Angabe'],
           type: 'pie'
@@ -409,13 +412,16 @@ function feedbackForm() {
     }
     else{
         document.getElementById("feedbackOne").innerHTML = "Es liegen keine Ergebnisse vor.";
-        document.getElementById("button").innerHTML = "Zurück zum Tool";
-        button.addEventListener("click", formRestart);
+        document.getElementById("typemsg").style.display = 'none';
+        //document.getElementById("button").innerHTML = "Zurück zum Tool";
+        //button.addEventListener("click", formRestart);
     }
     return;
+
 }
 
 function saveForm() {
+    // matrix dimensions
     var aims = [];
     var content = [];
     var results = [];
@@ -518,10 +524,7 @@ function setCheckboxTrue(kind, value, classname) {
 }
 function checkstatus() {
     console.log("start loading");
-    var pageStatus = document.getElementById("regForm");
-    if(JSON.parse(localStorage.getItem("formInputSelect")) != null && pageStatus != null) {
-
-        // if status != null, load stored data, restore form
+    if(JSON.parse(localStorage.getItem("formInputSelect")) != null) {
 
         setCheckboxTrue("Ziele", Number(JSON.parse(localStorage.getItem("aims"))), "multiinput");
         setCheckboxTrue("Inhalte", Number(JSON.parse(localStorage.getItem("content"))), "multiinput");

@@ -37,21 +37,32 @@
         <script src="{{ site.baseurl }}/assets/js/vendor/jquery.lunr.search.js"></script>
         <script src="{{ site.baseurl }}/assets/js/vendor/trianglify.min.js"></script>
 
-        <script src="{{ site.baseurl }}/assets/js/vendor/plotly-2.25.2.min.js" charset="utf-8"></script>
-
-        <script>
-            jQuery(document).ready(function($) {
-                window.controller = new Controller($);
-                window.controller.init();
-                window.addEventListener("load", feedbackForm);
-                window.addEventListener("load", checkstatus);
-            });
-        </script>
+        {% assign base_dir = page.url | split:'/'  %}
+        {% assign base_dir = base_dir  %}
+        {% assign url = page.url  %}
+        {% if (base_dir[1] == "form_feedback") %}
+            <script src="{{ site.baseurl }}/assets/js/vendor/plotly-2.25.2.min.js" charset="utf-8"></script>
+            <script src="{{ site.baseurl }}/assets/js/modules/form_scripts.js"></script>
+            <script>
+                jQuery(document).ready(function($) {
+                    window.controller = new Controller($);
+                    window.controller.init();
+                    window.addEventListener("load", feedbackForm);
+                });
+            </script>
+        {% endif %}
+        {% if (base_dir[1] == "form") %}
+            <script src="{{ site.baseurl }}/assets/js/modules/form_scripts.js"></script>
+            <script>
+                jQuery(document).ready(function($) {
+                    window.controller = new Controller($);
+                    window.controller.init();
+                    window.addEventListener("load", checkstatus);
+                });
+            </script>
+        {% endif %}
         <!-- js custom -->
         <script src="{{ site.baseurl }}/assets/js/modules/IsotopeController.js"></script>
         <script src="{{ site.baseurl }}/assets/js/main.js?v=2.0"></script>
-        <script src="{{ site.baseurl }}/assets/js/modules/form_scripts.js"></script>
-
-
 </body>
 </html>
