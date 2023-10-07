@@ -16,7 +16,9 @@
     display: block;
     page-break-before: always;
     }
-
+  .content {
+    page-break-inside: avoid;
+  }
   .printer-hidden {
     display: none;
   }
