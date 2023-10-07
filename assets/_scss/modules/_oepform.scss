@@ -418,6 +418,14 @@ input[type=checkbox]:checked {
 }
 #formdone {
     display: none;
+    color: $white;
+    a{
+        text-decoration: underline;
+        color: $white;
+    }
+    a:hover{
+        text-decoration: none;
+    }
 }
 .collapstxt{
     a{

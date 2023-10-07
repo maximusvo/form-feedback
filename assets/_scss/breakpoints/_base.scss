@@ -444,6 +444,7 @@ HEADER STYLES
         height: 80%;
         width: auto;
         padding-top: 10%;
+        padding-left: 5%;
       }
 
     }
@@ -695,15 +696,6 @@ PAGE & SECTIONS
     box-sizing: content-box;
     padding-top: 20px;
     padding-bottom: 20px;
-     p{
-         a{
-            color: white;
-            text-decoration: underline;
-         }
-         a:hover{
-            text-decoration: none;
-         }
-     }
   }
 }
 
@@ -773,6 +765,15 @@ PAGE & SECTIONS
   &.orange{
     background-color: $primary-color;
     color: $black;
+
+     a{
+        color: $black;
+        text-decoration: underline;
+     }
+     a:hover{
+        text-decoration: none;
+     }
+
   }
   &.green{
     background-color: $fourth-color;
@@ -798,6 +799,14 @@ PAGE & SECTIONS
   &.blue{
     background-color: $secondary-color;
     color: $white;
+
+         a{
+            color: $white;
+            text-decoration: underline;
+         }
+         a:hover{
+            text-decoration: none;
+         }
   }
 
 }
