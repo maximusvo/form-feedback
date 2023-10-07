@@ -285,6 +285,7 @@ function feedbackForm() {
             }
         }
         // output teaching type
+        document.getElementById("typemsg").innerHTML = 'Die Auswertung hat ergeben, dass du folgender Typ bist.';
         if(resultingType == 5){
             document.getElementById("feedbackOne").innerHTML = "Ungenügend Angaben <br>";
             document.getElementById("typemsg").innerHTML = 'Du hast keine Angaben zur Studierendenbeteiligung gemacht.';
