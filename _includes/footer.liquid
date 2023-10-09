@@ -37,6 +37,12 @@
         <script src="{{ site.baseurl }}/assets/js/vendor/jquery.lunr.search.js"></script>
         <script src="{{ site.baseurl }}/assets/js/vendor/trianglify.min.js"></script>
 
+        <script>
+            jQuery(document).ready(function($) {
+                window.controller = new Controller($);
+                window.controller.init();
+            });
+        </script>
         {% assign base_dir = page.url | split:'/'  %}
         {% assign base_dir = base_dir  %}
         {% assign url = page.url  %}
@@ -45,8 +51,6 @@
             <script src="{{ site.baseurl }}/assets/js/modules/form_scripts.js"></script>
             <script>
                 jQuery(document).ready(function($) {
-                    window.controller = new Controller($);
-                    window.controller.init();
                     window.addEventListener("load", feedbackForm);
                 });
             </script>
@@ -55,12 +59,11 @@
             <script src="{{ site.baseurl }}/assets/js/modules/form_scripts.js"></script>
             <script>
                 jQuery(document).ready(function($) {
-                    window.controller = new Controller($);
-                    window.controller.init();
                     window.addEventListener("load", checkstatus);
                 });
             </script>
         {% endif %}
+
         <!-- js custom -->
         <script src="{{ site.baseurl }}/assets/js/modules/IsotopeController.js"></script>
         <script src="{{ site.baseurl }}/assets/js/main.js?v=2.0"></script>

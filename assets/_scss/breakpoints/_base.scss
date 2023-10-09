@@ -372,9 +372,12 @@ HEADER STYLES
 .header{
 
   position: absolute;
+  position: fixed;
+  top: 0;
   width: 100%;
   background-color: $white;
-  height: $header-height;
+  //height: $header-height;
+  height: 80px;
   z-index: 10;
 
   @include transition(transform .25s ease);
@@ -1433,4 +1436,8 @@ FOOTER STYLES
 }
 #feedbackfieldone, #feedbackfieldtwo {
     display: none;
+}
+
+.anchor {
+	margin-top: -80px;
 }

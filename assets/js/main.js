@@ -222,6 +222,7 @@ function sendContentToStaticman(formSel, waitMsgDiv, successMsgDiv, errorMsgDiv)
         /*********************
         scroll event
         *********************/
+
         lastScrollTop = 0;
         $(window).scroll(function(event){
 
@@ -229,7 +230,7 @@ function sendContentToStaticman(formSel, waitMsgDiv, successMsgDiv, errorMsgDiv)
 
             var st = $(this).scrollTop();
             var hh = $header.height();
-
+            /*
             if (st > lastScrollTop){
                 // down
                 if(st > hh){
@@ -244,6 +245,7 @@ function sendContentToStaticman(formSel, waitMsgDiv, successMsgDiv, errorMsgDiv)
                 }
                 if(st < hh*2) $header.removeClass('fixed');
             }
+            */
             lastScrollTop = st;
         });
 
