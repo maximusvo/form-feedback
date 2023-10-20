@@ -27,6 +27,7 @@ $baseurl: "{{ site.baseurl }}";
 @import "partials/buttons";
 
 // the grid - we use a bootstrap with 24 cols
+//@import "../bootstrap/scss/bootstrap";
 @import "partials/bootstrap-grid24";
 
 // modules

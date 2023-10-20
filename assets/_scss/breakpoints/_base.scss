@@ -699,6 +699,9 @@ PAGE & SECTIONS
     box-sizing: content-box;
     padding-top: 20px;
     padding-bottom: 20px;
+    &.img{
+        text-align: center;
+    }
   }
 }
 
