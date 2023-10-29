@@ -1338,6 +1338,7 @@ FOOTER STYLES
 
   .foot-links{
     margin-top: 30px;
+    margin-bottom: 30px;
     position: relative;
     display: table;
     width: 100%;
@@ -1345,6 +1346,7 @@ FOOTER STYLES
     a{
       display: block;
       float: none;
+      font-size: 1rem;
     }
       a:hover{
         color: $link-background-hover;
