@@ -16,19 +16,18 @@ COLORS
 Need help w/ choosing your colors? Try this site out:
 http://0to255.com/
 *********************/
+$primary-color:     #FF5728;
+$secondary-color:   #0B344E;
+$third-color:       #90D9DE;
+$fourth-color:      #00CB7A;
+$fifth-color:       #C9BDB7;
 
-$black:             #000;
+$black:             $secondary-color;
 $white:             #fff;
 $grey-light:        #f0f0f0;
 $grey-light-2:      #f6f6f6;
 $grey:              #bcbec0;
 $darkgreen:         #008080;
-
-$primary-color:     #FF5728;
-$secondary-color:   #0B344E;
-$third-color:       #90D9DE;
-$fourth-color:      #00CB7A;
-$fifth-color:        #C9BDB7;
 
 $alert-yellow:      #ff0;
 $alert-red:         #f00;

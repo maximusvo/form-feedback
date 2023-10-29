@@ -440,7 +440,11 @@ input[type=checkbox]:checked {
 }
 
 .about {
+    display:inline-block;
+    vertical-align:top;
+    padding-top: 7px;
  img {
-    max-height: 200px;
+    max-height: 300px;
+    padding-right: 5px;
  }
 }

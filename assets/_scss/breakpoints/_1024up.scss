@@ -41,7 +41,7 @@ WRAPPER STYLES
   p,.subheading{
     margin-bottom: 50px;
   }
-  a, p,.subheading, .content-element .infobox-headline, .content-element .infobox-copy, ul li, ol li, label, .edu-btn, tr td, tr th {
+  a, p,.subheading, .content-element .infobox-headline, .content-element .infobox-copy, ul li, ol li, label, .edu-btn, tr td, tr th, input[type="text"]::placeholder, select {
     font-size: 1.25rem;
   }
 
@@ -77,7 +77,13 @@ HERO
         font-size: 1.5rem;
 
       }
-
+      .branding{
+        h1 {
+          text-align: left !important;
+          font-size: 12rem !important;
+          line-height: 1em !important;
+        }
+      }
     }
 
 }
@@ -321,4 +327,10 @@ contentpage elements
     .inner {
         width: 50%;
     }
+}
+.mobil-hide {
+    display: block;
+}
+.desktop-hide {
+    display: none;
 }

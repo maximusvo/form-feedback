@@ -37,13 +37,14 @@ WRAPPER STYLES
   font-size: 2.15rem;
 }
 .page-wrap {
-  a, p,.subheading, .content-element .infobox-headline, .content-element .infobox-copy, .edu-btn, ul li, label, tr td, tr th {
+  a, p,.subheading, .content-element .infobox-headline, .content-element .infobox-copy, .edu-btn, ul li, label, tr td, tr th, input[type="text"]::placeholder, select {
     font-size: 1.5rem;
   }
 }
 
 .section {
   padding-left: 60px;
+  padding-right: 60px;
   padding-top: 20px;
   padding-bottom: 20px;
 }
@@ -72,7 +73,7 @@ HERO
     width: 50vw;
   }
   &.home{
-      height: 800px;
+      height: 900px;
       p{
         //font-weight: 700;
         //line-height: 50px;
@@ -87,7 +88,7 @@ HERO
         .branding{
           h1 {
             text-align: left !important;
-            font-size: 9rem !important;
+            font-size: 8rem !important;
             line-height: 2.1em;
           }
         }
@@ -255,6 +256,11 @@ FOOTER STYLES
       margin-top: 0px;
       margin-left: 5px;
     }
+    .signet {
+      img{
+        padding-left: 47px !important;
+      }
+    }
 }
 
 .home-aims-list{
@@ -300,13 +306,7 @@ td, th {
 #contact{
     .section{
         height: 100%;
-        max-height: 500px;
+        height: 600px;
     }
 }
 
-.mobil-hide {
-    display: block;
-}
-.desktop-hide {
-    display: none;
-}

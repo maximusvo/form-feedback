@@ -222,7 +222,7 @@ WRAPPER STYLES
     word-break: break-all;
   }
 
-  a, p, .subheading, .edu-btn, label, tr td, tr th{
+  a, p,.subheading, .content-element .infobox-headline, .content-element .infobox-copy, ul li, label, .edu-btn, tr td, tr th, input[type="text"]::placeholder, select{
     font-size: 1.25rem;
   }
 
@@ -447,7 +447,7 @@ HEADER STYLES
         height: 80%;
         width: auto;
         padding-top: 10%;
-        padding-left: 5%;
+        padding-left: 40px;
       }
 
     }
@@ -602,6 +602,7 @@ body:not(.safari){
   margin-top: $header-height;
   width: 100%;
 
+
   .logo{
 
     width: 60vw;
@@ -634,7 +635,7 @@ body:not(.safari){
     background-color: $secondary-color;
 
     @media only screen and (max-width: 640px) {
-      //height: 300px;
+      //min-height: 300px;
     }
 
     p{
@@ -666,6 +667,7 @@ body:not(.safari){
           h1 {
             //font-family: $font-tech;
             color: $fourth-color;
+            font-weight: 900;
 
           }
     }
@@ -693,7 +695,7 @@ PAGE & SECTIONS
   margin: 0 auto;
 
   &.btn-wrap{
-    padding-top: 60px;
+    padding-top: 30px;
   }
   &.content-box-el{
     box-sizing: content-box;
@@ -1048,7 +1050,7 @@ EDUSPRINT
             filter: brightness(0);
           }
           span{
-            color: black;
+            color: $black;
           }
         }
 
@@ -1391,7 +1393,7 @@ FOOTER STYLES
     margin-top: 20px;
     margin-bottom: 40px;
     height: 2px;
-    color: black;
+    color: $black;
     background-color: black;
     border-width: 0px;
     width: 85%;
@@ -1444,4 +1446,8 @@ FOOTER STYLES
 
 .anchor {
 	margin-top: -80px;
+}
+.feedbackForm {
+
+    padding: 10px;
 }
