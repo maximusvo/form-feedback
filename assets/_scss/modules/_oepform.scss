@@ -1,7 +1,8 @@
  /* Style the form */
 #regForm {
   background-color: #ffffff;
-  margin: 100px auto;
+  //margin: 100px auto;
+  margin-top: $header-height;
   width: 100%;
   min-width: 300px;
 
@@ -189,7 +190,7 @@ td:first-child {
     padding-bottom: 20px;
     text-align: right !important;
     margin-top: 20px;
-    padding-right: 10px;
+    padding-right: 20px;
 
 }
 .center {
