@@ -40,6 +40,7 @@ input[type=text]{
     background-color: white;
     border-bottom: 2px solid $fourth-color;
     margin-bottom: 10px;
+    max-width: 400px;
 }
 input[type=text].other {
     display:none;
