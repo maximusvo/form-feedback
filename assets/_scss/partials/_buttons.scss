@@ -59,15 +59,18 @@
   &.orange{
     color: $white !important;
     border: none;
+    border: 2px solid $primary-color;
     background-color: $primary-color !important;
 
     &:visited{
     color: $white !important;
-    border: none;
+    //border: none;
     }
     &:hover{
-      color: $white !important;
+      //color: $primary-color !important;
+      //background-color: $white !important;
       border: 2px solid $white;
+
     }
   }
   &.white{
