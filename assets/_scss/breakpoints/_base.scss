@@ -447,7 +447,7 @@ HEADER STYLES
         height: 80%;
         width: auto;
         padding-top: 10%;
-        padding-left: 40px;
+        //padding-left: 40px;
       }
 
     }
@@ -1427,14 +1427,21 @@ FOOTER STYLES
 
 }
 .forminfo {
+
     background-color: $fourth-color;
     color: $secondary-color;
     padding: 15px;
     .inner{
         box-sizing: content-box;
+
+    }
+    h3{
+        padding-left: 32px;
+        line-height: 2.5rem;
     }
     p{
-        padding-left: 40px;
+        padding-left: 50px;
+
     }
     a{
         text-decoration: underline;

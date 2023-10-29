@@ -149,9 +149,13 @@ td:first-child {
         //margin-bottom: 20px;
         background-color: $fourth-color;
         width: 50%;
-        padding: 15px;
-        padding-top: 15px;
+        padding-top: 30px;
+
         //height: 20vh;
+        h3{
+            font-weight: 300;
+            margin: 0px;
+        }
     }
 }
 
@@ -190,7 +194,7 @@ td:first-child {
     padding-bottom: 20px;
     text-align: right !important;
     margin-top: 20px;
-    padding-right: 20px;
+    padding-right: 22px;
 
 }
 .center {
@@ -319,6 +323,9 @@ input[type=checkbox]:checked {
 .formcontent {
     padding: 18px;
     color: $secondary-color;
+    label{
+        font-weight: bold;
+    }
 }
 #typeOne{
     display: none;
