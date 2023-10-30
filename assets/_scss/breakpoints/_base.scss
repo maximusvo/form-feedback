@@ -222,7 +222,7 @@ WRAPPER STYLES
     word-break: break-all;
   }
 
-  a, p,.subheading, .content-element .infobox-headline, .content-element .infobox-copy, ul li, label, .edu-btn, tr td, tr th, input[type="text"]::placeholder, input[type="text"], select{
+  a, p,.subheading, .content-element .infobox-headline, .content-element .infobox-copy, ul li, label, .edu-btn, .forminfo, tr td, tr th, input[type="text"]::placeholder, input[type="text"], select{
     font-size: 1.25rem;
   }
 
@@ -1438,7 +1438,6 @@ FOOTER STYLES
     }
     h2{
         padding-left: 32px;
-        line-height: 3.7rem !important;;
         font-weight: 700;
     }
     p{
