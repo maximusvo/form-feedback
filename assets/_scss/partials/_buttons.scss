@@ -38,7 +38,7 @@
     opacity: 0.3;
   }
 
-  @include transition(all .25s ease);
+  //@include transition(all .25s ease);
 
   &.black{
     color: $black !important;
@@ -59,7 +59,7 @@
   &.orange{
     color: $white !important;
     border: none;
-    border: 2px solid $primary-color;
+    //border: 2px solid $primary-color;
     background-color: $primary-color !important;
 
     &:visited{
@@ -68,8 +68,8 @@
     }
     &:hover{
       //color: $primary-color !important;
-      //background-color: $white !important;
-      border: 2px solid $white;
+      background-color: $fourth-color !important;
+      //border: 2px solid $white;
 
     }
   }
