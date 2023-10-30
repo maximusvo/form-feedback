@@ -180,11 +180,9 @@ td:first-child {
     h1 {
         color: $primary-color;
         font-size: 5rem;
-        padding-left: 30px;
     }
     p {
         color: white;
-        padding-left: 30px;
         padding-bottom: 20px;
     }
 }
@@ -193,10 +191,14 @@ td:first-child {
     width: 100%;
     margin: 0px !important;
     padding-bottom: 20px;
-    text-align: right !important;
     margin-top: 20px;
     padding-right: 22px;
-
+    &.right{
+        text-align: right !important;
+    }
+    &.left{
+        text-align: left !important;
+    }
 }
 .center {
     width: 100%;
