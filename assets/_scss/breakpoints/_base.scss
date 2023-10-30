@@ -222,7 +222,7 @@ WRAPPER STYLES
     word-break: break-all;
   }
 
-  a, p,.subheading, .content-element .infobox-headline, .content-element .infobox-copy, ul li, label, .edu-btn, tr td, tr th, input[type="text"]::placeholder, select{
+  a, p,.subheading, .content-element .infobox-headline, .content-element .infobox-copy, ul li, label, .edu-btn, tr td, tr th, input[type="text"]::placeholder, input[type="text"], select{
     font-size: 1.25rem;
   }
 
@@ -377,7 +377,7 @@ HEADER STYLES
   width: 100%;
   background-color: $white;
   //height: $header-height;
-  height: 80px;
+  height: 100px;
   z-index: 10;
 
   @include transition(transform .25s ease);
@@ -446,8 +446,7 @@ HEADER STYLES
       img{
         height: 80%;
         width: auto;
-        padding-top: 10%;
-        //padding-left: 40px;
+        padding-top: 8%;
       }
 
     }
@@ -1431,13 +1430,16 @@ FOOTER STYLES
     background-color: $fourth-color;
     color: $secondary-color;
     padding: 15px;
+    height: 100%;
     .inner{
         box-sizing: content-box;
 
     }
     h3{
+        font-size: 2em;
         padding-left: 32px;
         line-height: 2.5rem;
+        font-weight: 700;
     }
     p{
         padding-left: 50px;

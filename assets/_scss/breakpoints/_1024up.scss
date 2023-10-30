@@ -41,7 +41,7 @@ WRAPPER STYLES
   p,.subheading{
     margin-bottom: 50px;
   }
-  a, p,.subheading, .content-element .infobox-headline, .content-element .infobox-copy, ul li, ol li, label, .edu-btn, tr td, tr th, input[type="text"]::placeholder, select {
+  a, p,.subheading, .content-element .infobox-headline, .content-element .infobox-copy, ul li, label, .edu-btn, tr td, tr th, input[type="text"]::placeholder, input[type="text"], select {
     font-size: 1.25rem;
   }
 
@@ -335,10 +335,12 @@ contentpage elements
     display: none;
 }
 .forminfo {
-    height: 750px;
+    height: 900px;
     padding-right: 30px;
 }
 .formcontent{
     padding-left: 30px;
     padding-right: 30px;
 }
+
+

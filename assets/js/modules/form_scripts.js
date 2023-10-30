@@ -1,4 +1,6 @@
 jQuery(document).ready(function($) {
+
+
     // save form if something changed
     var pageStatus = document.getElementById("regForm");
     if(pageStatus){
