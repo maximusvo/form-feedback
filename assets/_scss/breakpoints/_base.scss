@@ -519,7 +519,8 @@ HEADER STYLES
         display: block;
         margin-right: 0px;
         //text-transform: uppercase;
-        text-align: center;
+        text-align: left;
+        padding-left: 25px;
 
         &:last-of-type{
           margin-right: 0;
