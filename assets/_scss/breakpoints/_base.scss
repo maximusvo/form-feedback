@@ -1453,7 +1453,7 @@ FOOTER STYLES
     }
 }
 .feedback {
-    .inner {
+    &.inner {
         box-sizing: content-box;
     }
 }
