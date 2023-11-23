@@ -43,10 +43,10 @@
                 window.controller.init();
             });
         </script>
-        {% assign base_dir = page.baseurl | split:'/'  %}
+        {% assign base_dir = page.url | split:'/'  %}
         {% assign base_dir = base_dir  %}
-        {% assign url = page.baseurl  %}
-        {% if (base_dir[1] == "form_feedback") %}
+        {% assign url = page.url  %}
+        {% if (base_dir[1] == "form_feedback.html") %}
             <script src="{{ site.baseurl }}/assets/js/vendor/plotly-2.25.2.min.js" charset="utf-8"></script>
             <script src="{{ site.baseurl }}/assets/js/modules/form_scripts.js"></script>
             <script>
@@ -55,7 +55,7 @@
                 });
             </script>
         {% endif %}
-        {% if (base_dir[1] == "form") %}
+        {% if (base_dir[1] == "form.html") %}
             <script src="{{ site.baseurl }}/assets/js/modules/form_scripts.js"></script>
             <script>
                 jQuery(document).ready(function($) {
