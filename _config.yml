@@ -14,9 +14,8 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 email: Bonny.Brandenburger@wi.uni-potsdam.de
-baseurl: "" # the subpath of your site, e.g. /blog
-permalink:
-url: howtoopen.education
+baseurl: "/form-feedback/" # the subpath of your site, e.g. /blog
+url: https://howtoopen.education
 
 # Build settings
 highlighter: rouge
