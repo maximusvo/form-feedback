@@ -16,6 +16,7 @@
 email: Bonny.Brandenburger@wi.uni-potsdam.de
 baseurl: "" # the subpath of your site, e.g. /blog
 permalink:
+url: howtoopen.education
 
 # Build settings
 highlighter: rouge
