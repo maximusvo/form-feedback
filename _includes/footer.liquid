@@ -43,9 +43,9 @@
                 window.controller.init();
             });
         </script>
-        {% assign base_dir = page.url | split:'/'  %}
+        {% assign base_dir = page.baseurl | split:'/'  %}
         {% assign base_dir = base_dir  %}
-        {% assign url = page.url  %}
+        {% assign url = page.baseurl  %}
         {% if (base_dir[1] == "form_feedback") %}
             <script src="{{ site.baseurl }}/assets/js/vendor/plotly-2.25.2.min.js" charset="utf-8"></script>
             <script src="{{ site.baseurl }}/assets/js/modules/form_scripts.js"></script>
