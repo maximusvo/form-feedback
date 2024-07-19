@@ -145,11 +145,11 @@ function nextPrev(n) {
   // if you have reached the end of the form... :
   if (currentTab >= x.length) {
     //...the form gets submitted:
-    document.getElementById("regForm").submit();
+    //document.getElementById("regForm").submit();
     currentTab = 0;
     localStorage.setItem("currentTab", JSON.stringify(currentTab));
     localStorage.setItem("formDone", JSON.stringify("true"));
-
+    window.location.href = '/form_feedback.html';
     return false;
   }
   // Otherwise, display the correct tab:
