@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Future Vision Workshop · AI and the Future of Learning</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #f7f6f2;
+    --surface: #ffffff;
+    --surface2: #f2f1ed;
+    --border: rgba(0,0,0,0.12);
+    --border-strong: rgba(0,0,0,0.22);
+    --text: #1a1a18;
+    --text-sec: #5a5955;
+    --text-ter: #9a9890;
+    --accent: #1a6b4a;
+    --accent-light: #e8f4ef;
+    --accent-text: #145c3e;
+    --info: #1558a0;
+    --info-light: #e6eef8;
+    --info-text: #0f4a8a;
+    --radius: 10px;
+    --radius-sm: 6px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #181816;
+      --surface: #222220;
+      --surface2: #2a2a28;
+      --border: rgba(255,255,255,0.1);
+      --border-strong: rgba(255,255,255,0.2);
+      --text: #e8e6df;
+      --text-sec: #a0a09a;
+      --text-ter: #666660;
+      --accent: #4caf84;
+      --accent-light: #1a3028;
+      --accent-text: #6ecfa0;
+      --info: #5a9fd4;
+      --info-light: #1a2a3a;
+      --info-text: #7ab8e8;
+    }
+  }
+
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 0;
+  }
+
+  .page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 4rem;
+  }
+
+  .header { margin-bottom: 2rem; }
+  .tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: var(--accent-light);
+    color: var(--accent-text);
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+  }
+  .header h1 {
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 1.25;
+    margin-bottom: 6px;
+    color: var(--text);
+  }
+  .header p {
+    font-size: 14px;
+    color: var(--text-sec);
+    line-height: 1.5;
+  }
+
+  .focus-box {
+    background: var(--info-light);
+    border-left: 3px solid var(--info);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 14px 18px;
+    margin-bottom: 2rem;
+  }
+  .focus-box .label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--info-text);
+    margin-bottom: 5px;
+  }
+  .focus-box p {
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  .participant-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1.75rem;
+    flex-wrap: wrap;
+  }
+  .participant-row label {
+    font-size: 13px;
+    color: var(--text-sec);
+    white-space: nowrap;
+  }
+  .participant-row input {
+    flex: 1;
+    min-width: 200px;
+    max-width: 320px;
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-sm);
+    padding: 8px 12px;
+    font-size: 13px;
+    font-family: inherit;
+    color: var(--text);
+    background: var(--surface);
+  }
+  .participant-row input:focus { outline: none; border-color: var(--accent); }
+
+  .progress-wrap {
+    height: 4px;
+    background: var(--border);
+    border-radius: 2px;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+  }
+  .progress-bar {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 2px;
+    transition: width 0.4s ease;
+  }
+
+  .step-tabs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 1.75rem;
+  }
+  .step-tab {
+    flex: 1;
+    height: 5px;
+    border-radius: 3px;
+    background: var(--border);
+    cursor: pointer;
+    transition: background 0.25s;
+    border: none;
+  }
+  .step-tab.active { background: var(--info); }
+  .step-tab.done { background: var(--accent); }
+
+  .step-panel { display: none; }
+  .step-panel.visible { display: block; }
+
+  .step-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 1.5rem;
+  }
+  .step-num {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--info-light);
+    color: var(--info-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+  .step-meta h2 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: var(--text);
+  }
+  .step-meta p { font-size: 14px; color: var(--text-sec); line-height: 1.5; }
+  .time-hint { font-size: 12px; color: var(--text-ter); margin-top: 4px; }
+
+  .field-group { margin-bottom: 1.25rem; }
+  .field-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-sec);
+    margin-bottom: 5px;
+  }
+  .field-hint {
+    font-size: 12px;
+    color: var(--text-ter);
+    font-style: italic;
+    margin-bottom: 6px;
+    line-height: 1.5;
+  }
+  input[type="text"], textarea {
+    width: 100%;
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-sm);
+    padding: 10px 13px;
+    font-size: 14px;
+    font-family: inherit;
+    color: var(--text);
+    background: var(--surface);
+    line-height: 1.6;
+    transition: border-color 0.2s;
+  }
+  input[type="text"]:focus, textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+  textarea { resize: vertical; }
+  input::placeholder, textarea::placeholder { color: var(--text-ter); }
+
+  .btn-row {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 1.75rem;
+  }
+  button {
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 9px 20px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+  }
+  .btn-primary:hover { opacity: 0.88; }
+  .btn-secondary {
+    background: transparent;
+    color: var(--text-sec);
+    border: 1px solid var(--border-strong);
+  }
+  .btn-secondary:hover { background: var(--surface2); }
+
+  .summary { display: none; }
+  .summary.visible { display: block; }
+  .summary-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+  }
+  .summary-title span { color: var(--accent); }
+  .sum-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem 1.25rem;
+    margin-bottom: 0.85rem;
+  }
+  .sum-card-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--text-ter);
+    margin-bottom: 6px;
+  }
+  .sum-card-text {
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.7;
+    white-space: pre-wrap;
+  }
+  .sum-card-text.empty {
+    color: var(--text-ter);
+    font-style: italic;
+  }
+  .sum-section-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent-text);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 1.5rem 0 0.5rem;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2rem 0;
+  }
+
+  @media print {
+    body { background: white; }
+    .step-tabs, .progress-wrap, .participant-row, .btn-row,
+    .step-panel, .header .tag { display: none !important; }
+    .summary { display: block !important; }
+    .sum-card { border: 1px solid #ccc; break-inside: avoid; }
+    .page { padding: 1rem; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <span class="tag">Workshop · Future Vision Method</span>
+    <h1>AI and the Future of Learning — Where Do We Want to Go?</h1>
+    <p>Individual reflection, approx. 20–30 minutes</p>
+  </div>
+
+  <!-- Focus question -->
+  <div class="focus-box">
+    <div class="label">Guiding Question</div>
+    <p>How has AI changed the way we study — and how do we want it to? What do we envision for students, educators, and universities in a world where AI is part of everyday academic life?</p>
+  </div>
+
+  <!-- Participant name -->
+  <div class="participant-row">
+    <label for="p-name">Your name:</label>
+    <input type="text" id="p-name" placeholder="e.g. Jane Smith · University of X">
+  </div>
+
+  <!-- Progress bar -->
+  <div class="progress-wrap">
+    <div class="progress-bar" id="progress" style="width:25%"></div>
+  </div>
+
+  <!-- Step tabs -->
+  <div class="step-tabs">
+    <button class="step-tab active" id="tab-0" onclick="goStep(0)" title="Step 1"></button>
+    <button class="step-tab" id="tab-1" onclick="goStep(1)" title="Step 2"></button>
+    <button class="step-tab" id="tab-2" onclick="goStep(2)" title="Step 3"></button>
+    <button class="step-tab" id="tab-3" onclick="goStep(3)" title="Step 4"></button>
+  </div>
+
+  <!-- Step 1: Vision -->
+  <div class="step-panel visible" id="panel-0">
+    <div class="step-header">
+      <div class="step-num">1</div>
+      <div class="step-meta">
+        <h2>Visualise the Future</h2>
+        <p>Imagine it's several years from now — and AI has transformed studying for the better. Everything turned out the way you had hoped.</p>
+        <p class="time-hint">⏱ approx. 5–7 minutes</p>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <div class="field-label">Future date</div>
+      <input type="text" id="f-date" placeholder="e.g. Winter 2030 / in 5 years">
+    </div>
+
+    <div class="field-group">
+      <div class="field-label">My vision in one sentence</div>
+      <div class="field-hint">Write in the present tense: "It is [year/date] and students …"</div>
+      <textarea id="f-vision" rows="4" placeholder="It is 2030 and students navigate their studies with AI support in a way that …"></textarea>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn-primary" onclick="goStep(1)">Next →</button>
+    </div>
+  </div>
+
+  <!-- Step 2: Target state -->
+  <div class="step-panel" id="panel-1">
+    <div class="step-header">
+      <div class="step-num">2</div>
+      <div class="step-meta">
+        <h2>Describe the Target State</h2>
+        <p>You are now in this future. Describe what concretely exists — what has changed for students, for educators, and for the institution?</p>
+        <p class="time-hint">⏱ approx. 7–10 minutes</p>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <div class="field-label">For students: what is reality?</div>
+      <div class="field-hint">How do students learn, research, write, and navigate with AI? What can they do now that they couldn't before?</div>
+      <textarea id="f-studierende" rows="4" placeholder="Students use AI to … They have opportunities that previously …"></textarea>
+    </div>
+
+    <div class="field-group">
+      <div class="field-label">For educators and institutions: what is reality?</div>
+      <div class="field-hint">How has the role of educators changed? What structures or rules now exist?</div>
+      <textarea id="f-lehrende" rows="4" placeholder="Educators are no longer gatekeepers of knowledge, but … Institutions have developed AI policies together with students that …"></textarea>
+    </div>
+
+    <div class="field-group">
+      <div class="field-label">What is noticeably different from today?</div>
+      <textarea id="f-diff" rows="3" placeholder="The biggest visible change compared to today is …"></textarea>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn-secondary" onclick="goStep(0)">← Back</button>
+      <button class="btn-primary" onclick="goStep(2)">Next →</button>
+    </div>
+  </div>
+
+  <!-- Step 3: Backcasting -->
+  <div class="step-panel" id="panel-2">
+    <div class="step-header">
+      <div class="step-num">3</div>
+      <div class="step-meta">
+        <h2>Work Backwards</h2>
+        <p>From the future back to the present: what had to happen for this vision to become reality?</p>
+        <p class="time-hint">⏱ approx. 5–7 minutes</p>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <div class="field-label">Just before reaching the target — what was decisive?</div>
+      <div class="field-hint">Which actions, decisions, or events ultimately made the vision possible?</div>
+      <textarea id="f-back1" rows="3" placeholder="Just before reaching the target state, students / educators / institutions had …"></textarea>
+    </div>
+
+    <div class="field-group">
+      <div class="field-label">Halfway there — what was the turning point?</div>
+      <textarea id="f-back2" rows="3" placeholder="The most important step in the middle was that …"></textarea>
+    </div>
+
+    <div class="field-group">
+      <div class="field-label">What had to happen right at the beginning?</div>
+      <textarea id="f-back3" rows="3" placeholder="Right at the start it was crucial that …"></textarea>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn-secondary" onclick="goStep(1)">← Back</button>
+      <button class="btn-primary" onclick="goStep(3)">Next →</button>
+    </div>
+  </div>
+
+  <!-- Step 4: First steps -->
+  <div class="step-panel" id="panel-3">
+    <div class="step-header">
+      <div class="step-num">4</div>
+      <div class="step-meta">
+        <h2>First Steps Now</h2>
+        <p>Back in the present: what do we need to tackle today to set the vision in motion?</p>
+        <p class="time-hint">⏱ approx. 5 minutes</p>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <div class="field-label">The 2–3 most important immediate actions</div>
+      <div class="field-hint">Concrete and actionable — at my institution, in my course, in my role</div>
+      <textarea id="f-actions" rows="5" placeholder="1. …&#10;2. …&#10;3. …"></textarea>
+    </div>
+
+    <div class="field-group">
+      <div class="field-label">What do I / we need for this?</div>
+      <textarea id="f-needs" rows="3" placeholder="Resources, decisions, partners, open questions …"></textarea>
+    </div>
+
+    <div class="field-group">
+      <div class="field-label">My personal contribution to the vision</div>
+      <textarea id="f-own" rows="3" placeholder="I can concretely contribute by …"></textarea>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn-secondary" onclick="goStep(2)">← Back</button>
+      <button class="btn-primary" onclick="showSummary()">View Summary →</button>
+    </div>
+  </div>
+
+  <!-- Summary view -->
+  <div class="summary" id="summary-view">
+    <hr>
+    <div class="summary-title">
+      Future Vision — <span id="s-name">Participant</span>
+    </div>
+
+    <div class="sum-section-title">1 · Vision</div>
+    <div class="sum-card">
+      <div class="sum-card-label">Future date</div>
+      <div class="sum-card-text" id="s-date"></div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-card-label">My vision</div>
+      <div class="sum-card-text" id="s-vision"></div>
+    </div>
+
+    <div class="sum-section-title">2 · Target State</div>
+    <div class="sum-card">
+      <div class="sum-card-label">For students</div>
+      <div class="sum-card-text" id="s-studierende"></div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-card-label">For educators and institutions</div>
+      <div class="sum-card-text" id="s-lehrende"></div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-card-label">Biggest change</div>
+      <div class="sum-card-text" id="s-diff"></div>
+    </div>
+
+    <div class="sum-section-title">3 · Backcasting Path</div>
+    <div class="sum-card">
+      <div class="sum-card-label">Just before the target</div>
+      <div class="sum-card-text" id="s-back1"></div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-card-label">Halfway there</div>
+      <div class="sum-card-text" id="s-back2"></div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-card-label">Early stage</div>
+      <div class="sum-card-text" id="s-back3"></div>
+    </div>
+
+    <div class="sum-section-title">4 · Next Steps</div>
+    <div class="sum-card">
+      <div class="sum-card-label">Immediate actions</div>
+      <div class="sum-card-text" id="s-actions"></div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-card-label">What we need</div>
+      <div class="sum-card-text" id="s-needs"></div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-card-label">My personal contribution</div>
+      <div class="sum-card-text" id="s-own"></div>
+    </div>
+
+    <div class="btn-row" style="justify-content:space-between; margin-top:2rem;">
+      <button class="btn-secondary" onclick="hideSummary()">← Edit</button>
+      <button class="btn-primary" onclick="window.print()">🖨 Print / Save as PDF</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  let current = 0;
+
+  function goStep(n) {
+    document.getElementById('panel-' + current).classList.remove('visible');
+    const oldTab = document.getElementById('tab-' + current);
+    oldTab.classList.remove('active');
+    oldTab.classList.add('done');
+    current = n;
+    document.getElementById('panel-' + n).classList.add('visible');
+    const newTab = document.getElementById('tab-' + n);
+    newTab.classList.remove('done');
+    newTab.classList.add('active');
+    document.getElementById('progress').style.width = ((n + 1) / 4 * 100) + '%';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function val(id) {
+    const el = document.getElementById(id);
+    return el ? el.value.trim() : '';
+  }
+
+  function setSum(sid, fid) {
+    const el = document.getElementById(sid);
+    const v = val(fid);
+    el.textContent = v || '(no input)';
+    el.classList.toggle('empty', !v);
+  }
+
+  function showSummary() {
+    document.getElementById('panel-' + current).classList.remove('visible');
+    document.getElementById('summary-view').classList.add('visible');
+    document.getElementById('s-name').textContent = val('p-name') || 'Participant';
+    setSum('s-date',        'f-date');
+    setSum('s-vision',      'f-vision');
+    setSum('s-studierende', 'f-studierende');
+    setSum('s-lehrende',    'f-lehrende');
+    setSum('s-diff',        'f-diff');
+    setSum('s-back1',       'f-back1');
+    setSum('s-back2',       'f-back2');
+    setSum('s-back3',       'f-back3');
+    setSum('s-actions',     'f-actions');
+    setSum('s-needs',       'f-needs');
+    setSum('s-own',         'f-own');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function hideSummary() {
+    document.getElementById('summary-view').classList.remove('visible');
+    document.getElementById('panel-' + current).classList.add('visible');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+</body>
+</html>
